@@ -1,0 +1,22 @@
+/*
+    Sticky footer
+-------------------------------
+http://mystrd.at/modern-clean-css-sticky-footer/
+*/
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0 0 4.5rem;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4.5rem;
+  width: 100%;
+}

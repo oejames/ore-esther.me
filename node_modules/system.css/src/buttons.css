@@ -1,0 +1,54 @@
+/*
+      Buttons
+-------------------------------
+*/
+
+@button default {
+  button-border-width: 0;
+  button-color: var(--color-text);
+  button-background-color: var(--color-alt);
+  button-color-hover: var(--color-alt);
+  button-background-color-hover: var(--color-brand);
+  button-color-active: var(--color-alt);
+  button-background-color-active: var(--color-brand);
+  button-class-active: active;
+  button-class-disabled: disabled;
+}
+
+.btn {
+  button: default;
+}
+
+.btn-border {
+  button-color: var(--color-text) var(--color-inverse) var(--color-inverse);
+  button-background: var(--color-alt) var(--color-alt) var(--color-alt);
+  button-border: var(--unit-line) var(--color-neutral) var(--color-brand)
+    var(--color-brand);
+  button-classes: active disabled;
+}
+
+.btn-alt {
+  button-color: var(--color-bg) var(--color-bg) var(--color-bg);
+  button-background: var(--color-neutral) var(--color-brand) var(--color-brand);
+  button-classes: active disabled;
+}
+
+.btn-flash {
+  button-color: var(--color-bg) var(--color-bg) var(--color-bg);
+  button-background: var(--color-brand) var(--color-inverse)
+    var(--color-inverse);
+  button-border: 0;
+  button-classes: active disabled;
+}
+
+.btn,
+.btn-alt,
+.btn-border,
+.btn-transparent,
+.btn-flash {
+  transition: var(--transition);
+}
+
+.btn-icon {
+  line-height: 0;
+}
