@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <style>
+
+
+      body {
+        background: #000; /* Set the background color to black */
+        color: #00b4d4; /* Set the text color to neon blue (you need to define this color in CSS) */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background-image: url('https://media.tenor.com/sQDz_xy06NMAAAAC/magic-stars.gif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: Inconsalata, monospace;
+
+        /* this made the whole page smaller but was weird/bug-y
+        transform: scale(0.8);
+         transform-origin: 50 50;
+        padding-top: 50%; */
+      }
+
+      h2 {
+        /* font-family: Pixelated MS Sans Serif, monospace;
+        letter-spacing: 1px; */
+      }
+
+      .icon-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: .5%; /* was originally 10px and 20px */
+        left: 1%;
+        cursor: pointer;
+
+      }
+
+      .icon {
+        display: block;
+        width: 80px; /* i made this 80% of og to b smaller*/
+        height: 80px;
+        background-image: url("https://cdn1.iconfinder.com/data/icons/devices-79/512/Old_Computer-2-512.png");
+        background-size: cover;
+        background-color: transparent;
+      }
+
+      .icon-label {
+        margin-top: 5px;
+        font-family: Pixelated MS Sans Serif;
+        /* letter-spacing: 0.2px; /* Adjust the value as needed */
+        font-size: 10.4px; /* og 13, changed 2 b smol */
+        position: relative;
+        transition: background 0.2s, color 0.2s;
+          /* background-color: #fff; /* Dark gray background color */ 
+        color: #fff; /* Text color */
+      }
+
+      @keyframes desktop-icon-open {
+        0% {
+          transform: scale(0); /* Start with a scale of 0 (invisible) */
+        }
+        100% {
+          transform: scale(1); /* End with a scale of 1 (normal size) */
+        }
+      }
+
+      .window {
+        position: absolute;
+        /* letter-spacing: 1px; */
+        font-size: 14px;
+        background-color: #000;
+        top: 10%;
+        left: 2%;
+        display: none; /* Initially hidden */
+        width: 85%; /* Smaller width for pop-up windows */
+        font-family: Inconsalata, monospace;
+
+        z-index: 0;
+        animation: desktop-icon-open 0.5s; /* Adjust the animation duration as needed */
+      }
+
+      .window.active {
+        display: block;
+        z-index: 1;
+        animation: desktop-icon-open 0.5s; /* Adjust the animation duration as needed */
+        padding: 10px; 
+        left: 10%;
+      }
+
+
+
+
+      .window img {
+        max-width: 100%; /* Limit the image width to the width of the parent container (popup window) */
+        max-height: 100%; /* Limit the image height to the height of the parent container (popup window) */
+      }
+
+
+      .popup-content .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+
+      /* Additional styles for the smaller icons and labels in pop-ups */
+      .icon-container-popup {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+      }
+
+
+      .icon-label-popup {
+          font-size: 12px;
+          margin-top: 5px;
+      }
+
+
+      /* Updated styles for mobile screens */
+      @media (max-width: 768px) {
+          .icon-container {
+              flex-direction: column;
+          }
+
+          .icon {
+              width: 60px;
+              height: 60px;
+          }
+
+        
+        /* Adjust the order and positioning for mobile screens */
+        #product {
+          order: 1;
+        }
+
+        #programming {
+          order: 2;
+        }
+
+        #animation-tech {
+          order: 3;
+        }
+
+        #playwriting {
+          order: 4;
+        }
+
+        #about {
+          order: 5;
+        }
+        }
+
+
+
+
+          .window {
+              max-width: 90%; /* Allow slightly larger pop-up width */
+          }
+
+        .start-menu-bar {
+          visibility: hidden;
+          display: none; 
+        }
+      
+
+
+      /* Start Menu Bar */
+      .start-menu-bar {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 30px;
+          background: #c0c0c0; /* Gray background color */
+          display: flex;
+          justify-content: space-between;
+          padding: 0 10px;
+      }
+
+      .start-button {
+          font-size: 12px;
+          margin-top: 10px;
+          cursor: pointer;
+          background: 	#acacac; /* Gray background color */
+          border: 1px solid #000; /* Black border */
+          padding: 2px 10px;
+          border-radius: 2px;
+          color: #000; /* Black text color */
+      }
+
+      .start-button img {
+        max-width: 5px;
+        max-height: 5px;
+      }
+
+      .system-time {
+          font-size: 15px;
+        font-family: Pixelated MS Sans Serif;
+          margin-top: 10px;
+        color: #000;
+        padding-right: 20px; 
+      }
+
+
+    /* drag */
+      .draggable {
+        user-drag: none;
+        -webkit-user-drag: none;
+        touch-action: none;
+        position: absolute;
+        /* cursor: grab; */
+      }
+
+      @keyframes flicker {
+          0% {
+              opacity: .76484
+          }
+
+          5% {
+              opacity: .43083
+          }
+
+          10% {
+              opacity: .74737
+          }
+
+          15% {
+              opacity: .15162
+          }
+
+          20% {
+              opacity: .9183
+          }
+
+          25% {
+              opacity: .43822
+          }
+
+          30% {
+              opacity: .00825
+          }
+
+          35% {
+              opacity: .92663
+          }
+
+          40% {
+              opacity: .55277
+          }
+
+          45% {
+              opacity: .56675
+          }
+
+          50% {
+              opacity: .58451
+          }
+
+          55% {
+              opacity: .41662
+          }
+
+          60% {
+              opacity: .12769
+          }
+
+          65% {
+              opacity: .13334
+          }
+
+          70% {
+              opacity: .67299
+          }
+
+          75% {
+              opacity: .81105
+          }
+
+          80% {
+              opacity: .31791
+          }
+
+          85% {
+              opacity: .44024
+          }
+
+          90% {
+              opacity: .3143
+          }
+
+          95% {
+              opacity: .99228
+          }
+
+          to {
+              opacity: .00463
+          }
+      }
+
+      @keyframes overlay-anim {
+          0% {
+              visibility: hidden
+          }
+
+          20% {
+              visibility: hidden
+          }
+
+          21% {
+              visibility: visible
+          }
+
+          to {
+              visibility: hidden
+          }
+      }
+
+
+      @keyframes drawSmiley {
+        0% {
+          stroke-dashoffset: 1000;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+      }
+
+      .smiley-svg {
+        width: 200px;
+        height: 200px;
+        animation: drawSmiley 4s ease-in-out forwards;
+      }
+
+      .smiley-path {
+        stroke: #008080;
+        fill: none;
+        stroke-width: 2;
+        stroke-dasharray: 1000;
+      }
+
+      video::-webkit-media-controls-fullscreen-button {         
+        display: none !important; }
+
+
+
+
+  </style>
+
+
+  <script>
+
+    let zIndexCounter = 1; // Initialize a counter for z-index val
+
+    let activePopup = null; // Track the active popup
+    //drag
+
+
+    // if (window.innerWidth <= 768) { // Example width for mobile devices
+    //     window.location.href = 'mobile.html'; // Redirect to the mobile page
+    // }
+
+      // Function to open the pop-up window
+      function openPopup(id) {
+          // Close the currently active popup if there is one 
+        //X THIS OUT IF YOU WANT ALL THE WINDOWS TO DISPLAY
+          if (activePopup) {
+              activePopup.classList.remove('active');
+          }
+
+
+
+          const popup = document.getElementById(id);
+          if (popup) {
+              zIndexCounter++; 
+              popup.style.zIndex = zIndexCounter; // Set the z-index for the clicked popup
+              popup.classList.add('active');
+
+              activePopup = popup; // Update the active popup
+          }
+
+
+      }
+
+      // Function to close the pop-up window
+      function closePopup(id) {
+          const popup = document.getElementById(id);
+          if (popup) {
+              popup.classList.remove('active');
+              activePopup = null; // Reset the active popup
+          }
+        // pause a video in a closed popup
+        const closedVideo = popup.querySelector('video');
+        if (closedVideo) {
+            closedVideo.pause();
+        }
+      }
+
+
+
+
+    // Function to minimize a window
+    function minimizeWindow() {
+        const window = document.querySelector('.window.active');
+        if (window) {
+            window.classList.remove('active');
+        }
+    }
+
+    // Function to maximize or restore a window
+    function maximizeRestoreWindow() {
+        const window = document.querySelector('.window.active');
+        if (window) {
+            if (window.classList.contains('maximized')) {
+                window.classList.remove('maximized');
+            } else {
+                window.classList.add('maximized');
+            }
+        }
+    }
+
+    // Function to close a window
+    function closeWindow() {
+        const window = document.querySelector('.window.active');
+        if (window) {
+            window.classList.remove('active');
+        }
+    }
+
+
+
+
+    // DRAGGING
+    var isDragging = false;
+    var activeElement = null;
+    var initialX = 0;
+    var initialY = 0;
+
+    document.addEventListener('mousedown', function (e) {
+        if (e.target.classList.contains('window')) {
+            isDragging = true;
+            activeElement = e.target;
+            initialX = e.clientX - activeElement.getBoundingClientRect().left;
+            initialY = e.clientY - activeElement.getBoundingClientRect().top;
+        }
+    });
+
+    document.addEventListener('mousemove', function (e) {
+        if (isDragging) {
+            e.preventDefault();
+            const newX = e.clientX - initialX;
+            const newY = e.clientY - initialY;
+            activeElement.style.left = newX + 'px';
+            activeElement.style.top = newY + 'px';
+        }
+    });
+
+    document.addEventListener('mouseup', function () {
+        isDragging = false;
+        activeElement = null;
+    });
+
+    //DRAGGING
+
+
+
+
+
+
+
+    const canvas = document.getElementById('smileyCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let frame = 0;
+
+    // Function to draw a smiley face
+    function drawSmiley() {
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw the smiley face
+        ctx.beginPath();
+        ctx.arc(100, 100, 50, 0, Math.PI * 2);
+        ctx.strokeStyle = 'white';
+        ctx.stroke();
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+
+        // Draw the eyes
+        ctx.beginPath();
+        ctx.arc(70, 70, 10, 0, Math.PI * 2);
+        ctx.arc(130, 70, 10, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+
+        // Draw the mouth
+        const mouthRadius = 30;
+        const startAngle = 0.2 * Math.PI + Math.sin(frame * 0.05) * 0.1;
+        const endAngle = 0.8 * Math.PI - Math.sin(frame * 0.05) * 0.1;
+        ctx.beginPath();
+        ctx.arc(100, 100, mouthRadius, startAngle, endAngle);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    }
+
+    function animate() {
+        frame++;
+        drawSmiley();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Start Menu Bar -->
+    <div class="start-menu-bar">
+        <button aria-label="Start" onclick="openStartMenu()" style="font-size: 15px; max-width: 5px;">Start</button>
+        <div class="system-time" id="system-time">12:00 PM</div>
+    </div>
+
+
+
+  <div class="window" style="width: 80%; display: block; animation: none; /* letter-spacing: 2px */;
+    transform: translate(-50%, -70%); top: 50%; left: 50%;">
+    <div class="title-bar">
+      <div class="title-bar-text">Home</div>
+      <div class="title-bar-controls" style=" pointer-events: none;">
+        <button aria-label="Minimize" onclick="minimizeWindow()"></button>
+        <button aria-label="Maximize" onclick="maximizeRestoreWindow()"></button>
+        <button aria-label="Close" onclick="closeWindow()"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <!-- <h2 class="subheading" id="product-management-popup-title">hi, i'm ore :) </h2>  -->
+      <div class="container">
+         <h2 class="text">hi, i'm ore </h2>
+        <!-- <svg class="smiley-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width: 100px; height: auto; padding-left: 20px;">
+            <rect class="smiley-path" x="10" y="20" width="80" height="60" rx="10" ry="10" />
+            <rect class="smiley-path" x="30" y="30" width="10" height="10" />
+            <rect class="smiley-path" x="60" y="30" width="10" height="10" />
+            <path class="smiley-path" d="M40 60 Q50 65 60 60" />
+          </svg> -->
+
+      </div>
+
+        I’m a junior at Dartmouth studying computer science and film & media studies. 
+<p>
+
+      Feel free to click the folders to see my projects, animation reel, and more :) </p>
+
+      <!-- <svg class="smiley-svg" style="height: 40px; width: auto; align-self: center;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <circle class="smiley-path" cx="100" cy="100" r="80"/>
+        <circle class="smiley-path" cx="70" cy="70" r="10"/>
+        <circle class="smiley-path" cx="130" cy="70" r="10"/>
+        <path class="smiley-path" d="M70 120 Q100 140 130 120" />
+      </svg> -->
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+<!-- Add pop-up content -->
+  <!-- Pop-up window for Product Management -->
+  <div class="window popup-content" id="product-management-popup" style="left: 5%;">
+    <div class="title-bar">
+    <div class="title-bar-text">product management</div>
+    <div class="title-bar-controls">
+        <button aria-label="Close" onclick="closePopup('product-management-popup')">X</button>
+    </div>
+    </div>
+        <h2 class="subheading" id="programming-popup-title">product management</h2>
+          <p>
+             currently: IT Product Management intern @ usac, helping deploy over $20 billion according to FCC directives to broadband connectivity
+          </p>
+    <p> skills: Agile and Scrum Methodologies, Jira, Confluence</p>
+      </div>
+  </div>
+
+  <!-- Pop-up window for Programming -->
+  <div class="window popup-content" id="programming-popup" style="left: 5%;">
+      <div class="title-bar">
+      <div class="title-bar-text">programming</div>
+      <div class="title-bar-controls">
+          <button aria-label="Close" onclick="closePopup('programming-popup')">X</button>
+      </div>
+      </div>
+      <h2 class="subheading" id="programming-popup-title">programming</h2>
+      <p>
+          Python (Flask), Java, HTML/CSS, Javascript (React), and backend experience with SQL, firebase
+      </p>
+    <p> <a href="github.com/oejames"> Github </a></p>
+        <p> Some of my favorite projects:
+        <li> interactive gps of dartmouth's campus </li>
+        <li>pong game with color-changing paddles </li>
+        <li>interactive webcam color-izer  </li>
+          <li>videogrep scripts</li>
+         <li>
+        collaborative real-time drawing sketch pad </li><li>animated solar system model </li><li>after effects animation scripts </li><li>maya 3d animation scripts </li><li>hydra video art </li>
+           <li>therabot app admin dashboard </li> <li> this website :)</li>
+
+      </p>
+  </div>
+
+  <!-- Pop-up window for Animation & Animation Tech -->
+  <div class="window popup-content" id="animation-tech-popup" style="left: 5%;">
+    <div class="title-bar">
+      <div class="title-bar-text">animation</div>
+      <div class="title-bar-controls">
+          <button aria-label="Close" onclick="closePopup('animation-tech-popup')">X</button>
+      </div>
+      </div>
+
+      <div class="window-body">
+          <h2 class="subheading" id="animation-tech-popup-title">animation & animation tech</h2>
+          <p>
+              Incoming animator @ dali lab. Currently scripting in Python and Javascript for Maya and After Effects </p>
+          </p>
+
+        <p> Reel:</p>
+          <div class="video-container">
+              <video controls width="100%">
+                  <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/643996a8-9215-43bc-8137-deac6e196700.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+      </div>
+  </div>
+
+
+  <!-- Pop-up window for Playwriting and Comedy Writing -->
+  <div class="window popup-content" id="playwriting-popup" style="left: 5%;">
+      <div class="title-bar">
+        <div class="title-bar-text">Favorites</div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closePopup('playwriting-popup')">X</button>
+        </div>
+        </div>
+      <h2 class="subheading" id="playwriting-popup-title">Favorites </h2>
+      <p>
+          As a writer, my most recent one-act play won the <a href="https://theater.dartmouth.edu/news/2023/06/july-21-22-frost-playwriting-festival">Eleanor Frost Playwriting Prize</a>, and my previous one-act play was produced by Displaced Theatre Company in February. I was named a Texas All-State Journalist and my work has been recognized by the New York Times, Scholastic Art and Writing, Best of SNO and TAJE Best in Texas Journalism.
+
+      </p>
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAIbAsMDASIAAhEBAxEB/8QAGwABAQADAQEBAAAAAAAAAAAAAAECAwQFBgf/xAA7EAEAAgIBAwIFAQcDAwMEAwAAAQIDEQQSITEFQRMiMlFhcQYUIzNCUpGBobEkNMFicuEVNUPRY6Lw/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAhEQEBAAMBAAMAAwEBAAAAAAAAAQIRMSEDEkEiMlFhE//aAAwDAQACEQMRAD8A+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0aAAAAAAAAAAUBNAACoAAAAAAAAAaADQAAKCGlATRpQE0aUA0mlANGlAY6NKAmjSgJo0oCaNKAmjSgJo0oCaNKAmjSgJoUBNCgJoUBNGlATRpQE0aUBNGlATRpQE0aUBNGlATRpQE0aUBNGlANGlATRpV1IMdDLUgMAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAFAAAAAAAAAUQFVFAQFBAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUUCGcRXXlgAznUe+2PVKALuRAEDqn8L1T+AQOqfwdUgB1SbAE2AogCiAKgAAAAAKhIAAAAAAAAAAAACoAoi7ADcfZYtH9oIMuqv9sHVH9v+4IaXqj+1Nx9kUDcfYAAAAARex2BBUUAAAAABEFAQAAAAAAAAAAABUUAAAAAAAABUAUIAAUEFFGACAAAAAAAAAAAAAAAAADPVeje+/wBgYAALE6lAFlAAAAXSAAAAKCCgAAoAAoIAAALoEFiCYF0gAiCgIKgACoAAAgKIoILpAAAAAAAAAAAFAAAAAAABQABQAVUAAawEUAAAAAAAAAAAAAAAAAAAAAAAAAAWO0kAGvdGWpmu/ZiAukWZ7AiooAACosIoMtICQuliF12RUmNDKe6aFYi6BGIqKAAgigIAqAACKgAALslAAAAAAAAAAABUUAAAABUUCAFBRYERRYA0MtANACKAAAAAAAAAAAAAAAAAAAAAAAAAAAAu+2vZBQRUAUAAFRSAWAF0QziEaiRDOI7EVbK1ZtakYRWOlj0uno/CTjZ+zX1c01TTfNNMJr2alZ01aYy2TDCYa2zYxFlFQ0EAhpFARdMo8KDXo0zAYaNMwGGjTIBjo0yA0x0aZAaYmlATRpVBjo0oogAgAAAAqKACwoKLAgyiEiGUQoaGegHIAyoAAAAAAAAAAAAAAAAAAAAAAAAAAAAsIsAgs+QAAUVFQFhGUCsoZ1hjWG6ldsWtyM6U26MeJcOOdx2ejx+P1PPnnp2xxckceZ9ktx/w+gwenTevhhyODNPZ558vrepx85fFpz3p2e1n40137vPzY9ezvhntjLF59oa7Q6clO2/y57Q9ErlYwliyli6OdABAAGUeFI8AoigIAAACAAAAigCKAgigMQVUQVAAAFRQFRVFWEWBGUMoYwzqoz0KKjhAYaAAAAAAAAAAAAAAAAAAAAAAAAAAAAGVfLFnT6oFS31MWeWNZJhggoCoKixHdFVYW2O1J1Md/s7qcWMlKRjjv7zHuzcpG5NuelJ1EzHaXfg4OS0ROo1OtTvzt3YOPgxzOLVcuSsfLEfn3l6HHw4q44pk1W1Y3V5s/kdscdOXFwZx4aZLfNNra19vs9ji8ObamI7ahuwYcd+PEVjcee/38Q9LjRWuOI7b99OGE/8ATLVTLP6xlgxRjpEa7tefBGWdadBt7b8WNx+rh9rLt43L9N+SZjy+b5WD+J0x53p91mjqxzGt7h8p6thmk3rE/RET+sS8uWMwy1HfDO5T185niY7OSzsy0mZ/GtuO/l6sGcmuWLKWLrHKgAAAjKPCpHhRQABAAABBUAAAAAAEAT2BPdlNt06dePdiKbABAABQAVFUVYSFgRlDOrCGyGhmJsEcQDDQAAAAAAAAAAAAAAAAAAAAAAAAAAAA2YI3lrH5a27jfza/ql4s6cqNZ7NTfzY1ybNBOF6AsRMzqIUIh2xxL4+NGWa66pjUz9kw8for1ZftuK/d3TlphraMl7TrWq77OWWV/HTHH/WH7tW+PHlyWila11aZ7dyvMx0vE49dNe3fttx8vkVyVilZmYid7lzRKfXc9X7a49mmbFyMlZprBePO58uiOdXoinfrie9/d4MS3UyTDGXxxuZvpON6jm1Na5ImPzHd6PD9U+HPzRFon7PlcOSZ06qcjvpxuGruNeWevsJ9WpNtUruI87dOPl0th+Le0RG9PjMfItE+XRk5V6RWYtPad6n7tzPLfrF+Ofj6zJyMcY4v1RNPvDyedFL473r05I1qmu/eXi/vc6tTrn79O+0urg86tJtjy61Pj9WM92/YxxkeRy8F8FLTkiJnWu3s8nJHTaYfXciKWvStbRaJ3Hd4HrXFrxuXEViYi9YtDr8WW/DOPLliso9McaACALALs2iaBltNoAvUbQA2bQUXZtNmwXZtNmxFE2bBRNmwXaTIAAAAAAAoigLCKoqwxZCMoZw1wzhRlsTYqOUBhoAAAAAAAAAAAAAAAAAAAAAAAAAAAAbuN/Or+rS3cf8Am1/VLxZ1nzv+5s52/m/9xZoJxcujv4OCt62yX9o7Q4Hdgz2w8e1faazDOe9eLh31rzZ69UfDrrtrctWXPbLPdrnxvaLJIlytXaoKjOJZxPdhHnTK1tWZrcdOLLq0Onq+Wbx7y86tvdujPMVmGMsW5k7aZZnUTG5j3ba5JtW3VPee7z65J+7Zjva94iIY+q7bJtu0d5dGLPFY101147+XNePn1rWvdl4ivts0bezivXLEXpOpidxH2cXr+K2b93tTvaIms6/y5acjJiyRGOfxH5duLPlz0nvG4rO9x9mZLjdlu4+cvXpnW+/v+GDK2+qd/di9TjUVAQNgIbNoKAAAAAAAAAAAAAACoAoAAAAACooACirCKIyhkwhdqMtibF2NADCgAAAAAAAAAAAAAAACoASAAAADPHHVeIBZw3rTrmOzW9Xpi1Omfs87NjnHeYlJVsawFQbcH82v6tTZh/mR+qXizrZzO+ezQ3cqd5paScL1nhr1ZKxp6XKxVpimm92jz/h5lJmJjXl6+eZtx7WmZm0REd/s559jphyvHnyi211TpHRzFQUZxbUxP2N7liIu2yJiCLJOtRMSkd00u27qnUN3H75I7+WiJiNOjj5Ipesz/litR1RHfUzGt+GXJiIpWYmOmJ05MlrUyT3899sr/Fy4J1XUb3M/lmRTNuLUms7rPd18a1q1tM61btMR9nDi6r1iuvD0vTscdF79pmJ1MT7wUjzOdxPhWtas9VfMTLhtGtPo5wz+758mSN0muqw+eyfXLeF3GMppgA6MAIAAAAAAAAAAAAAAAAAACgAAAAAKigAAoiqLtWKiMtjHYo1gMqAAAAAAAAAAAAAAAAAAAAAAN/ErvL+jQ7ODXvaUqxlyMs48tYjxruzzY4zYotHn2cvLneefw28LN3+Hbx7GlckxqUdfMw9NuuPEuRUGzF9UNbZi8lF5HfLLWzzfzJa0hWdLdNon7PS5ds1ePGS2tZIju8p24c+TJT4Uz1REaiJ9oZym/Wsb+OORleNXnTFtkEUQFrOpSfKKsLE6kpbpnetrSI8yBM77s6ZNWjXsxtMTOq/7pWlpntCNOzHeL5axaI3PdhTJbJmmZ3P4aq2nHli3vHs7eJOOYvbX0zFt/ozfF6XyRgtSsfV5mHTivauS3w4npt41P3efkicuWLa1Mw9biRvB111qsTM7+7NWNPqfJjHgnBW+5nW4eJae7o5v/cZJne97csumM1GMrugDTIioAAAAAAAAAAAAAAAAAACgAAAAAAAoigAAogooAMAEAAAAAAAAAAAAAAAAAAAXsTr2gFpTrtEROt/d1xw8NbRF+TS0T56Nzpx7ZV/MpVmnXPEwWn+Hye3/AKq6dODizix/Lat/zWXlzuPHhsxci9J7SllaljHNFpyWmYmO/uwrMxO48w9PFmrm1GatbGX0yMlZvx57/wBrP3k8q/T/ABMVq8jDqfPh52XHOK81luw3tx82rxMe0xLq5eGM2Lrr5j/dtl5jZi8sGeL3VEyfWwZX+piIq1mazuJYs61m0+P9RVtHaJnzLBtyxMdMzHmGpCoAqCooosExpa9u+toHePLdiyeK7jX5aLTM+UNLt0ZcExaZ6t187bMc/Dp2iPzLmi8+/hsrvWp8M1Y9DFStuisfXE+XZxYnDuLx8vv39nPx8HVXpr5l3xWI4s9ffp7x+WLWnnftBjxxbDlxRrrjU/n/AP23jfd9DnpHK4f8SIiKzuJ+zwclIradeIawu5pnOfrWA6MAAAAAAAAAAAAAAAAAAAACoAoAAAAAAAKIAoigAAxAAAAAAAAAAAAAAAAAAAAFnygALEbBYnfZ0YeLfJPaGXHw1mY29jjY4rGohyzz1x2xw31y09IvbxbTKODzuHPxMO7xHmIevhr37vT49YnUOP3tdPrp8pzcNedxZ5WOvTlx9slP/Lm4Obqr8O3mH2PJ9Lx5L/FxR0X1q2v6o/L4nm4L8Hm2rrWp7fmHbC/jlnP1hzcHwr9Vfplqxe71NV5fH/WP8POrjnHe9Z9nRzrTfyxZW8sVRlXW46vHu9bmYLcXFixUr8t8Nck2j3mY3/5eO9iuac/DwZaT1Xw1+FkrPvX2n/wlWPOvetsNaxFuqJnczLS3ZdR9P0zMy1T4ItRFRWRdIsAu9rH06Ss69vLKleqZ17I1GcVp0xNvdqnzMLM7YxGxKsRLbhya1WWVMe41Md/aHRxsNOud63Edon7s2tSOzj5qzeIp/VEdX2h15MnXhiIr76j/AA8+1pmsdE6tE/M9PiWxZOPE73NZiJcq3HPbN8Pi5Jmlq1pGo6vd89fz3h7XrOSKUpSk/JaZn/WHi3mbW3M7mfd0+Oam2c7vxiA6OYAAAAAAAAAAAAAAAAAAAAAAqAKAAAAAAAAACiAIAAAAAAAAAAAAAAAAAAABIAC7SGUeRY7+H37y9jBHh43FnWoh7PFiZiHlz69OHHdijxLtxX05Ka0zve9Ij4ddy5t16mPLET3eF+0vDrlvWZmaxMbjTL95j43/AFOeJ1/RWdO7mUpz/TP+ntuad406S69cso+W4/G/d5nVtxKcvHWK9X9UuTPm5PHyTS9vDTbmZbxq07h6J7643zxpt9TFbTudo0yNuDNbDki1J/X8tQK6M00vq2PtE73WfZp320tPEpKKgCsoAC7ImY8IuhRljnW+22OnRh42W1eqkbS3RGzix8W0zuYtHv8AZjes0yz0zPbxP3XHjnFvr+WW6sRkjtX5vb8udvrprxePa/VuI/8Al0/Fpwom0/L8Tv0x9m6+Dox1mY+eNd4eV6jm+JmmsTute0Sk/lS+NfL5VuTeJmNVjtEfZzA7TxzABAAAAAAAAAAAAAAAAAAAAAAAAAAFEAUAAAAAAAEAAAAAAAAAAAAAAAAFQFrG57t2OkT8zTSN2iHTNq1rraLHPftaWLLJO7bYqiwEM6RuRY7uDgy3ndYiI+8vQi3w5iv7zXf2j2eZGXJk1jx9q++vd6HD4EY63tktGp+0d/8ALhl/13x/4309QpTN8O9u8T/l6/J/7KL4pmZn7PjOTHRyb9MWiIntvzp9B6Fzvi4vg5J3H5Zyw1NxqZbumvh8Wacuc0zSsTGp646pj/L3+B8GJjHhrqkR/lwcvD0T7adXpX1R3Y3a1cZrb5n9p8fwvU744jUeYeK+k/bTF0+o4snten/D5t6sePLl0AaZAAZ45jeteSY7sY7S3XjepjxKNRpRnaNMFQVaxv2Xp99BohnCzTvExC9LLci0is+axLv4WamLtMT0+7z6biZbcd5iWcvXTHx6fI4+HLiyZsWTtSu+mfqmXnY+Vjx/023vzEt+HP0zG/u3cngU5NZthiIy+0R4smMnKuUvY4+XzYvjrXFa35cEzud7W1ZrMxMamPLF0kk489toAqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKIAoAAAIAAAACggAAAAAAAAAAALWdT2ZR4YxDOsd0WMfKaZzHTbvDGYmO0i6SIXvC1hnoWRv43I6ZisxGnvcWvxKx2fOY6btH6vpeB9EPP8unf49vH9ZrEc2ax5rERJ6TuvIie8RLp9S43xOZbLW+t99abODwa2yRbLef+F+0+uiY/y293Jgrm4le8/E9phzcLLfj54rlia9/P3ejxs9IitNRvxFYcvIx3ycn5q6r1ePs5Xxuf44P20iLYuLf33MPkX1H7ZZY3xcH9UVm0vl3qw/q8uXQBtgBlFZnxEgxbsd4jHMW9vDVrusVRYTu0kUmWdYZxEG1kYRjn2llGO33ZRLOE23JGPTf9WXzd91jv9mcVn2ZVmfDLWmuJjfes+FiKTMfNETr3bP1rv9GcY6WjXj8DWmmaW1XXu7eJnmkz1RusNP7t3ma+fxOlrXLS0a+bvvvAs8Z+r8HqieTijz3vEe/5eNMafQ4edWP4ees19t+Yl5PqPGjj8mYp3x2+akx9mpXL5MdexxgNOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqKAAAAAAAgAAALEEOziZOPPyZ66+1oS1ZNuWIbKw9G/plZjqxW3WWFeBaGLk6TFow8eOVyKYonp3Hlq5WO2G84ra3Wdb+7v/AOw5uLJMfLaNN/q3FjkUpkwxu8+YhPtqtfXx4lZ1ETbepbccdXhLcfNExScdv0ZY63w23esx+sNXWvGcd7dGLH38Pf8AT6Vvgtqe7y8EUyViYnbv4mT93t+JebO7enGf48zkXz1z2i0V3Et3FnNktET4/Dbzem+bqrDPizrxC78NevZ9MpXFfqt5nt3eneMcVtlvqta95mfaHk8adTG3N+1XqE4uDTi45+bL9evaFw98c8/PXzXq/On1D1DLn/pmdVj7RHhwLPlsphtaNz8tf7rdoemePN1r02Y8N794jtHmZnUQvVjp2rHXP3lhfJe8/NMyo2TGHH7zkt+O0MbZrTWaxqtZ9o7NegFiPsyiJYxMyz9kWLER92cVj7tUd2cI1GyKQyivdjEs0bjLuTMx5WJ2l+86RWdNz4ZzeY7zHhz947xMxLbg5HVPw80RaPafsLttjPWJjqr/AIl04stJmNzuPzDizU+HfU94nxJE/aRdvWmuDLXV6xMS5M3p9um2Ks/FxT3pPvSWimS0R5/3dWPlTGt7j8qWbfP2rNZmJjUwxfTXw8Xn0mMsRF/a9e0vK5vpOfixN6/xcUf1Vjx+rW3C4WPOFlFYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQEFAAAAAAAAAQAAAFhWLLtIrp4vMyceY1O6/aXv8Dk4eXHbtb3iXy/eHXwssY8kWidWhzynjphfX0Pqnpl+Xgp8CN3pO9fd4+TNyONfoy0mkx21aH0PpvqFMkVrl1E/d7OXjYOVhmualb1mPeHH7fldbNPzzLyrzfqidO/i83FyYjDnrE7cPqGGmHl5sWP6K3mIckTNZiY8w7fWZRy+1le1m9Py8WfjceZti9/w6cF5vEdUMvSOf1Y4i0xOo1MT7vQyenRkj4vF10z5p9nnz3yvRjY5Yx1s2YeNM21SGERat+m0amPu9PhxrTntq108Tg9MRbJO5+z5f9p8Mx6rkp/TasW37Q931X9oeP6b/DrE5s8R9MT2j9ZfGeo+pcj1HPOXkW/Ssdoh6sMf15csttPVjxx8sddvvPiGq95vO5nbFlEfLt2c0gnsRKSIu+yADKnlsnvDHHXbKflStzi1qT5WneEt5RplDOGFGekajOJJn3YwbRWyurNGSJpfbZSe5nrugXjow3jkYJpb6q+Gmd1nTRhyTjvGvLryavEXj3Wku4wrbyzreYntLTDKqK6q5um0S7sHLiPFtfifd5PmG3HeJ+W3j7iuzl+mYOZu+DpxZPx9M/8A6eFyONl42TozUms/8vVnJkxWjUz+Jh1V5mLk4/g83HF6/f3j9FlZywl4+aHqc30i2KJycW/xcX/9oeZMabcLLEAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAABAAABYXTFnXczqO4sSJlf0d+D0vNlr15Jrhp/dk7f7OnFg9M4kxOfL+8TPtWO0MXKNzGuPh5s3XGOtZvEz/h9Fj9a/8ApuD4fJn4l/6YrPeP1c/VxORWMfGtGOsd4ivaWnJ6RjvPVEzO5+/hytlvrrN608nl5K5OXbJFomuSerUe2/Zpy4piY13ifEvat6Njvjv0TMZKxuI+7y+m1clMU+Ynw6TKXjncb+t/pnHzRl+mYrPZ9j6Xiy4+1/DxPTa6x45nXzWfScPepnfvpxyu8m55GPqHCi+P4lY+avv94eF6l6nHp2GKY9TnvHb/ANMfeX1HJtGPi5bX+mtZmX5fzORblci+a097T/iG58cuW2bnZNNeS9r3ta9ptaZ3MzPlgDu4jPxVjELaRWIAgsRuUbcNdyLJutta9NWm9ty2Zba7Q0+ZZjeX+NuOSyVk8yKyp2bGuGyPCNRYSfDKEnuKlJ7t1+9XNvVnVE9WNKRxZI6bujDk7alhmruGrFbps11nldVo1LHepZTO4YSy2zhd6Y+21jvAOnDeMlOi0xv2aclbUnv2mGMfLO4dVbRnx6n6o8CsOPy74+3mPs3Z+PxubXqiejJ/dEf8uO1ZpOtMsVpraJDvXHyeLk41unJXt7THiXO+g5Ex8OOqsXx2jvWXlcjidFfiYvmxT7+9fxLcrjnhpyCyiuYAAAAKAgAAAAAAAAAAAAAAAAKAGgEFlAAAUAAAAAAAAAAABFAQGVKTe8Vr3mZBniwzk3MzFax5mfZ3V5+HjYopx8MTf3yWjvtx5skxHwo1Fa/b3aWbN9al1x18jlZOVbeS0zERph+73tG8W79u+miJb+Lyb8bLF8c9zWuLvZT4mK0T3rL6b0rPbNSK372+7m488f1OIrkitcmu0/l3cLjRwt1yREb8S5Z+t4uqcfTPVWHzN7Rn9Uz5IjVYiX0+Tk1vXWOu/bcPPr6XjxdVot3t9W2MfG76cCuvg19ojb3+B/LrP3l5/F4sRMTW0d41p63HxdFaR/aSepb44v2pzzg9Dz6nU31T/L84l91+2+WK+m4ce/mvk3r9Hwr0Y8cL0AaRlVJnckTpBdgAhDpxR049uesblvyz00isJW8f9arW3aZSAgRkyhjDKPI1GcM48MIZwy3GUeCSFRWi/l04J3XTnytnGt8y/iTq2jy5bR03duSvzS5s9fEwRMo24rbqytDTgn2232K1PYxhY7JJEorKfDPFfot2YbXQrry0jJTrjzHly2iaTt0cbLH028JlxTWZj29hW/DMcjj2p7xG3FTPPGzzW8dVLdrRPiYbOJknFmiY8T5X1XBqvXWPyRLxyc/iVwzXLh+bBk+mf7Z+0uKXo8HPW9bcbPP8PJ7z7T7S5OThtx81sV41astvPZ+xpAVkABT2AVABAAAAAAAAAAAAAABUAZQqQTIqT5QBAAFAAAAAAAAAAABFAEbMN4pbq1312a1idAT5AFFjyjKuvdBtwZJx2i0TMae7h9Qz+o9GKaxEVjz7y+eny+g9DrXpm32Yz43j17GPHFO1e0Vj/dha82xzM/VM6bqxPwJmO+1nF9ETGtd3n27NnFr09ETHd347zHV38S5+PWa37T20vIy143Ezci3borNmozXyH7W87979VtjrO6YI6I/X3/3/AOHhM8l5yZLXtO7WmZmWD1RwoAIAAAQDbhjdkyW6rSzpHTWZ/DSjXJpRFgRlDKGDOneRqM4ZbYqy2zhlENdZbI7wjUa80fLtrw21eG7J9LmpOrNRi+V6GSN1iXLl1p0456sepaM0fhmN5cacfazpid1csT3dNJ7LWcRJ7M5Y28I0rKGLKIFWk6s78f8AFxzWXneJdPGy9FtT4FjDJTot+XZbXJ4VomO8Qw5WPfzR4k4V+nqrP2lFeHEzW249nuTgr6r6bF6x/wBThjz/AHR9peLyK9GfJX7Wl6XoXJ+FyIrvtbtp0rhj3TyZiYnUwj1fXeH+78r4tI1jy94/E+7ylYs1QARSUAAAAAAAAAAAAAAAAAAAUQAAAABQAAAAAAAAAAAQVAAAUACGdN7YNlb6jwit+XHSMcW6tTr7Oj0zmfBm1d9pcOXNOSK1nWqsKzqYlLNxZdV+gcG9c3FrMOu+H56z7afO+i8+tsGPHafmidPq8cRatZ/Dhr3Tttz0jpi++zyf2p5E4PSPh775bRH+nl7l6fJrzuXx37ZciLcvDgrPalOqY/MrhPWcr4+cQHocQAAAAAG3f8H9WtneNUrDWkWsvYQmVF224oaY8ujH4StYpM+xE9kt5I90a2sT3b6TuHNM92/FO0qyrfw5K/W7Mn093JH1rEyd1Z1i2xvEXp1R/qtv+2/RjxbdVZrLLf8Axyz2ttvx94ac9JpdtwTuGrxieVt0xtHhnadQw8xDLpWUx+Fjx3J7EeAZa2w30W221/KZqbpIrtwWjPh6fdpxz8PNG499OTh8iceSI29LPSLRGSs+SrLuPH9Rr083JH6f8MOLeceesx93R6rX+NS/99I/zHZx4+16/q3+PPfMn0/qGOOX6XfUbtFeuv6x5/2fLPrPTL/FwfDt7d4fM8zD+78nJi/ttMJi38k/WgBpxAAAUEFlAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAEABUAAAFAABAVYIVFjs9Oyzj5FY32mX6FwcvVSkT2nT81wzMXrMeYl956LyJzREzHiIccvK6zj17xv8Pzb17P+8escm0TuIt0x/p2fo3Ly1wcbLlt2jHSbf4h+VXtN7Tae8zO5bxnu2MqxAdGAAAABaxu0I2Yo3eBZ1lnjXTH4aWzPO8ktaQvQBUWvl1UjVXPTy6J7USumLTbyseGM+VieyIky24ZaLT3bcNu8FWX10Xj5XJ/U67TurmmNWSNZOqe/GnX2c/Gv05IdOON4bQ4O9bfoQyutV28qu4208edW03UyRkrG2utenJ2Fvdt+b6dtdJ6tNuWP4bTi87Rq9bbRqUjsttpHeQbI9mXmNMO7OJ7I08/LPw806exw8kZcE1ny8flxrK6fT8urRDV4543WWm/1TH/ANPS2u9La/y8qn1Q9/lU+LxctffW4/0eFirN8lax7ys4mc/k+h9KvqYn2jy879oaVr6jM1/qrEy6sOXotGOmoiNb/MOD1jJ8TnW7/TER/skX5P6uABtwAAFRQEVAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAABAAAAAAhSAHVwuLHJm1d6n7tWXDOPJNd719mXEzTiyRMfd2Z7Y7Xi9I7zHdi3Vbk3HDNKxWJjc2lJjXeXXXD8LJHVqZnvENGalq3+eNb76NmmGONy+4/Z6k4+PW1vEw+N4mL4malPaZ0+59MiMeOuP2pDnnfW8eMP2q5E4PRc1YnU5ZrSP87n/AGh+ey+s/bXkbjjYInt3vP8Aw+TdceOeXQBpkAAAAbsMe7S3Yp1CVrHrXad2mWKz5RWQAGzHHdvn6WrFDZfwzXXHjRPlYYz5VWGNvLPHOphhPla+QnXZM9mi0atts6u0JMbhl0vrowT/AA5/Lj5FOnJP5deH6JaeRHV/oTq5TeLnpaay6scxaYlx+JdGCy1jC/jpyT8sNeLzLZbvEMccREsuv6zsxrHdsmOzCsd0VnqV9vB7kz9xXBy++T/Q4t+nJByv5v8Ao1456bxLp+PPvWT6LBaLRG/fy8euKcfPvSO01mdS9HiZNxDXzMfRzZyR/Vjmf9dMR2ym/Wvj2+JlrSPM+Xm58nxc17/3TMvY9Ew7ydU+ZiYh4lo1Mw1HP5OIA05AACgAhIAAAAAAAAAAAAAAAAAAAACgAAAAAAAIoCAAAAAAKiwCxOm+M2setfNvy0G9JprenqYZpOH4tpmb+IhjycM5v4s9pn2cvGvFMtZv3rvw9S1t2i9vo+znfK6T2Nfp2Lpv1+8T2fWcb5MereZjbwuBhrkyTljtEeHtfE1SI/qtGocsr63I+U/abN8X1S0b3FKxWHju31e3X6lnn/1acT048ee9AFQAAAAhlM6jSROk2AAACx5BvxR2XJ4Wnhjkll2/GmUWfKNORogkBupPaIbLd4aay3VncM10jfh+nTVmjTdhas/hn9dLxx2juyxTqU9lr2ltx/XZWdsqteOW2HOu0WZ1CR57LJoVlCTK70WnsK87kTvLLXHlsz/zbNTpHly69Xh5PG3o5aRlxVmfqr2n9Jh4vBnealZ8TL18N/iZ8lfaYnTPHpxu4z9KjvFo8b1X9IfOZv5t/wD3S+o4dOicdI9o0+XyfzLfrK4ufy/jABpxAAUEAAAAAAAAAAAAAAAA0AE9gAAAAFAAAAAAAAEAAAAAAAAAZROxIZQKzxam0RLtx59xWk96xLhiG3HbXZjKbbxr6fg1jcVp493pV+aYnW9doeN6XqK16b7tPnb3IyY8VOq1o7ONnrrt8BzbdXMz2+95/wCWhsz268+S0eLWmf8AdremPPQAQAAAAAAAAZUjcsWePyLOuivhqyS2x4acnll1vGuSey+EacgjyiwIyhvpLniW6ks10xdmHy1cmvb8NnHnuZ/sz+ut44J8rVbxqyR2ltybsct9XPTs31Yrpiz7b7CMkaVLT2ZVnuxv2iZgV52b+ZLW25/5m2p0jy5ddHDnWev6vU4l+nkx+unkcedZIl6W5ryJmPeds12+Pj1uDE/GtM+0z/w+UvO7TP5fX8WPmtb70mf9nx8+VxT5UFRpxAAAAAAAAAAAAAAAAAAFhAGU+GKgppGSSCACKAAAAAAioAAAAAAAAAACs/aGDP7AT2la5NSl/O0jyivofQ5jNk7xERX7PQ9a5NMXp2Wsa657Q+d4PJtg6ppOpljzc1r4e9pncuWv5Ou/4vPAdnEAAAAAAAAAAbcUNTdj8JWsetviGm/lutPytNvCRvJrnyio05AALDdTy0w218pW8XZg+qGWaO8sMM923N7sO844Lx30xiO7O8d2OmnK9baNtNtNG6ss1vFmy9mOmXsjS+EtPY2lu8CuHkR82/ZpdPIjs5nSPNl1sw/XD07xu1Z+8RLzMX1Q9SI6q4J9p3X/AH/+WcnX4+PZxTEcbJbxrF/4fHS+ry26PT+TMe1Jj/Z8osT5QBpxAAAAAAAAAAAAAAAAAAAAVWKwKoJMoIAqKAAAAAAgAAAAAAAAAAArZ9mts9wLfSwhneflYQK3Yp7HIn+HWPymPtE9zP8ARVn9a/GgBpgAAAAAAAAAAjy307Q018uiqVvFlPeGi7fPhz5PKRrJgA05AALDZTy1Q20StR1Y+0w6Mnhz4/Z0W+mO3sw9E44rx3YabMk6tP8A+mO9q53pWZbq7/DVWY+zbWdx4KsbYn8CQy2y2ezG3Zkxt3Bz5+9NuXTqzfZzzGuzccc+lO1oevx46sOKP/5HlYu86ev6f3xTE/02if8AkrfxunnX6PSs0/3TMR/rL5t7nrF+n0/HT73/APH/AMvCWMfJ0AVzAAAAAAAAAAAAAAAAAAAAAAWUWfCAAAoigAAAAgAAAAAAAAAAALDPcba1iQZ3lISZUVnXwmbxUr48plnx+iL+NYCsgAAAAAAAAAM6R3b69mmnluhmumJbw5reXRae0uafKxMgBWAACGynlrbKeUrWLqxz4dUd8cOTH7Oynenf2Yrvi5M0d2mHTmjfdp0sSz1jHltq1T28ttCpG2FnwkR2WUbI7JYmfcid1kHNmifP2aZdVo3v3ct41LUcsjHOskT+Xsem/wD5Y+8PGj6ol6/CnU3mPekla+Nj63b+Hgj77s8d6XrNv4+On9uOHmrHPP8AsAKwAAAAAAAAAAAAAAAAAAAAAAvsioAAAoAAAAgKgAAAAAAAAAAAKiwAooqxPZjfyrG3lCoAqAAAAAAAACx5RlSO4sbKwzhhVsjwy6Rhlns0Nuae8NSxjK+gCsgADOvlgzqLHVi9nXi71mHHil14p7udejFhljs57RMR3dWSO0w57d4IZNcxvsyx7idJqdLXzCst8LLGqz28o2TPbwxt2ZT4YW7yIwiZjuwyVi/f3ZW7Sx39lZrn8W1L2PTu96fbTyckd9vU9IneSv4lamHlcfqtptz8u/adON2eq/8A3DN/7nG05ZdABAAAAAAAAAAAAAAAAAAAAAAFhJFkEABQAAAQAAAAAAAAAAAAABYRYBQEVUtHuqz4BrAVAAAAAAAABsp4lrbK/SLGdfDKPKV8EsujVkndpYLPlGnOgAgAAyqxZU8ix0Y3Vjnw5aezqp4c674tt+8OW3Z1T4cuTzKRqsUjyseGNfqaZbqs/MMYVGkmWMz38MrMLCMbxuGqZltjvVplWKWjqrP3d3pE/wAaHF7Oz0z+dH6rTHrn9UtFuflmPu427kzM58kz56paWnK9ABAAAAAAAAAAAAAAAAAAAABUUEAAAB//2Q==" alt="Umbra Still">
+  </div>
+
+  <!-- Pop-up window for Digital Media Archives -->
+  <!-- <div class="window popup-content" id="archives-popup" style="top: 20%;">
+      <div class="title-bar">
+        <div class="title-bar-text">archives</div>
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closePopup('archives-popup')">X</button>
+        </div>
+        </div>
+      <h2 class="subheading" id="archives-popup-title">digital media archives</h2>
+      <p>
+          <li> Archival research with the media ecology project, </li>
+
+            <li> volunteer developer for The Internet Archive </li>
+      </p>
+  </div> -->
+
+  <!-- Pop-up window for About Me -->
+  <div class="window popup-content" id="additional-software-popup" style="left: 5%;">
+      <div class="title-bar">
+          <div class="title-bar-text">about</div>
+          <div class="title-bar-controls">
+              <button aria-label="Close" onclick="closePopup('additional-software-popup')">X</button>
+          </div>
+          </div>
+      <h2 class="subheading" id="additional-software-popup-title">about </h2>
+      <p>
+          Once I discovered CSS while customizing my high school's WordPress news site, I realized I loved both a) tinkering with code for practical, aesthetically pleasing results and b) solving problems with code. 
+      </p>
+        <p>As a college student, I've loved combining studies in media and computer science to delve into my interests in storytelling, human connection, and solving problems through tech. I've gotten to apply computation to fields including film preservation and computer graphics. </p>
+
+    <p> My interests lie in software engineering, animation technology, and product management. Other tech-adjacent interests include digital archives, media preservation, and the intersection between computers and storytelling, and I'm always taking opportunities to continue exploring these.</p>
+<p>
+  Some other things I'm proud of:
+</p>
+    <li> Playwriting: <li> I tried playwriting for the first time after seeing a call for submissions sophomore year, and I loved it. My most recent one-act play won the Eleanor Frost Prize, and my previous one-act was produced by Displaced Theater Company in February. </li></li>
+    <li>Archival work: I'm passionate about digital archives and media preservation, and spent time as a research assistant with The Media Ecology Project.  </li>
+    <li>Animation & Animation Tech (incoming: animator @ dali, currently: scripting in Python and Javascript for After Effects and Maya)
+ </li>
+
+
+  </div>
+
+  <!-- Icon for Product Management -->
+  <div class="icon-container" id="product" style="top: 70%; left: 37%;" onclick="openPopup('product-management-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">Product Management</div>
+  </div>
+
+  <!-- Icon for Programming -->
+  <div class="icon-container" style="top: 70%; left: 10%" onclick="openPopup('programming-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">Programming</div>
+  </div>
+
+  <!-- Icon for Animation & Animation Tech -->
+  <div class="icon-container" style="top: 70%; left: 70%;" onclick="openPopup('animation-tech-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">Animation Tech</div>
+  </div>
+
+  <!-- Icon for Playwriting and Comedy Writing -->
+  <div class="icon-container" style="top: 85%; left: 10%;" onclick="openPopup('playwriting-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">Favorites</div>
+  </div>
+
+  <!-- Icon for Digital Media Archives -->
+  <!-- <div class="icon-container" style="top: 70%;" onclick="openPopup('archives-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">Archives</div>
+  </div> -->
+
+  <!-- Icon for About -->
+  <div class="icon-container" style="top: 85%; left: 40%" onclick="openPopup('additional-software-popup')">
+      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
+      <div class="icon-label">About </div>
+  </div>
+
+</body>
+</html>

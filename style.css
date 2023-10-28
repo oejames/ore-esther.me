@@ -1,0 +1,352 @@
+
+body {
+    background: #000; 
+    color: #00b4d4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://pbblogassets.s3.amazonaws.com/uploads/2020/04/19153052/Vaporwave-and-Synthwave-Free-Pack-Video-Game-Look.gif');
+    background-position-y: 20px;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Inconsalata, monospace;
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: .5%;
+    left: 1%;
+    cursor: pointer;   
+  }
+
+  .icon {
+    display: block;
+    width: 80px; 
+    height: 80px;
+    background-image: url("https://cdn1.iconfinder.com/data/icons/devices-79/512/Old_Computer-2-512.png");
+    background-size: cover;
+    background-color: transparent;
+  }
+
+  .icon-label {
+    margin-top: 5px;
+    font-family: Pixelated MS Sans Serif;
+    font-size: 10.4px; 
+    position: relative;
+    transition: background 0.2s, color 0.2s;
+    color: #fff; 
+  }
+
+  @keyframes desktop-icon-open {
+    0% {
+      transform: scale(0); 
+    }
+    100% {
+      transform: scale(1); 
+    }
+  }
+
+  .column {
+    float: left;
+    padding-left: 10px;
+    width: 47%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+
+  .window {
+    position: absolute;
+    /* letter-spacing: 1px; */
+    font-size: 14px;
+    background-color: #000;
+    top: 50%;
+    left: 50%;
+    display: none; /* Initially hidden */
+    width: 26%; 
+    font-family: Inconsalata, monospace;
+
+    z-index: 0;
+    animation: desktop-icon-open 0.5s; 
+  }
+
+  .window.active {
+    display: block;
+    z-index: 1;
+    animation: desktop-icon-open 0.5s; 
+    padding: 10px;      
+  }
+
+
+
+
+  .window img {
+    height: 30%;
+    max-width: 100%; 
+    max-height: 100%; /* Limit the image height to the height of the parent container (popup window) */
+  }
+
+
+  .popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+
+  /* Additional styles for the smaller icons and labels in pop-ups */
+  .icon-container-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+  }
+
+
+  .icon-label-popup {
+      font-size: 12px;
+      margin-top: 5px;
+  }
+
+
+  /* Updated styles for mobile screens */
+  @media (max-width: 768px) {
+      .icon-container {
+          flex-direction: column;
+      }
+
+      .icon {
+          width: 60px;
+          height: 60px;
+      }
+
+    .window {
+      width: 80%;
+    }
+    /* Adjust the order and positioning for mobile screens */
+    #product {
+      order: 1;
+    }
+
+    #programming {
+      order: 2;
+    }
+
+    #animation-tech {
+      order: 3;
+    }
+
+    #playwriting {
+      order: 4;
+    }
+
+    #about {
+      order: 5;
+    }
+
+    .start-menu-bar {
+        visibility: hidden;
+        display: none; 
+      }
+    }
+    
+      .window {
+          max-width: 90%;
+      }
+
+
+  /* Start Menu Bar */
+  .start-menu-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: #c0c0c0; /* Gray background color */
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+  }
+
+  .start-button {
+      font-size: 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      background: 	#acacac; /* Gray background color */
+      border: 1px solid #000; /* Black border */
+      padding: 2px 10px;
+      border-radius: 2px;
+      color: #000; /* Black text color */
+  }
+
+  .start-button img {
+    max-width: 5px;
+    max-height: 5px;
+  }
+
+  .system-time {
+      font-size: 15px;
+    font-family: Pixelated MS Sans Serif;
+      margin-top: 10px;
+    color: #000;
+    padding-right: 20px; 
+  }
+
+
+/* drag */
+  .draggable {
+    user-drag: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+    position: absolute;
+    /* cursor: grab; */
+  }
+
+  @keyframes flicker {
+      0% {
+          opacity: .76484
+      }
+
+      5% {
+          opacity: .43083
+      }
+
+      10% {
+          opacity: .74737
+      }
+
+      15% {
+          opacity: .15162
+      }
+
+      20% {
+          opacity: .9183
+      }
+
+      25% {
+          opacity: .43822
+      }
+
+      30% {
+          opacity: .00825
+      }
+
+      35% {
+          opacity: .92663
+      }
+
+      40% {
+          opacity: .55277
+      }
+
+      45% {
+          opacity: .56675
+      }
+
+      50% {
+          opacity: .58451
+      }
+
+      55% {
+          opacity: .41662
+      }
+
+      60% {
+          opacity: .12769
+      }
+
+      65% {
+          opacity: .13334
+      }
+
+      70% {
+          opacity: .67299
+      }
+
+      75% {
+          opacity: .81105
+      }
+
+      80% {
+          opacity: .31791
+      }
+
+      85% {
+          opacity: .44024
+      }
+
+      90% {
+          opacity: .3143
+      }
+
+      95% {
+          opacity: .99228
+      }
+
+      to {
+          opacity: .00463
+      }
+  }
+
+  @keyframes overlay-anim {
+      0% {
+          visibility: hidden
+      }
+
+      20% {
+          visibility: hidden
+      }
+
+      21% {
+          visibility: visible
+      }
+
+      to {
+          visibility: hidden
+      }
+  }
+
+
+  @keyframes drawSmiley {
+    0% {
+      stroke-dashoffset: 1000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .smiley-svg {
+    width: 200px;
+    height: 200px;
+    animation: drawSmiley 4s ease-in-out forwards;
+  }
+
+  .smiley-path {
+    stroke: #008080;
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray: 1000;
+  }
+
+  video::-webkit-media-controls-fullscreen-button {         
+    display: none !important; }
+
+
+
