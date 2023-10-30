@@ -1,15 +1,15 @@
 
-let zIndexCounter = 1; // Initialize a counter for z-index val
+let zIndexCounter = 1;
 
-let activePopup = null; // Track the active popup
-//drag
+let activePopup = null;
 
 
-if (window.innerWidth <= 768) { // Example width for mobile devices
-    window.location.href = 'mobile.html'; // Redirect to the mobile page
+
+if (window.innerWidth <= 768) { 
+    window.location.href = 'mobile.html'; 
 }
 
-  // Function to open the pop-up window
+  
   function openPopup(id) {
       // Close the currently active popup if there is one 
     //X THIS OUT IF YOU WANT ALL THE WINDOWS TO DISPLAY
@@ -31,7 +31,7 @@ if (window.innerWidth <= 768) { // Example width for mobile devices
 
   }
 
-  // Function to close the pop-up window
+
   function closePopup(id) {
       const popup = document.getElementById(id);
       if (popup) {
@@ -48,7 +48,7 @@ if (window.innerWidth <= 768) { // Example width for mobile devices
 
 
 
-// Function to minimize a window
+
 function minimizeWindow() {
     const window = document.querySelector('.window.active');
     if (window) {
@@ -56,7 +56,7 @@ function minimizeWindow() {
     }
 }
 
-// Function to maximize or restore a window
+
 function maximizeRestoreWindow() {
     const window = document.querySelector('.window.active');
     if (window) {
@@ -68,7 +68,7 @@ function maximizeRestoreWindow() {
     }
 }
 
-// Function to close a window
+
 function closeWindow() {
     const window = document.querySelector('.window.active');
     if (window) {
@@ -109,7 +109,6 @@ document.addEventListener('mouseup', function () {
     activeElement = null;
 });
 
-//DRAGGING
 
 
 
@@ -122,7 +121,7 @@ const ctx = canvas.getContext('2d');
 
 let frame = 0;
 
-// Function to draw a smiley face
+// draw a smiley face
 function drawSmiley() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
