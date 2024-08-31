@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="/script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="background-shapes">
+        <div class="shape circle"></div>
+        <div class="shape star"></div>
+        <div class="shape rectangle"></div>
+        <div class="shape squiggle"></div>
+    </div>
+
+    <div class="start-menu-bar">
+        <button aria-label="Start" onclick="openStartMenu()" style="font-size: 15px; max-width: 330px;">Start</button>
+        <div class="system-time" id="system-time">12:00 PM</div>
+    </div>
+
+    <div class="window" id="home" style="width: 350px; display: block; animation: none; left: 40%; top: 25%;">
+        <div class="title-bar">
+            <div class="title-bar-text">Home</div>
+            <div class="title-bar-controls" style=" pointer-events: none;">
+                <button aria-label="Minimize" onclick="minimizeWindow()"></button>
+                <button aria-label="Maximize" onclick="maximizeRestoreWindow()"></button>
+                <button aria-label="Close" onclick="closeWindow()"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="container">
+                <h2 class="text" style="color: #99f273">hi, i'm ore </h2>
+            </div>
+            <div style="color: #99f273;">
+                I’m a senior at Dartmouth College studying computer science and film & media studies.
+                <!-- <p> My interests lie in software engineering, animation tech and product management. I'm passionate about digital archives, media preservation, and the intersection between tech and storytelling. </p> -->
+                <p> My interests lie in digital archives, media preservation, and the intersection between tech and
+                    storytelling.
+                    Feel free to click the folders to see my projects, animation reel, and more :) </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Pop-up window for Product Management (now: Contact Section) -->
+    <div class="window popup-content" id="product-management-popup" style="width: 30%; top: 25%; left: 35%;">
+        <div class="title-bar">
+            <div class="title-bar-text">contact</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closePopup('product-management-popup')">X</button>
+            </div>
+        </div>
+        <h2 class="subheading" id="programming-popup-title">contact</h2>
+        <!-- <p>
+             I'm currently an IT Product Management intern @ USAC, helping deploy over $20 billion according to FCC directives for broadband connectivity access.
+          </p> -->
+        <!-- <p> Skills: Agile and Scrum Methodologies, Jira, Confluence</p> -->
+        <p>Github: <a href="https://github.com/oejames">github.com/oejames</a> </p>
+        <p>Email: ore.e.james.25@dartmouth.edu</p>
+    </div>
+    </div>
+
+    <!-- Pop-up window for Programming Projects -->
+    <!-- Programming Popup -->
+    <div class="window popup-content" id="programming-popup"
+        style="left: 30%; top: 10%; width: 40%; height: 80%; overflow-y: auto; padding: 5px;">
+        <div class="title-bar">
+            <div class="title-bar-text">projects</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closePopup('programming-popup')">X</button>
+            </div>
+        </div>
+        <h2 class="subheading" id="programming-popup-title">Coming Soon</h2>
+        <!-- <p>Coming Soon</p> -->
+
+        <!-- <div class="project-grid">
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="https://github.com/user-attachments/assets/87bd1c79-2aa5-41db-aeee-057b62e0e61d"
+                    alt="Therasource">
+                <p>New York Times Story Globe</p> -->
+                <!-- <sub style="align-content: center;">An interactive geotagged partial archive of "Modern Love" articles from the NYT</sub> -->
+            <!-- </div>
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="assets/buff2.png" alt="WB Games">
+                <p>WB Games NY Nexus</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="https://github.com/user-attachments/assets/362cbdda-f838-4854-ac9f-27b5ac609351"
+                    alt="Therasource">
+                <p>Confluence Validator</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('letterboxd')">
+                <img src="assets/91uzy5.gif" alt="Letterboxd-Longest">
+                <p>Letterboxd Longest</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+                    alt="Therasource">
+                <p>Geisel School of Medicine</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('supercuts')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+                    alt="Supercuts">
+                <p>Supercuts</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+                    alt="Therasource">
+                <p>Spotify Dance-Able</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('friend-a-mendations')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+                    alt="Friend-a-Mendations">
+                <p>Animation Scripting</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('friend-a-mendations')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+                    alt="Friend-a-Mendations">
+                <p>Friend-a-Mendations</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('women-in-media')">
+                <img src="assets/wim.png" alt="Women in Media">
+                <p>Women in Media</p>
+            </div>
+            <div class="project-item" onclick="openProjectPopup('therasource')">
+                <img src="https://th-thumbnailer.cdn-si-edu.com/BzQn_Ic1BD6KU0hIK2txDpPWMVg=/1000x750/filters:no_upscale():focal(1572x1258:1573x1259)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/d0/0e/d00ede69-a26b-483c-9831-29a22812c27a/img_3949.jpg"
+                    alt="Therasource">
+                <p>Media Ecology Project</p>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Individual Project Popups -->
+
+    <!-- Coming Soon Popup -->
+    <div class="window popup-content project-popup" id="therasource-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Coming Soon</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('therasource-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>Under Construction</h2>
+            <p></p>
+        </div>
+    </div>
+
+    <!-- Women in Media Popup -->
+    <div class="window popup-content project-popup" id="women-in-media-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Women in Media</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('women-in-media-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>Women in Media</h2>
+            <p>Designed and developed the first website for Dartmouth Women in Media, integrating custom CSS styles and
+                animations.</p>
+            <div class="video container">
+                <video controls width="100%">
+                    <source
+                        src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-29-180526.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supercuts Popup -->
+    <div class="window popup-content project-popup" id="supercuts-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Supercuts</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('supercuts-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>Supercuts</h2>
+            <p>React app using the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
+                Youtube search terms and keywords.</p>
+            <p>Here's a supercut created by the application (search term: "Gossip Girl" keyword: "Blair")</p>
+            <div class="video container">
+                <video controls width="100%">
+                    <source
+                        src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/supercut-1-online-video-cutter.com_.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Friend-a-Mendations Popup -->
+    <div class="window popup-content project-popup" id="friend-a-mendations-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Friend-a-Mendations</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('friend-a-mendations-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>Friend-a-Mendations</h2>
+            <p>Flask web application that uses The Movie Database API to allow users to search for and add movie
+                recommendations with a personal touch. Deployed on Heroku.</p>
+            <div class="video container">
+                <video controls width="100%">
+                    <source
+                        src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-22-125426.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letterboxd Popup -->
+    <div class="window popup-content project-popup" id="letterboxd-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Letterboxd Longest</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('letterboxd-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>Letterboxd Longest</h2>
+            <p>content.</p>
+            <video controls width="100%">
+                <source src="assets/letterbox480 - Made with Clipchamp (1).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    </div>
+
+    
+    <!-- Blank Project Popup -->
+    <div class="window popup-content project-popup" id="PROJECTNAMEHERE-popup" style="display: none;">
+        <div class="title-bar">
+            <div class="title-bar-text">Friend-a-Mendations</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeProjectPopup('PROJECTNAMEHERE-popup')">X</button>
+            </div>
+        </div>
+        <div class="project-content">
+            <h2>PROJ NAME</h2>
+            <p>content.</p>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    <!-- <div class="window popup-content" id="programming-popup" style="left: 10%; top: 10%; width: 90%; height: 80%; overflow-y: auto; padding: 5px;">
+      <div class="title-bar">
+      <div class="title-bar-text">Projects</div>
+      <div class="title-bar-controls">
+          <button aria-label="Close" onclick="closePopup('programming-popup')">X</button>
+      </div>
+      </div>
+      <h2 class="subheading" id="programming-popup-title">projects</h2>
+
+    <p> Here are some of my favorite programming projects (feel free to check out my <a href="https://github.com/oejames"> Github</a> for source code)</p>
+        <p> 
+
+    <p> <b> Therasource</b></p>      
+    <p>In the Jacobson Lab at Geisel School of Medicine, I'm working on a full-stack dashboard to monitor chatbot conversations for an upcoming 30-day study. Flask, Python, Javascript, SQLite, Firebase. </p>
+
+    <p> <b>Women in Media</b></p>
+    <p> Designed and developed the first website for Dartmouth Women in Media, integrating custom CSS styles and animations.</p>
+    <div class="video container">
+      <video controls width="100%">
+        <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-29-180526.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>    
+    </div>
+
+    <p> <b>Supercuts</b></p>
+    <p>React app using the Videogrep Python library to generate automatic mp4 supercuts based on user-specified Youtube search terms and keywords. </p>
+    <p> Here's a supercut created by the application (search term: "Gossip Girl" keyword: "Blair") </p>
+          <div class="video container">
+            <video controls width="100%">
+              <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/supercut-1-online-video-cutter.com_.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>    
+          </div>
+
+    <p><b>Friend-a-Mendations</b></p>
+    <p>Flask web application that uses The Movie Database API to allow users to search for and add movie recommendations with a personal touch. Deployed on Heroku. </p>
+        <div class="video container">
+        <video controls width="100%">
+          <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-22-125426.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video> 
+        </div>
+
+   <p><b>Animation Scripting</b></p> <p>3D and 2D Animation scripts in Python and Javascript for After Effects and Maya<img src="https://lh7-us.googleusercontent.com/6ONNjyIzVt4AbPKkvznO7tsuz-gJQ05TFS01aPtvO8prf4IipbB_EcCeY-649t3nxWG_7qaLeYjELDZ_lD4t4iILaLHympmi7FHWLzR-_yptQVZN6-Qx700aRl2dGPmAwoLotHiQZfqy9pIU4opZsok" alt="after effects"/></p>
+ -->
+    <!-- <p><b>Letterboxd's Longest</b></p> <p>This site, made with React, display's the lengthiest reviews on Letterboxd based on user search terms <img src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/12/letter-1536x720.png" alt="letterboxd longest"/></p> -->
+
+    <!-- <p> <b>Webcam Editor </b></p>
+        <p>Interactive webcam feature to re-color selected regions using Java</p>
+
+    <p> <b>Campus GPS </b></p>
+       <p style="padding-right: 10px;"> Interactive gps of dartmouth's campus, using Python to analyze info from a csv file.<img src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/alab4screenshot-e1698473070365.png" alt="gps" style="width: 100%;"> </p>
+
+          <p> <b>Multi-User Sketch Pad </b></p>
+         <p>
+        Collaborative real-time drawing sketch pad, made using multithreading in Java  <p> -->
+    <!-- </div> -->
+    <!-- <div class="column"> -->
+    <!-- <p> <b> Pong Game</b></p>
+    <p>Atari-style pong game with color-changing balls and paddles, made using Python.</p>
+    <div class="video container">
+      <video controls width="100%">
+        <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-22-144113.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video> 
+      </div>
+      <p> <b> Space Invaders </b></p>
+      <p> A web browser game, made with Phaser 3. <img src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/12/space-1.png" alt="space game" </p>
+          <p><b>This website :)</b></p>
+          <p> HTML, CSS, Javascript </p>
+
+      </p>
+  </div>
+  </div> -->
+
+    <!-- Pop-up window for Animation & Animation Tech -->
+    <div class="window popup-content" id="animation-tech-popup" style="left: 36%; top: 17%; width: 29%;">
+        <div class="title-bar">
+            <div class="title-bar-text">animation</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closePopup('animation-tech-popup')">X</button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <h2 class="subheading" id="animation-tech-popup-title">animation & animation tech</h2>
+            <p>
+                Animation is my favorite visual medium. I'm an animator @ dali lab, and I'm currently
+                scripting in Python and Javascript for Maya and After Effects. </p>
+            </p>
+
+            <p> Reel:</p>
+            <div class="video-container">
+                <video controls width="100%">
+                    <source
+                        src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/643996a8-9215-43bc-8137-deac6e196700.mp4"
+                        type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pop-up window for Favorites -->
+    <div class="window popup-content" id="playwriting-popup"
+        style="left: 35%; top: 5%; height: 85%; width: 30%; overflow-y: auto; padding: 7px;">
+        <div class="title-bar">
+            <div class="title-bar-text">favorites</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closePopup('playwriting-popup')">X</button>
+            </div>
+        </div>
+        <h2 class="subheading" id="playwriting-popup-title">favorites </h2>
+        <p>Here are some links to some of my favorite things:</p>
+
+        <div class="row">
+            <div class="column">
+                <a href="https://open.spotify.com/track/504tgqELooVwE79elYUO8j" target="_blank"><img
+                        src="https://albumart.publicradio.org/mb/44/44bc98a8-dbd2-3668-b139-fab0703eab14_6570.jpg"
+                        alt="fire island ak"></a>
+
+                <a href="https://www.hulu.com/movie/993cdee4-e727-489e-a1c2-a0826f01c50f" target="_blank"> <img
+                        src="https://www.hollywoodintoto.com/wp-content/uploads/2018/09/better-off-dead-totally-80s-list-780x425.jpg"
+                        alt="better off"></a>
+
+                <a href="https://cooking.nytimes.com/recipes/1019108-chicken-and-dumplings" target="_blank"><img
+                        src="https://www.applystickers.com/cdn/shop/products/PDP_Warhol_5x5_Campbells_Flat_Sheet_2.jpg?v=1660651839"
+                        alt="soup"></a>
+            </div>
+
+            <div class="column">
+                <a href="https://tubitv.com/movies/700459/tammy-and-the-t-rex" target="_blank"> <img
+                        src="https://i0.wp.com/bostonunderground.org/wp-content/uploads/2019/09/tammytrex.jpg?fit=1920%2C1080&ssl=1"
+                        alt="tammy"></a>
+
+                <a href="https://open.spotify.com/track/4SZozsPsG0vJ2Ti8BGxKsR" target="_blank"><img
+                        src="https://i1.sndcdn.com/artworks-Jjoj5ksggBTDlXZm-9irIgg-t500x500.jpg" alt="no myth"></a>
+
+                <a href="https://vimeo.com/733704813" target="_blank"> <img
+                        src="https://i0.wp.com/myyearofdicks.com/wp-content/uploads/2022/10/laurels-page-fireworks.jpg?resize=1200%2C675&ssl=1"
+                        alt="myod"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pop-up window for About Me -->
+    <div class="window popup-content" id="additional-software-popup"
+        style="left: 35%; top: 23%; width: 30%; overflow-y: auto; height: 40%; padding: 10px;">
+        <div class="title-bar">
+            <div class="title-bar-text">about</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closePopup('additional-software-popup')">X</button>
+            </div>
+        </div>
+        <h2 class="subheading" id="additional-software-popup-title">about </h2>
+
+        <p>I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both
+            a) tinkering with code for fun results and b) solving problems with code. </p>
+        <p>Since then, I've combined studies in media and computer science to delve into my interests in storytelling,
+            human connection, and problem-solving. I've loved applying computation to fields like film preservation,
+            animation, and full-stack web development.</p>
+
+    </div>
+
+    <!-- Icon for Product Management -->
+    <div class="icon-container" id="product" style="bottom: 30%; left: 5%; "
+        onclick="openPopup('product-management-popup')">
+        <!-- <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div> -->
+        <div class="icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/545/545234.png');"></div>
+        <!-- <div class="icon product-icon"></div> -->
+        <div class="icon-label">Contact</div>
+    </div>
+
+    <!-- Icon for Projects -->
+    <div class="icon-container" style="bottom: 50%; left: 14%; " onclick="openPopup('programming-popup')">
+        <div class="icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/545/545234.png');"></div>
+        <!-- <div class="icon project-icon"></div> -->
+        <div class="icon-label">Projects</div>
+    </div>
+
+    <!-- Icon for Animation & Animation Tech -->
+    <div class="icon-container" style="bottom: 50%; left: 5%; " onclick="openPopup('animation-tech-popup')">
+        <!-- <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div> -->
+        <div class="icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/545/545234.png');"></div>
+        <!-- <div class="icon animation-icon"></div> -->
+        <div class="icon-label">Animation</div>
+    </div>
+
+    <!-- Icon for Favorites -->
+    <div class="icon-container" style="bottom: 70%; left: 5%; " onclick="openPopup('playwriting-popup')">
+        <!-- <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div> -->
+        <div class="icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/545/545234.png');"></div>
+        <!-- <div class="icon favorites-icon"></div> -->
+        <div class="icon-label">Favorites</div>
+    </div>
+
+    <!-- Icon for About -->
+    <div class="icon-container" style="bottom: 70%; left: 14%; " onclick="openPopup('additional-software-popup')">
+        <!-- <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div> -->
+        <div class="icon" style="background-image: url('https://cdn-icons-png.flaticon.com/512/545/545234.png');"></div>
+        <!-- <div class="icon about-icon"></div> -->
+        <div class="icon-label">About </div>
+    </div>
+
+</body>
+
+</html>

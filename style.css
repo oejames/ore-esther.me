@@ -1,41 +1,53 @@
 
 body {
     background: #000; 
-    color: #00b4d4;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    background-image: url('https://pbblogassets.s3.amazonaws.com/uploads/2020/04/19153052/Vaporwave-and-Synthwave-Free-Pack-Video-Game-Look.gif');
     background-position-y: 20px;
     background-size: 90%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: Inconsalata, monospace;
+    font-family: 'Work Sans';
+    overflow: hidden;
   }
 
-  .icon-container {
+  /* .icon-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
     top: .5%;
     left: 1%;
-    cursor: pointer;   
-  }
+    cursor: url('assets/cursor\ \(3\).cur') , pointer;   
+  } */
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1px; /* space between icons */
+    position: absolute;
+    bottom: 30px; /* position the icons from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: url('assets/cursor\ \(3\).cur'), pointer;
+}
+
 
   .icon {
     display: block;
     width: 80px; 
     height: 80px;
-    background-image: url("https://cdn1.iconfinder.com/data/icons/devices-79/512/Old_Computer-2-512.png");
     background-size: cover;
     background-color: transparent;
   }
 
   .icon-label {
     margin-top: 5px;
-    font-family: Pixelated MS Sans Serif;
+    /* font-family: Pixelated MS Sans Serif; */
+      font-family: 'Work Sans';
     font-size: 10.4px; 
     position: relative;
     transition: background 0.2s, color 0.2s;
@@ -71,14 +83,18 @@ body {
     /* letter-spacing: 1px; */
     font-size: 14px;
     background-color: #000;
+      /* color: #ffffc5; */
+      color: #c8f0b7;
+      /* color: white; */
     top: 50%;
     left: 50%;
     display: none; /* Initially hidden */
     width: 26%; 
-    font-family: Inconsalata, monospace;
+    font-family: 'Work Sans', monospace;
 
     z-index: 0;
     animation: desktop-icon-open 0.5s; 
+      
   }
 
   .window.active {
@@ -88,13 +104,10 @@ body {
     padding: 10px;      
   }
 
-
-
-
   .window img {
     height: 30%;
     max-width: 100%; 
-    max-height: 100%; /* Limit the image height to the height of the parent container (popup window) */
+    max-height: 100%; 
   }
 
 
@@ -102,7 +115,8 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
+      cursor: url('assets/cursor\ \(3\).cur') , pointer;  
   }
 
   /* Additional styles for the smaller icons and labels in pop-ups */
@@ -112,7 +126,6 @@ body {
     align-items: center;
     position: absolute;
   }
-
 
   .icon-label-popup {
       font-size: 12px;
@@ -160,7 +173,7 @@ body {
         display: none; 
       }
     }
-    
+
       .window {
           max-width: 90%;
       }
@@ -179,22 +192,6 @@ body {
       padding: 0 10px;
   }
 
-  .start-button {
-      font-size: 12px;
-      margin-top: 10px;
-      cursor: pointer;
-      background: 	#acacac; /* Gray background color */
-      border: 1px solid #000; /* Black border */
-      padding: 2px 10px;
-      border-radius: 2px;
-      color: #000; /* Black text color */
-  }
-
-  .start-button img {
-    max-width: 5px;
-    max-height: 5px;
-  }
-
   .system-time {
       font-size: 15px;
     font-family: Pixelated MS Sans Serif;
@@ -206,7 +203,6 @@ body {
 
 /* drag */
   .draggable {
-    user-drag: none;
     -webkit-user-drag: none;
     touch-action: none;
     position: absolute;
@@ -318,35 +314,292 @@ body {
   }
 
 
-  @keyframes drawSmiley {
-    0% {
-      stroke-dashoffset: 1000;
-    }
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-
+  
   .container {
     display: flex;
     align-items: center;
   }
 
-  .smiley-svg {
-    width: 200px;
-    height: 200px;
-    animation: drawSmiley 4s ease-in-out forwards;
-  }
-
-  .smiley-path {
-    stroke: #008080;
-    fill: none;
-    stroke-width: 2;
-    stroke-dasharray: 1000;
-  }
-
   video::-webkit-media-controls-fullscreen-button {         
     display: none !important; }
 
+body, html { 
+    cursor: url('assets/cursor.cur'), auto;
+}
+
+button:hover, a:hover, .custom-element:hover {
+    cursor: url('assets/cursor\ \(3\).cur'), pointer;
+}
 
 
+body, html {
+    cursor: url('assets/cursor.cur'), auto;
+}
+
+a:hover, button:hover, .icon-container:hover, .start-button:hover, .draggable:hover, .custom-element:hover {
+    cursor: url('assets/cursor\ \(3\).cur'), pointer;
+}
+
+
+a:active, button:active, .icon-container:active, .start-button:active, .draggable:active, .custom-element:active {
+    cursor: url('assets/cursor\ \(3\).cur'), pointer;
+}
+
+  body, video, .video-container * {
+    cursor: url('assets/cursor.cur'), auto;
+  }
+
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* cursor: pointer; */
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    background-color: transparent;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-label {
+    font-size: 0.9rem;
+    max-width: 100px;
+    word-wrap: break-word;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.7;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #00ffff;
+    top: 70%;
+    left: 3%;
+} 
+
+ .star {
+    /* width: 100px;
+    height: 100px; */ /* 100 by 100 = the pentagon */
+    width: 0px;
+    height: 80px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #ff00ff;
+    top: 70%;
+    right: 20%;
+     /* transform: rotate(15deg);  */
+ } 
+
+.rectangle {
+    width: 200px;
+    height: 100px;
+    background-color: #ffff00;
+    bottom: 15%;
+    left: 30%;
+    /* transform: skew(-20deg); */
+}
+
+ .squiggle {
+    width: 200px;
+    height: 100px;
+    background-color: #00ff00;
+    top: 50%;
+    right: -3%;
+    border-radius: 50px 0 0 50px; 
+} 
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.shape {
+    animation: float 5s ease-in-out infinite;
+}
+
+.circle { animation-delay: 0.3s; }
+.star { animation-delay: 1s; }
+.rectangle { animation-delay: 2s; }
+.squiggle { animation-delay: 0s; }
+
+
+
+
+/* from the kim */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* height: 100vh; */
+    position: relative;
+    top: 200px;
+    /* z-index: 1; */
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    /* bottom: 30%; */
+    /* text-shadow: 0 0 10px #00ff00; */
+}
+
+.title-bar {
+    color: #fff;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* .desktop {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    align-content: flex-end;
+    padding: 1rem;
+} */
+
+.icon-row {
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-around;
+    gap: 20px; /* gap between icons */
+    margin-top: 20px; /* space between subtitle and icons */
+}
+
+
+
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* cursor: pointer; */
+    cursor: url('assets/cursor\ \(3\).cur') , pointer; 
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-item img {
+    width: 100%;
+    /* max-width: 100%; /* 'width 100' will weirdly expand the smaller width images but this preserves size*/ 
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.project-item p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.project-popup {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 90%;
+    height: 80%;
+    overflow-y: auto;
+    padding: 20px;
+    animation-duration: 0s;
+}
+
+.project-content {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+
+.project-popup.active {
+    display: block;
+    z-index: 1;
+    animation: none;
+}
+
+
+/* landing page */
+/* .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.fade-out {
+    opacity: 0;
+} */

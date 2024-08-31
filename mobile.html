@@ -90,7 +90,7 @@
 
       .window img {
         max-width: 100%; 
-        max-height: 100%; /* Limit the image to the height of the parent container (popup window) */
+        max-height: 100%; 
       }
 
 
@@ -101,7 +101,7 @@
         cursor: pointer;
       }
 
-      /* Additional styles for the smaller icons and labels in pop-ups */
+ 
       .icon-container-popup {
         display: flex;
         flex-direction: column;
@@ -116,7 +116,7 @@
       }
 
 
-      /* Updated styles for mobile screens */
+     
       @media (max-width: 768px) {
           .icon-container {
               flex-direction: column;
@@ -128,7 +128,7 @@
           }
 
         
-        /* Adjust the order and positioning for mobile screens */
+        /* adjusting the order and positioning for mobile screens */
         #product {
           order: 1;
         }
@@ -154,7 +154,7 @@
 
 
           .window {
-              max-width: 90%; /* Allow slightly larger pop-up width */
+              max-width: 90%;
           }
 
         .start-menu-bar {
@@ -330,19 +330,6 @@
         align-items: center;
       }
 
-      .smiley-svg {
-        width: 200px;
-        height: 200px;
-        animation: drawSmiley 4s ease-in-out forwards;
-      }
-
-      .smiley-path {
-        stroke: #008080;
-        fill: none;
-        stroke-width: 2;
-        stroke-dasharray: 1000;
-      }
-
       video::-webkit-media-controls-fullscreen-button {         
         display: none !important; }
 
@@ -459,55 +446,6 @@
         activeElement = null;
     });
 
-    //DRAGGING
-
-
-
-
-
-
-
-    const canvas = document.getElementById('smileyCanvas');
-    const ctx = canvas.getContext('2d');
-
-    let frame = 0;
-
-    // Function to draw a smiley face
-    function drawSmiley() {
-        // Clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the smiley face
-        ctx.beginPath();
-        ctx.arc(100, 100, 50, 0, Math.PI * 2);
-        ctx.strokeStyle = 'white';
-        ctx.stroke();
-        ctx.fillStyle = 'yellow';
-        ctx.fill();
-
-        // Draw the eyes
-        ctx.beginPath();
-        ctx.arc(70, 70, 10, 0, Math.PI * 2);
-        ctx.arc(130, 70, 10, 0, Math.PI * 2);
-        ctx.fillStyle = 'white';
-        ctx.fill();
-
-        // Draw the mouth
-        const mouthRadius = 30;
-        const startAngle = 0.2 * Math.PI + Math.sin(frame * 0.05) * 0.1;
-        const endAngle = 0.8 * Math.PI - Math.sin(frame * 0.05) * 0.1;
-        ctx.beginPath();
-        ctx.arc(100, 100, mouthRadius, startAngle, endAngle);
-        ctx.lineWidth = 3;
-        ctx.stroke();
-    }
-
-    function animate() {
-        frame++;
-        drawSmiley();
-        requestAnimationFrame(animate);
-    }
-
     animate();
 
   </script>
@@ -541,194 +479,12 @@
   
         </div>
   
-          I’m a junior at Dartmouth studying computer science and film & media studies. 
-  
-        <p> My interests lie in software engineering, animation tech and product management. </p>
-  
-        Feel free to click the folders to see my projects, animation reel, and more :)
+          <!-- I’m a senior at Dartmouth studying computer science and film & media studies. 
+   -->
+        <p> This site is best viewed on desktop. </p>
+
       </div>
     </div>
 
 
 
-<!-- Add pop-up content -->
-  <!-- Pop-up window for Product Management -->
-  <div class="window popup-content" id="product-management-popup" style="left: 5%;">
-    <div class="title-bar">
-    <div class="title-bar-text">product management</div>
-    <div class="title-bar-controls">
-        <button aria-label="Close" onclick="closePopup('product-management-popup')">X</button>
-    </div>
-    </div>
-    <h2 class="subheading" id="programming-popup-title">product management</h2>
-    <p>
-       I'm currently an IT Product Management intern @ USAC, helping deploy over $20 billion according to FCC directives for broadband connectivity access.
-    </p>
-<p> Skills: Agile and Scrum Methodologies, Jira, Confluence</p>
-</div>
-</div>
-
-  <!-- Pop-up window for Programming -->
-  <div class="window popup-content" id="programming-popup" style="left: 5%;">
-      <div class="title-bar">
-      <div class="title-bar-text">programming</div>
-      <div class="title-bar-controls">
-          <button aria-label="Close" onclick="closePopup('programming-popup')">X</button>
-      </div>
-      </div>
-      <h2 class="subheading" id="programming-popup-title">programming</h2>
-      <p> Here are some of my favorite programming projects (feel free to check out my <a href="https://github.com/oejames"> Github</a> for source code)</p>
-      <p> 
-
-  <p> <b> Therasource</b></p>      
-  <p>In the Jacobson Lab at Geisel School of Medicine, I'm working on a full-stack dashboard to monitor chatbot conversations for an upcoming 30-day study. Flask, Python, Javascript, SQLite, Firebase. </p>
-  <p> <b>Supercuts</b></p>
-  <p>React app using the Videogrep Python library to generate automatic mp4 supercuts based on user-specified Youtube search terms and keywords. </p>
-  <p> Here's a supercut created by the application (search term: "Gossip Girl" keyword: "Blair") </p>
-        <div class="video container">
-          <video controls width="100%">
-            <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/supercut-1-online-video-cutter.com_.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video>    
-        </div>
-
-
- <p><b>Animation Scripting</b></p> <p>3D and 2D Animation scripts in Python and Javascript for After Effects and Maya<img src="https://lh7-us.googleusercontent.com/6ONNjyIzVt4AbPKkvznO7tsuz-gJQ05TFS01aPtvO8prf4IipbB_EcCeY-649t3nxWG_7qaLeYjELDZ_lD4t4iILaLHympmi7FHWLzR-_yptQVZN6-Qx700aRl2dGPmAwoLotHiQZfqy9pIU4opZsok" alt="after effects"</p>
-        <!-- 
-        <div class="row">
-          <div class="column"> -->
-
-<p><b>Friend-a-Mendations</b></p>
-  <p>Flask web application that displays random-ized movie recommendations. </p>
-
-
-  <p> <b>Webcam Editor </b></p>
-      <p>Interactive webcam feature to re-color selected regions using Java</p>
-
-  <p> <b>Campus GPS </b></p>
-     <p style="padding-right: 10px;"> Interactive gps of dartmouth's campus, using Python to analyze info from a csv file.<img src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/alab4screenshot-e1698473070365.png" alt="gps" style="width: 100%;"> </p>
-
-        <p> <b>Multi-User Sketch Pad </b></p>
-       <p>
-      Collaborative real-time drawing sketch pad, made using multithreading in Java  <p>
-          <!-- </div> -->
-            <!-- <div class="column"> -->
-      <p> <b> Pong Game</b></p>
-  <p>Atari-style pong game with color-changing paddles, made using Python.<img src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/extractredlabscewr-e1698473127207.png" alt="pong"></p>
-            <!-- </div> -->
-        <!-- </div> -->
-
-
-
-        <p><b>This website :)</b></p>
-        <p> HTML, CSS, Javascript </p>
-
-    </p>
-</div>
-</div>
-
-  <!-- Pop-up window for Animation & Animation Tech -->
-  <div class="window popup-content" id="animation-tech-popup" style="left: 5%;">
-    <div class="title-bar">
-      <div class="title-bar-text">animation</div>
-      <div class="title-bar-controls">
-          <button aria-label="Close" onclick="closePopup('animation-tech-popup')">X</button>
-      </div>
-      </div>
-
-      <div class="window-body">
-          <h2 class="subheading" id="animation-tech-popup-title">animation & animation tech</h2>
-          <p>
-            Animation is one of my favorite mediums. I'm an incoming animator @ dali lab, and I'm currently scripting in Python and Javascript for Maya and After Effects. </p>
-        </p>
-
-      <p> Reel:</p>
-        <div class="video-container">
-            <video controls width="100%">
-                <source src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/643996a8-9215-43bc-8137-deac6e196700.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-</div>
-
-
-  <!-- Pop-up window for Playwriting and Comedy Writing -->
-  <div class="window popup-content" id="playwriting-popup" style="left: 5%;">
-      <div class="title-bar">
-        <div class="title-bar-text">Favorites</div>
-        <div class="title-bar-controls">
-            <button aria-label="Close" onclick="closePopup('playwriting-popup')">X</button>
-        </div>
-        </div>
-      <h2 class="subheading" id="playwriting-popup-title">favorites </h2>
-      <p>Here are some links to some of my favorite things:</p>
-
-    <div class="row">
-      <div class="column">
-        <a href="https://open.spotify.com/track/504tgqELooVwE79elYUO8j"target="_blank"><img src="https://albumart.publicradio.org/mb/44/44bc98a8-dbd2-3668-b139-fab0703eab14_6570.jpg" alt="fire island ak"></a>
-
-        <a href="https://www.hulu.com/movie/993cdee4-e727-489e-a1c2-a0826f01c50f"target="_blank"> <img src="https://www.hollywoodintoto.com/wp-content/uploads/2018/09/better-off-dead-totally-80s-list-780x425.jpg" alt="better off"></a>
-
-        <a href="https://cooking.nytimes.com/recipes/1019108-chicken-and-dumplings"target="_blank"><img src="https://www.applystickers.com/cdn/shop/products/PDP_Warhol_5x5_Campbells_Flat_Sheet_2.jpg?v=1660651839" alt="soup"></a>
-    </div>
-
-    <div class="column">
-      <a href="https://tubitv.com/movies/700459/tammy-and-the-t-rex"target="_blank"> <img src="https://i0.wp.com/bostonunderground.org/wp-content/uploads/2019/09/tammytrex.jpg?fit=1920%2C1080&ssl=1" alt="tammy"></a>
-
-      <a href="https://open.spotify.com/track/4SZozsPsG0vJ2Ti8BGxKsR"target="_blank"><img src="https://i1.sndcdn.com/artworks-Jjoj5ksggBTDlXZm-9irIgg-t500x500.jpg" alt="no myth"></a> 
-
-     <a href="https://vimeo.com/733704813" target="_blank"> <img src="https://i0.wp.com/myyearofdicks.com/wp-content/uploads/2022/10/laurels-page-fireworks.jpg?resize=1200%2C675&ssl=1" alt="myod"></a>
-    </div>
-  </div>
-</div>
-      
-
- 
-
-  <!-- Pop-up window for About Me -->
-  <div class="window popup-content" id="additional-software-popup" style="left: 5%;">
-      <div class="title-bar">
-          <div class="title-bar-text">about</div>
-          <div class="title-bar-controls">
-              <button aria-label="Close" onclick="closePopup('additional-software-popup')">X</button>
-          </div>
-          </div>
-      <h2 class="subheading" id="additional-software-popup-title">about </h2>
-      <p>I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both a) tinkering with code for fun results and b) solving problems with code. </p>
-    <p>Since then, I've combined studies in media and computer science to delve into my interests in storytelling, human connection, and problem-solving. I've loved applying computation to fields like film preservation, animation, and full-stack web development.</p>
-
-  </div>
-
-  <!-- Icon for Product Management -->
-  <div class="icon-container" id="product" style="top: 70%; left: 37%;" onclick="openPopup('product-management-popup')">
-      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
-      <div class="icon-label">Product Management</div>
-  </div>
-
-  <!-- Icon for Programming -->
-  <div class="icon-container" style="top: 70%; left: 10%" onclick="openPopup('programming-popup')">
-      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
-      <div class="icon-label">Programming</div>
-  </div>
-
-  <!-- Icon for Animation & Animation Tech -->
-  <div class="icon-container" style="top: 70%; left: 70%;" onclick="openPopup('animation-tech-popup')">
-      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
-      <div class="icon-label">Animation Tech</div>
-  </div>
-
-  <!-- Icon for Playwriting and Comedy Writing -->
-  <div class="icon-container" style="top: 85%; left: 10%;" onclick="openPopup('playwriting-popup')">
-      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
-      <div class="icon-label">Favorites</div>
-  </div>
-
-  <!-- Icon for About -->
-  <div class="icon-container" style="top: 85%; left: 40%" onclick="openPopup('additional-software-popup')">
-      <div class="icon" style="background-image: url('https://cdn.arstechnica.net/wp-content/uploads/archive/reviews/os/mac-os-x-10-5.media/leopard-folder-big.png');"></div>
-      <div class="icon-label">About </div>
-  </div>
-
-</body>
-</html>
