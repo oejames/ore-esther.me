@@ -1,0 +1,506 @@
+/*--- CUSTOM FONTS ---*/
+
+@font-face {
+    font-family: GT-America-Ultra-Light-Italic;
+    src: url('fonts/gt-america-ultra-light-italic-webfont.woff2') format('woff2'), url('fonts/gt-america-ultra-light-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: GT-America-Bold;
+    src: url('fonts/gt-america-bold-webfont.woff2') format('woff2'), url('fonts/gt-america-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*--- ELEMENTS ---*/
+
+html {
+    font-family: 'GT-America-Bold';
+    line-height: 1.1;
+    font-size: 26px;
+    color: #111111;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    font-size: 1.0em;
+    font-weight: normal;
+}
+
+a {
+    color: #111111;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+p {
+    margin: 0.8em 0;
+}
+#team p, #credits p {
+    margin-bottom: 0;
+}
+.text {
+    font-size: 0.75rem;
+    line-height: 1.15;
+}
+p.text.first {
+    margin-top: 0.8rem;
+}
+.column-2 p.text {
+    margin-top: 0rem;
+}
+p.small {
+    font-size: 0.5rem;
+    line-height: 1.2;
+}
+#team p.small, #credits p.small {
+    margin-top: 0.1em;
+}
+#section-task p {
+    margin-bottom: 0;
+}
+
+p.last {
+    margin-bottom: 0.86rem;
+}
+p.text.last {
+    margin-bottom: -0.13rem;
+}
+p.text.only.last {
+    margin-bottom: 0.8rem;
+}
+p.small.last, #team p.small.last, #credits p.small.last {
+    margin-bottom: 0.91rem;
+}
+
+/*--- CONTAINER ---*/
+
+#container {
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/*--- SECTION ---*/
+
+.section {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#intro {
+    height: 100vh;
+}
+
+/*--- HEADLINE ---*/
+
+.headlineContainer {
+    flex: 1 0 56px;
+    border-right: 1px solid #000000; /* this is the right black line on the sidebar*/
+}
+#footer .headlineContainer {
+    flex: 1 0 57px;
+    border: none;
+}
+
+#headline-intro {
+    margin-top: 50vh;
+}
+
+.headlineShifter {
+    font-family: 'GT-America-Ultra-Light-Italic';
+    font-size: 27px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    padding: 1rem 0 1rem;
+    align-self: flex-start;
+    margin: 0 0 0 14px;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    cursor: default;
+}
+
+#goButton .headlineShifter{
+    cursor: pointer;
+}
+
+.headlineContainer#headline-intro .headlineShifter {
+    position: relative;
+    padding: 0;
+}
+
+.headlineContainer#headline-header .headlineShifter {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    padding: 16px;
+    margin: 0;
+    padding-top: calc(1rem - 12px);
+    transform: none;
+}
+
+.backArrow {
+    width: 100%;
+    height: 100%;
+    background-image: url(svgs/arrow-left.svg);
+    background-size: 24px 24px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+/*--- CONTENT ---*/
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+.contentContainer {
+    position: relative;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    word-break: break-word;
+}
+#section-header .contentContainer {
+    padding: 0;
+}
+#section-title .contentContainer {
+    padding-top: 0;
+}
+#section-task .contentContainer {
+    padding-bottom: 0;
+}
+.section-last .contentContainer {
+    padding-bottom: 0.8rem;
+    /* border-bottom: 1px solid #000000; */ /* this is the bottom line in the sidebar */
+}
+
+/*--- PROJECT BUTTONS ---*/
+
+.projectButton {
+    width: calc(100% + 1rem);
+    margin: 1rem -0.5rem;
+}
+
+.projectButtonContent {
+    position: relative;
+    width: 100%;
+    padding-bottom: 66.66%; /*3:2*/
+    overflow: hidden;
+}
+
+.projectButtonImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#button1Image, #button2Image, #button3Image, #button4Image {
+    transform: scale(1.15, 1.15);
+}
+
+.projectButtonVideo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.projectHeadline {
+    color: white;
+    position: absolute;
+    top: 0.4rem;
+    left: 0.5rem;
+    right: 0.5rem;
+}
+
+.projectButtonArrow {
+    width: 24px;
+    height: 24px;
+    background-image: url(svgs/arrow-right.svg);
+    background-size: 24px 24px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
+.fullBoxLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* fixes overlap error in IE7/8, 
+    /* background-image: url('empty.gif'); */
+}
+
+/*--- CREDITS ---*/
+
+.credit {
+    width: 100%;
+    float: left;
+}
+
+/*--- SIDEBAR ---*/
+
+#sidebar-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 56px;
+    height: 100%;
+    pointer-events: none;
+}
+
+#sidebar {
+    position: fixed;
+    width: 56px;
+    height: 100%;
+}
+
+#arrowContainer {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0px;
+    width: 100%;
+    height: 112px;
+    height: calc(64px + 1rem);
+    pointer-events: all;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#arrowImage {
+    transition: all 0.3s;
+    transition-timing-function: ease;
+    transform: rotate(0deg);
+    width: 24px;
+    height: 64px;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    background-image: url(svgs/arrow-down.svg);
+    background-size: 24px 64px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.arrowImageRotated {
+    transform: rotate(180deg) !important;
+}
+
+/*--- FOOTER ---*/
+
+#footer {
+    position: relative;
+}
+
+/* #footer-border-right { **THIS GAVE THE RIGHT SIDE OF THE FOOTER BORDER
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: #000000;
+    top: 0;
+    right: 0;
+    display: none;
+} */
+
+#footer p {
+    font-family: 'GT-America-Ultra-Light-Italic';
+    text-transform: uppercase;
+    font-size: 27px;
+    line-height: 1.19;
+    margin: 1rem 0;
+}
+
+/*--- PROJECT PAGE ---*/
+
+.videoTeaser {
+    position: relative;
+    width: 100%;
+    background-color: #efefef;
+    padding-bottom: 66.66%; /*3:2*/
+    overflow: hidden;
+}
+
+.videoTeaserVideo {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 50%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.projectTitle {
+    color: white;
+    position: absolute;
+    top: 0.4rem;
+    left: 0.5rem;
+    right: 0.5rem;
+}
+
+.pageTitle {
+    margin: 0.4rem 0;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.column-2 {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.column-2.last {
+    margin-bottom: 0;
+}
+
+.projectMedia {
+    width: 100%;
+    margin-bottom: 0.4rem;
+    background-color: #efefef;
+}
+
+.projectMedia.last{
+    margin-bottom: 0;
+}
+
+body, html { 
+    cursor: url('assets/cursor.cur'), auto;
+}
+
+button:hover, a:hover, .custom-element:hover {
+    cursor: url('assets/cursor\ \(3\).cur'), pointer;
+}
+
+/*--- THREE.JS ---*/
+
+canvas {
+    display: block;
+}
+
+#threeDContent {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/*--- RESPONSIVE ---*/
+
+@media only screen and (min-width:375px) {
+
+    html {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (min-width:768px) {
+
+    html {
+        font-size: 36px;
+    }
+
+    .text {
+        font-size: 0.5rem;
+        line-height: 1.15;
+    }
+    p.text.first {
+        margin-top: 0.88rem;
+    }
+    .column-2 p.text {
+        margin-top: 0.4rem;
+    }
+
+    .projectButton {
+        width: calc(50% - 0.25rem);
+        margin: 0.5rem 0.5rem 0rem 0rem;
+        float: left;
+    }
+
+    #projects .contentContainer {
+        padding-top: 0.5rem;
+        padding-bottom: 0;
+    }
+
+    .credit {
+        width: calc(50% - 0.25rem);
+        margin-right: 0.5rem;
+    }
+
+    .rightCol {
+        margin-right: 0rem;
+    }
+
+    .bottomCol {
+        margin-bottom: 1rem;
+    }
+
+    .videoTeaser {
+        padding-bottom: 40%; 
+    }
+
+    .videoTeaserVideo{
+        width: 100%;
+        height: auto;
+    }
+
+    .row {
+        flex-direction: row;
+    }
+
+    .column-2 {
+        width: calc(62% - 0.25rem);
+        margin-bottom: 0;
+    }
+    .column-2.last {
+        width: calc(38% - 0.25rem);
+    }
+
+    #footer-border-right {
+        display: initial;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+
+    html {
+        font-size: 48px;
+    }
+}

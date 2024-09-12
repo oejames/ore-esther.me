@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100">
+  <style>
+    @font-face {
+      font-family: 'CustomFont';
+      src: url('../fonts/gt-america-bold-webfont.woff2') format('woff2');
+    }
+    text {
+      font-family: 'CustomFont', sans-serif;
+      font-size: 48px;
+      fill: #000000;
+    }
+  </style>
+  <text x="10" y="60">Hi, I'm Ore</text>
+</svg>

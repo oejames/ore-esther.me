@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Coming Soon</title>
+    <meta name="description" content="Turning the check-in process of a hotel into a memorable welcome experience"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div class="section" id="section-header">
+            <div class="headlineContainer" id="headline-header">
+                <div class="headlineShifter">
+                    <div class="backArrow">
+                        <a href="/index.html#projects"><span class="fullBoxLink"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <div class="videoTeaser">
+                        <video class="videoTeaserVideo" autoplay loop muted playsinline
+                            src="/videos/teaser/TBB-U14-Teaser.mp4"
+                            poster="/videos/teaser/TBB-U14-Teaser-Poster.jpg"></video>
+                    </div>
+                    <div class="projectTitle">
+                        <!-- <h2>Coming Soon</h2> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="section" id="section-task">
+            <div class="headlineContainer">
+                <div class="headlineShifter">
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <p class="last">Under Construction</p>
+                </div>
+            </div>
+        </div>
+        <!--
+
+        <div class="section" id="section-whatwedid">
+            <div class="headlineContainer">
+                <div class="headlineShifter">
+                    <h3>WHAT WE DID</h3>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <div class="row">
+                        <div class="column-2">
+                            <video class="projectMedia" controls playsinline
+                                src="/videos/documentation/TBB-U14-MakingOf.mp4"
+                                poster="/videos/documentation/TBB-U14-MakingOf-Poster.jpg"></video>
+                            <img class="projectMedia last" src="/images/U14/TBB-U14-01.jpg" alt="App screenshots">
+                        </div>
+                        <div class="column-2 last">
+                            <p class="text">Together with WLDX we created a visual identity for the boutique hotel U14
+                                in Helsinki that represents all the personalities working or staying at the hotel.
+                            </p>
+                            <p class="text last">For this purpose we developed a corresponding iPad app that turns the
+                                live image of the front-camera into a cartoon-style portrait in real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="section-result">
+            <div class="headlineContainer">
+                <div class="headlineShifter">
+                    <h3>THE RESULT</h3>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <div class="row">
+                        <div class="column-2">
+                            <img class="projectMedia" src="/images/U14/TBB-U14-02.jpg" alt="App user having fun">
+                            <img class="projectMedia" src="/images/U14/TBB-U14-03.jpg" alt="iPad over-the-shoulder-view">
+                            <img class="projectMedia last" src="/images/U14/TBB-U14-04.jpg" alt="Hotel U14 visual identity">
+                        </div>
+                        <div class="column-2 last">
+                            <p class="text last">After taking the picture during check-in the portrait is printed on the
+                                guest’s keycard and appears on the welcome screen inside his room and in the key visual
+                                on the hotel website.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-last" id="credits">
+            <div class="headlineContainer">
+                <div class="headlineShifter">
+                    <h3>CREDITS</h3>
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <div class="credit">
+                        <p>Triggerbangbang</p>
+                        <p class="small">Augmented reality app</p>
+                    </div>
+                    <div class="credit rightCol">
+                        <p>WLDX</p>
+                        <p class="small">Project lead</p>
+                    </div>
+                    <div class="credit">
+                        <p>Hotel U14</p>
+                        <p class="small">Client</p>
+                    </div>
+                    <div class="credit rightCol">
+                        <p>Helsinki, FI</p>
+                        <p class="small last">Location</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="section" id="footer">
+            <div class="headlineContainer">
+                <div class="headlineShifter">
+                </div>
+            </div>
+            <div class="content">
+                <div class="contentContainer">
+                    <p>
+                        <!-- <a href="/projects/lets-play-pong.html">Next project</a> -->
+                        <br>
+                        <a href="/index.html#projects">Home</a></p>
+                </div>
+            </div>
+            <div id="footer-border-right"></div>
+        </div>
+
+        <div id="sidebar-wrapper">
+            <div id="sidebar">
+                <div id="arrowContainer">
+                    <div id="arrowImage"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function () {
+
+            var currentScrollPos = 0;
+            var reachedEnd = false;
+            let reachEndThreshold = 16;
+
+            var $sec = $(".section");
+            $("#arrowContainer").click(function () {
+
+                var y = $sec.filter(function (i, el) {
+                    return el.getBoundingClientRect().bottom > 0;
+                }).next(".section").offset().top;
+
+                y = Math.ceil(y);
+
+                var scrollDist = y - currentScrollPos;
+                if (reachedEnd) {
+                    scrollDist = currentScrollPos;
+                }
+                var scrollDuration = (scrollDist / 100) * 120;
+
+                if (reachedEnd) {
+                    $("html, body").stop().animate({ scrollTop: 0 }, scrollDuration);
+                } else {
+                    //Proportional Scrolling Duration
+                    $("html, body").stop().animate({ scrollTop: y }, scrollDuration);
+
+                    //Fixed Scrolling Duration
+                    // $("html, body").stop().animate({ scrollTop: y });
+                }
+            });
+
+
+            $(window).scroll(function () {
+
+                currentScrollPos = $(window).scrollTop();
+
+                var height = window.innerHeight ? window.innerHeight : $(window).height();
+
+                if ($(window).scrollTop() + height > $(document).height() - reachEndThreshold) {
+                    if (!reachedEnd) {
+                        $("#arrowImage").addClass("arrowImageRotated");
+                        reachedEnd = true;
+                    }
+                } else {
+                    if (reachedEnd) {
+                        $("#arrowImage").removeClass("arrowImageRotated");
+                        reachedEnd = false;
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

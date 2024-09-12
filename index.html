@@ -1,256 +1,156 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ore - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            font-family: 'Work Sans', sans-serif;
-            color: #ffffff;
-            background: #000000;
-            /* cursor: url('assets/cursor.cur'), auto; */
-        }
-        #scene-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 1;
-        }
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-        p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .enter-button {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            background-color: rgba(255,255,255,0.2);
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Work Sans';
-        }
-        .enter-button:hover {
-            background-color: rgba(255,255,255,0.4);
-            /* cursor: url('assets/cursor\ \(3\).cur'), auto; */
-            /* transform: scale(1.05); */
-        }
-    </style>
+  <title>Portfolio </title>
+  <meta charset="utf-8" />
+  <meta name="description"
+    content="Ore Portfolio />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+  <link type="text/css" rel="stylesheet" href="main.css">
+  <script type="module" src="threejs/shatter.js"></script>
 </head>
+
 <body>
-    <div id="scene-container"></div>
-    <div class="content">
-        <h1>HI, I'M ORE</h1>
-        <!-- <p>Welcome to my portfolio</p> -->
-        <button class="enter-button" onclick="transitionToMain()">Enter Portfolio</button>
+
+  <div id="container">
+
+    <div class="section" id="intro">
+      <!-- <div class="headlineContainer" id="headline-intro"> -->
+        <div id="goButton">
+          <div class="headlineShifter">
+            
+          </div>
+        </div>
+      </div>
+      <div class="content">
+      </div>
+    <!-- </div> -->
+
+    <div class="section" id="section-about">
+      <div class="headlineContainer">
+        <div class="headlineShifter">
+          <!-- <h2>INTRO </h2> -->
+        </div>
+      </div>
+      <div class="content">
+        <div class="contentContainer">
+          <p>I’m a senior at Dartmouth College studying computer science and media studies.</p>
+
+          
+          <p>My interests lie in digital archives, media preservation, and the intersection between tech and storytelling.* </p>
+
+          <!-- Feel free to click the folders to see my projects, animation reel, and more :)* -->
+
+          
+          <p class="small last">*e.g. data-driven storytelling / news media / interactive installations /
+            animation software
+            computer graphics coding / computational journalism / virtual reality / ...</p>
+        </div>
+      </div>
     </div>
 
-    <script>
-        let scene, camera, renderer, particleSystem, stars, floatingObjects;
-        const clock = new THREE.Clock();
+    <div class="section" id="projects">
+      <div class="headlineContainer">
+        <div class="headlineShifter">
+          <!-- <h2>PROJECTS</h2> -->
+        </div>
+      </div>
+      <div class="content">
+        <div class="contentContainer">
+          <div class="projectButton" id="button1">
+            <div class="projectButtonContent">
+              <img class="projectButtonImage" id="button1Image" src="https://media.tenor.com/GfSX-u7VGM4AAAAM/coding.gif"
+                alt="Welcome to Hotel U14 Teaser">
+              <div class="projectHeadline">Programming Projects</div>
+              <div class="projectButtonArrow"></div>
+              <a href="/projects/construction.html"><span class="fullBoxLink"></span></a>
+            </div>
+          </div>
+          <div class="projectButton rightCol" id="button2">
+            <div class="projectButtonContent">
+              <img class="projectButtonImage" id="button2Image" src="https://media0.giphy.com/media/XuSS2uqOPf83K/200w.gif?cid=6c09b952f35u871o4icem73fm4qq6i4t2flnwm2i0s96c24n&ep=v1_gifs_search&rid=200w.gif&ct=g"
+                alt="Let's play Pong Teaser">
+              <div class="projectHeadline">Favorites</div>
+              <div class="projectButtonArrow"></div>
+              <a href="/projects/construction.html"><span class="fullBoxLink"></span></a>
+            </div>
+          </div>
+          <div class="projectButton bottomCol" id="button3">
+            <div class="projectButtonContent">
+              <img class="projectButtonImage" id="button3Image" src="https://media0.giphy.com/media/iBNgNQyDALPUY/200w.gif?cid=6c09b952ihbpdzsp8ht828uuud10zqz5numay3b0krunqm5a&ep=v1_gifs_search&rid=200w.gif&ct=g"
+                alt="House of Wonders Teaser">
+              <div class="projectHeadline">Animation Tech</div>
+              <div class="projectButtonArrow"></div>
+              <a href="/projects/construction.html"><span class="fullBoxLink"></span></a>
+            </div>
+          </div>
+          <div class="projectButton rightCol bottomCol" id="button4">
+            <div class="projectButtonContent">
+              <img class="projectButtonImage" id="button4Image" src="https://i.gifer.com/fetch/w300-preview/c0/c039754ab00f9db12cbdb1b0d1ab8e80.gif"
+                alt="Mercedes Motion Lights Teaser">
+              <div class="projectHeadline">About</div>
+              <div class="projectButtonArrow"></div>
+              <a href="/projects/construction.html"><span class="fullBoxLink"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.z = 50;
+    <div class="section section-last" id="contact">
+      <div class="headlineContainer">
+        <div class="headlineShifter">
+          <!-- <h2>GET IN TOUCH</h2> -->
+        </div>
+      </div>
+      <div class="content">
+        <div class="contentContainer">
+          <!-- <p>Drop  -->
+            <!-- <br /> -->
+            <!-- an  -->
+           <h2 style="font-family: 'GT-America-Ultra-Light-Italic';
+           text-transform: uppercase;
+           font-size: 27px;
+           line-height: 1.19;
+           margin: 1rem 0;"> <a href="mailto:jamesore200@gmail.com">e-mail</a>.
+          <!-- <p>Visit us <br />in -->
+              <a style="font-family: 'GT-America-Ultra-Light-Italic';
+              text-transform: uppercase;
+              font-size: 27px;
+              line-height: 1.19;
+              margin: 1rem 0;" href='https://github.com/oejames'>
+                github</a></a>.</h2>
+          <!-- <p class="last">Follow us <br />on <a href="https://www.instagram.com/"
+              target="_blank">Instagram</a>.</p> -->
+        </div>
+      </div>
+    </div>
 
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('scene-container').appendChild(renderer.domElement);
+    <div class="section" id="footer">
+      <div class="headlineContainer">
+        <div class="headlineShifter">
+        </div>
+      </div>
+      <!-- <div class="content">
+        <div class="contentContainer">
+          <p><a href="privacy-policy.html">Privacy policy</a><br />
+            <a href="impressum.html">Impressum</a></p>
+        </div>
+      </div> -->
+      <div id="footer-border-right"></div>
+    </div>
 
-            createStarfield();
-            createFloatingObjects();
-            createLights();
+    <div id="sidebar-wrapper">
+      <div id="sidebar">
+        <div id="arrowContainer">
+          <div id="arrowImage"></div>
+        </div>
+      </div>
+    </div>
 
-            window.addEventListener('resize', onWindowResize, false);
+  </div>
 
-            animate();
-        }
-
-        function createStarfield() {
-            const particlesGeometry = new THREE.BufferGeometry();
-            const particlesCount = 10000;
-
-            const posArray = new Float32Array(particlesCount * 3);
-
-            for (let i = 0; i < particlesCount * 3; i++) {
-                posArray[i] = (Math.random() - 0.5) * 200;
-            }
-
-            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-            const particlesMaterial = new THREE.PointsMaterial({
-                size: 0.05,
-                color: 0xffffff,
-            });
-
-            particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
-            scene.add(particleSystem);
-        }
-
-        function createFloatingObjects() {
-            floatingObjects = new THREE.Group();
-
-            const geometries = [
-                new THREE.IcosahedronGeometry(1, 0),
-                new THREE.ConeGeometry(0.8, 2, 6),
-                new THREE.TorusGeometry(0.8, 0.2, 16, 100),
-            ];
-
-            const materials = [
-                new THREE.MeshPhongMaterial({ color: 0xff00ff, shininess: 100 }),
-                new THREE.MeshPhongMaterial({ color: 0x00ffff, shininess: 100 }),
-                new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 }),
-            ];
-
-            for (let i = 0; i < 50; i++) {
-                const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-                const material = materials[Math.floor(Math.random() * materials.length)];
-                const mesh = new THREE.Mesh(geometry, material);
-
-                mesh.position.set(
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 100
-                );
-
-                mesh.rotation.set(
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI
-                );
-
-                mesh.scale.setScalar(Math.random() * 2 + 0.5);
-
-                floatingObjects.add(mesh);
-            }
-
-            scene.add(floatingObjects);
-        }
-
-        function createLights() {
-            const ambientLight = new THREE.AmbientLight(0x404040);
-            scene.add(ambientLight);
-
-            const pointLight1 = new THREE.PointLight(0xff00ff, 1, 100);
-            pointLight1.position.set(10, 10, 10);
-            scene.add(pointLight1);
-
-            const pointLight2 = new THREE.PointLight(0x00ffff, 1, 100);
-            pointLight2.position.set(-10, -10, -10);
-            scene.add(pointLight2);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            const elapsedTime = clock.getElapsedTime();
-
-            particleSystem.rotation.y = elapsedTime * 0.05;
-
-            floatingObjects.children.forEach((obj, index) => {
-                obj.rotation.x += 0.002 + index * 0.0001;
-                obj.rotation.y += 0.003 + index * 0.0001;
-                obj.position.y = Math.sin(elapsedTime * 0.5 + index) * 2;
-            });
-
-            camera.position.x = Math.sin(elapsedTime * 0.2) * 10;
-            camera.position.y = Math.cos(elapsedTime * 0.2) * 10;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        }
-
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        function transitionToMain() {
-            gsap.to('.content', {
-                opacity: 0,
-                duration: 1,
-                onComplete: () => {
-                    window.location.href = 'main.html';
-                }
-            });
-
-            gsap.to(camera.position, {
-                z: 0,
-                duration: 2,
-                ease: 'power2.inOut'
-            });
-        }
-
-        // In index.html
-        function transitionToMain() {
-            // Fade out content
-            gsap.to('.content', {
-                opacity: 0,
-                duration: 1
-            });
-
-            // Zoom camera and fade to black
-            gsap.to(camera.position, {
-                z: 0,
-                duration: 2,
-                ease: 'power2.inOut'
-            });
-
-            gsap.to('#scene-container', {
-                opacity: 0,
-                duration: 2,
-                delay: 1,
-                onComplete: () => {
-                    // // Create a black overlay
-                    // const overlay = document.createElement('div');
-                    // overlay.style.position = 'fixed';
-                    // overlay.style.top = 0;
-                    // overlay.style.left = 0;
-                    // overlay.style.width = '100%';
-                    // overlay.style.height = '100%';
-                    // overlay.style.backgroundColor = 'black';
-                    // overlay.style.zIndex = 9999;
-                    // document.body.appendChild(overlay);
-
-                    // // Fade out the black overlay and transition to main.html
-                    // gsap.to(overlay, {
-                    //     opacity: 0,
-                    //     // duration: 1,
-                    //     // delay: 0.5,
-                    //     onComplete: () => {
-                            window.location.href = 'main.html';
-                        }
-                    });
-                }
-        //     });
-        // }
-
-
-        init();
-    </script>
+  <div id="threeDContent" style="width: 100%; height: 100vh;"></div>
 </body>
 </html>
