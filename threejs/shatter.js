@@ -61,7 +61,7 @@ function updateCameraPosition() {
   const containerWidth = container.clientWidth;
   const containerHeight = container.clientHeight;
   const aspect = containerWidth / containerHeight;
-  camera.position.z = 15 * (1000 / containerWidth); // Adjust camera distance based on container width
+  camera.position.z = 15 * (1000 / containerWidth); // adjust camera distance based on container width
 }
 
 function createText() {
@@ -69,10 +69,10 @@ function createText() {
 
   const textLines = ["HI,I'MORE"];
   const baseSize = 4; // Original size
-  const scaleFactor = container.clientWidth / 2200; // Adjust based on a reference width of 1000px
+  const scaleFactor = container.clientWidth / 2200; // adjusting based on a reference width of 1000px
   const fontSize = baseSize * scaleFactor;
-  const lineHeight = 6 * scaleFactor; // Scaled line height
-  const leftMargin = -13 * scaleFactor; // Scaled left margin: og -12 with the sidebar line, -13 without
+  const lineHeight = 6 * scaleFactor; // scaled line height
+  const leftMargin = -13 * scaleFactor; // scaled left margin: og -12 with the sidebar line, -13 without
 
   console.log('Font object:', font);
 
@@ -120,7 +120,7 @@ function createText() {
     });
   });
 
-  // Center the entire text group vertically
+  // center the entire text group vertically
   const bbox = new THREE.Box3().setFromObject(logoGroup);
   const centerY = -(bbox.max.y + bbox.min.y) / 2;
   logoGroup.position.y = centerY;
@@ -139,19 +139,27 @@ function onScroll() {
 
 function animateShatter(progress) {
   letterMeshes.forEach((letterMesh, index) => {
-    letterMesh.position.lerpVectors(
-      startPositions[index],
-      offScreenPositions[index],
-      progress
-    );
+    if (progress <= 0.8) { //animate up to 80% scroll
+      
+      letterMesh.position.lerpVectors(
+        startPositions[index],
+        offScreenPositions[index],
+        progress 
+      );
 
-    letterMesh.rotation.set(
-      randomRotations[index].x * progress,
-      randomRotations[index].y * progress,
-      randomRotations[index].z * progress
-    );
+      letterMesh.rotation.set(
+        randomRotations[index].x * progress,
+        randomRotations[index].y * progress,
+        randomRotations[index].z * progress 
+      );
 
-    letterMesh.scale.setScalar(1 - progress * 0.5);
+      letterMesh.scale.setScalar(1 - progress * 0.5);
+
+      letterMesh.visible = true;
+    } else {
+      // after 80% scroll, letters invisible
+      letterMesh.visible = false;
+    }
   });
 }
 
