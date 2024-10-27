@@ -69,9 +69,9 @@ function createText() {
 
   const textLines = ["HI,I'MORE"];
   const baseSize = 3; // Base size for standard display
-  const mobileSize = 0.5; // Font size for mobile devices
+  const mobileSize = 0.5; // Font size for mobile devices (does not seem to be working)
   const containerWidth = container.clientWidth;
-  const isMobile = window.innerWidth <= 768; // Adjust this breakpoint as necessary
+  const isMobile = window.innerWidth <= 860; // Adjust breakpoint as necessary
   let fontSize = isMobile ? mobileSize : baseSize; // Set font size based on device type
 
   const lineHeight = 6 * fontSize / baseSize; // Line height based on base size
