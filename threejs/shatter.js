@@ -68,19 +68,30 @@ function createText() {
   console.log('Creating text...');
 
   const textLines = ["HI,I'MORE"];
-  const baseSize = 4; // Original size
-  const scaleFactor = container.clientWidth / 2200; // adjusting based on a reference width of 1000px
-  const fontSize = baseSize * scaleFactor;
-  const lineHeight = 6 * scaleFactor; // scaled line height
-  const leftMargin = -13 * scaleFactor; // scaled left margin: og -12 with the sidebar line, -13 without
+  const baseSize = 4; // Base size for standard display
+  const minSize = 3;  // Minimum size when resizing
+  const maxSize = 4;  // Maximum size to maintain visibility
+  const containerWidth = container.clientWidth;
+  const targetWidth = 1900; // Reference width
+  let fontSize = maxSize; // Start with the maximum size
 
-  console.log('Font object:', font);
+  // Calculate the scaling factor based on container width
+  const scaleFactor = containerWidth / targetWidth;
 
+  // Set font size based on scale factor, but clamp it to a minimum size
+  fontSize = Math.max(minSize, baseSize * scaleFactor);
+  
+  const lineHeight = 6 * fontSize / baseSize; // Line height scaling with baseSize
+  console.log('Font size (pixels):', fontSize);
+  console.log('Line height (pixels):', lineHeight);
+
+  let totalWidth = 0;
+  
   textLines.forEach((line, lineIndex) => {
     const letters = line.split('');
     let letterOffset = 0;
 
-    letters.forEach((letter, letterIndex) => {
+    letters.forEach((letter) => {
       const letterGeometry = new THREE.TextGeometry(letter, {
         font: font,
         size: fontSize,
@@ -91,17 +102,16 @@ function createText() {
 
       letterGeometry.computeBoundingBox();
       const letterWidth = letterGeometry.boundingBox.max.x - letterGeometry.boundingBox.min.x;
+      
+      totalWidth += letterWidth; // Accumulate total width
 
-      const outlineMaterial = new THREE.LineBasicMaterial({ 
-        color: 0x000000,
-        linewidth: 1
-      });
-
+      const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1 });
       const edges = new THREE.EdgesGeometry(letterGeometry);
       const outlineMesh = new THREE.LineSegments(edges, outlineMaterial);
 
-      outlineMesh.position.x = leftMargin + letterOffset;
-      outlineMesh.position.y = -lineIndex * lineHeight;
+      // Position the letter
+      outlineMesh.position.x = letterOffset;
+      outlineMesh.position.y = -lineIndex * lineHeight; // Adjust line height correctly
       outlineMesh.position.z = 0;
 
       logoGroup.add(outlineMesh);
@@ -109,24 +119,26 @@ function createText() {
 
       startPositions.push(outlineMesh.position.clone());
       const angle = Math.random() * Math.PI * 2;
-      const distance = (30 + Math.random() * 20) * scaleFactor;
+      const distance = (30 + Math.random() * 20) * (fontSize / baseSize);
       const offScreenX = Math.cos(angle) * distance;
       const offScreenY = Math.sin(angle) * distance;
       offScreenPositions.push(new THREE.Vector3(offScreenX, offScreenY, Math.random() * 20 - 10));
       randomRotations.push(new THREE.Euler(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2));
 
-      console.log(`Letter "${letter}" positioned at:`, outlineMesh.position);
-      letterOffset += letterWidth * 1.1;
+      letterOffset += letterWidth * 1.1; // Offset by letter width
     });
   });
 
-  // center the entire text group vertically
-  const bbox = new THREE.Box3().setFromObject(logoGroup);
-  const centerY = -(bbox.max.y + bbox.min.y) / 2;
-  logoGroup.position.y = centerY;
+  // Centering horizontally by adjusting logoGroup's position
+  const centerX = -(totalWidth / 2) - 0.3; // Slight adjustment to the left
+  const centerY = -lineHeight / 4; // Adjust to lift text slightly higher for better centering
 
-  console.log('Text creation complete');
+  logoGroup.position.set(centerX, centerY, 0); // Centering x and y
+
+  console.log('Text creation complete. Group centered at:', logoGroup.position);
 }
+
+
 
 function onScroll() {
   const scrollPosition = window.pageYOffset;
