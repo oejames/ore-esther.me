@@ -68,25 +68,18 @@ function createText() {
   console.log('Creating text...');
 
   const textLines = ["HI,I'MORE"];
-  const baseSize = 4; // Base size for standard display
-  const minSize = 3;  // Minimum size when resizing
-  const maxSize = 4;  // Maximum size to maintain visibility
+  const baseSize = 3; // Base size for standard display
+  const mobileSize = 2; // Font size for mobile devices
   const containerWidth = container.clientWidth;
-  const targetWidth = 1900; // Reference width
-  let fontSize = maxSize; // Start with the maximum size
+  const isMobile = window.innerWidth <= 768; // Adjust this breakpoint as necessary
+  let fontSize = isMobile ? mobileSize : baseSize; // Set font size based on device type
 
-  // Calculate the scaling factor based on container width
-  const scaleFactor = containerWidth / targetWidth;
-
-  // Set font size based on scale factor, but clamp it to a minimum size
-  fontSize = Math.max(minSize, baseSize * scaleFactor);
-  
-  const lineHeight = 6 * fontSize / baseSize; // Line height scaling with baseSize
+  const lineHeight = 6 * fontSize / baseSize; // Line height based on base size
   console.log('Font size (pixels):', fontSize);
   console.log('Line height (pixels):', lineHeight);
 
   let totalWidth = 0;
-  
+
   textLines.forEach((line, lineIndex) => {
     const letters = line.split('');
     let letterOffset = 0;
@@ -102,7 +95,7 @@ function createText() {
 
       letterGeometry.computeBoundingBox();
       const letterWidth = letterGeometry.boundingBox.max.x - letterGeometry.boundingBox.min.x;
-      
+
       totalWidth += letterWidth; // Accumulate total width
 
       const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1 });
@@ -111,7 +104,7 @@ function createText() {
 
       // Position the letter
       outlineMesh.position.x = letterOffset;
-      outlineMesh.position.y = -lineIndex * lineHeight; // Adjust line height correctly
+      outlineMesh.position.y = isMobile ? -lineIndex * lineHeight + 1 : -lineIndex * lineHeight; // Slight adjustment for mobile
       outlineMesh.position.z = 0;
 
       logoGroup.add(outlineMesh);
@@ -130,8 +123,8 @@ function createText() {
   });
 
   // Centering horizontally by adjusting logoGroup's position
-  const centerX = -(totalWidth / 2) - 0.3; // Slight adjustment to the left
-  const centerY = -lineHeight / 4; // Adjust to lift text slightly higher for better centering
+  const centerX = -(totalWidth / 2) - 0.3; // Center based on total width
+  const centerY = isMobile ? -lineHeight / 2 : -lineHeight / 4; // Adjust for mobile
 
   logoGroup.position.set(centerX, centerY, 0); // Centering x and y
 
