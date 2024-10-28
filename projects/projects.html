@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Coming Soon</title>
+    <title>Projects</title>
     <meta name="description" content="Turning the check-in process of a hotel into a memorable welcome experience"/>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0"/>
@@ -410,6 +410,12 @@ body {
             <p>Letterboxd Longest</p>
             <sub>Visualizing the longest film reviews on Letterboxd</sub>
         </div>
+        <div class="project-item" onclick="openProjectPopup('supercuts')">
+            <img src="/assets/cspan.jpg"
+                alt="Supercuts">
+            <p>CSPAN Supercuts</p>
+            <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
+        </div>
         <div class="project-item" onclick="openProjectPopup('spotify')">
             <img src="/assets/spotifyy.png"
                 alt="Therasource">
@@ -422,17 +428,11 @@ body {
             <p>Friend-a-Mendations</p>
             <sub>Library of user recommendations</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('therasource')">
+        <div class="project-item" onclick="openProjectPopup('soon')">
             <img src="/assets/treatment.png"
                 alt="Therasource">
             <p>Geisel School of Medicine</p>
             <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
-        </div>
-        <div class="project-item" onclick="openProjectPopup('soon')">
-            <img src="/assets/cspan.jpg"
-                alt="Supercuts">
-            <p>CSPAN Supercuts</p>
-            <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('soon')">
             <img src="/assets/anim.png"
@@ -445,7 +445,7 @@ body {
             <p>Women in Media</p>
             <sub>Website design for Dartmouth organization</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('therasource')">
+        <div class="project-item" onclick="openProjectPopup('soon')">
             <img src="https://th-thumbnailer.cdn-si-edu.com/BzQn_Ic1BD6KU0hIK2txDpPWMVg=/1000x750/filters:no_upscale():focal(1572x1258:1573x1259)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/d0/0e/d00ede69-a26b-483c-9831-29a22812c27a/img_3949.jpg"
                 alt="Therasource">
             <p>Media Ecology Project</p>
@@ -491,7 +491,7 @@ body {
     </div>
 </div>
 
-<!-- Coming Soon Popup -->
+<!-- Therasource Popup -->
 <div class="window popup-content project-popup" id="therasource-popup" style="display: none;">
     <div class="title-bar">
         <div class="title-bar-controls">
@@ -499,7 +499,7 @@ body {
         </div>
     </div>
     <div class="project-content">
-        <h2>Coming Soon</h2>
+        <h2>Therasource</h2>
         <p></p>
     </div>
 </div>
@@ -535,19 +535,32 @@ body {
         </div>
     </div>
     <div class="project-content">
-        <h2>Supercuts</h2>
+        <h2>CSPAN Supercuts</h2>
         Tech stack: Python, spaCy, Node.js, Express, React, Javascript
+        <p>
+            This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate a supercut of the most commonly used words on CSPAN video footage.
 
-        <p>This React app usses the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
-            Youtube search terms and keywords.</p>
-        <p>Here's a supercut created by the application (search term: "Gossip Girl" keyword: "Blair")</p>
+        </p>
+        <p>
+            I first came across Videogrep, a Python library for creating video supercuts from transcript data, as a student in a film class centered on supercuts and new media forms. I was intrigued by the power of supercuts to underscore key points and ideas from various forms of media, including its use in highlighting representation of specific individuals and events over time. 
+        </p>
+        <p>
+            As such, I wanted to create a web version of the tool to allow future non-technical students of the course to interact with the command-line tool. I began by creating a React app to generate automatic mp4 supercuts
+            based on user-specific Youtube search terms and keywords.
+        </p>
+        <p>
+            I was interested in further using the Videogrep library to create a real-time running archive of supercuts to highlight events and key terms in news media. The CSPAN5 Twitter bot, originally developed by Sam Lavigne, became defunct in June 2023 following Twitter API changes. Because of this, I decided to create a web version of this archive, using natural language processing (spaCy) to extract the most common keywords from CSPAN daily segments and generating a supercut saved to the site each day.
+        </p>
+        <p>For students of Film 46.07, the Videogrep web app usses the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
+            Youtube search terms and keywords. Here's a supercut created by the application, which generated a supercut of the most common keywords under the Youtube search for Peacock's Saved by the Bell. </p>
         <div class="video container">
             <video controls width="100%">
                 <source
-                    src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/10/supercut-1-online-video-cutter.com_.mp4"
+                    src="/assets/auto_supercut (1).mp4"
                     type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+         
         </div>
     </div>
 </div>
