@@ -410,18 +410,6 @@ body {
             <p>Letterboxd Longest</p>
             <sub>Visualizing the longest film reviews on Letterboxd</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('therasource')">
-            <img src="/assets/treatment.png"
-                alt="Therasource">
-            <p>Geisel School of Medicine</p>
-            <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
-        </div>
-        <div class="project-item" onclick="openProjectPopup('soon')">
-            <img src="/assets/cspan.jpg"
-                alt="Supercuts">
-            <p>CSPAN Supercuts</p>
-            <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
-        </div>
         <div class="project-item" onclick="openProjectPopup('spotify')">
             <img src="/assets/spotifyy.png"
                 alt="Therasource">
@@ -433,6 +421,18 @@ body {
                 alt="Friend-a-Mendations">
             <p>Friend-a-Mendations</p>
             <sub>Library of user recommendations</sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('therasource')">
+            <img src="/assets/treatment.png"
+                alt="Therasource">
+            <p>Geisel School of Medicine</p>
+            <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('soon')">
+            <img src="/assets/cspan.jpg"
+                alt="Supercuts">
+            <p>CSPAN Supercuts</p>
+            <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('soon')">
             <img src="/assets/anim.png"
@@ -565,8 +565,9 @@ body {
         <p>This Flask web application uses The Movie Database API to allow users to search for and add movie
             recommendations to a library of friend-approved recommendations. The site is deployed on Heroku.</p>
             <p>
-                <a href="https://github.com/oejames/friend-a-mendations">Github Link</a>
+                The title is inspired by the now-defunct <a href="https://www.friendmendations.com/">Substack</a> written by Allison Driskill. I was inspired by the idea of tracking friend-approved recommendations, and decided to build the site to replicate this level of comraderie/community-oriented recommendations by building a library of friend's own "friend-a-mendations."
             </p>
+          
         <div class="video container">
             <video controls width="100%">
                 <source
@@ -574,6 +575,9 @@ body {
                     type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <p>
+                <a href="https://github.com/oejames/friend-a-mendations">Github Link</a>
+            </p>
         </div>
     </div>
 </div>
@@ -589,7 +593,7 @@ body {
         <h2>Letterboxd Longest</h2>
         Tech stack: React.js, Node.js, Express, Cheerios, Axios, Figma
         <p>
-            As a casual fan of of reading film reviews, I found it interesting to read articles lamenting the type of reviews that review-sharing site Letterboxd site that were most widely shared--namely, short ones. </p>
+            As a casual fan of of reading film reviews, I found it interesting to find articles critical of the type of reviews that review-sharing site Letterboxd site that populated the homepage--namely, short and concise ones. </p>
            <p> As such, I decided it would be fun to make a version of the homepage of Letterboxd that filtered the homepage content to display only the longest reviews first. I also implemented a search function, which allows users to search for any film on the site and return the longest review. 
 
             <p>
@@ -728,7 +732,7 @@ body {
         <p> 
             I implemented the tool as a Forge app to modify all pages on Confluence Cloud, allowing a native appearance by building it in-line with the existing "last updated" feature.
 
-            I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted. To work with this specification, I decided to use the "request validation" feature to incorporate a Slack webhook (JSON webhook), which could then be set up in the team Slack to send a notification to a user in the team channel to request validation.
+            I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted. To work with this specification, I decided to add a "request validation" feature by incorporating a Slack webhook (JSON webhook), which could then be set up in the team Slack to send a notification to a user in the team channel to request validation.
         </p>
         <img src="/assets/webhook.png">
 
