@@ -405,16 +405,22 @@ body {
             <p>Confluence Validator</p>
             <sub>Automated page validation system for Atlassian cloud migration</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('letterboxd')">
-            <img src="../assets/91uzy5.gif" alt="Letterboxd-Longest">
-            <p>Letterboxd Longest</p>
-            <sub>Visualizing the longest film reviews on Letterboxd</sub>
-        </div>
         <div class="project-item" onclick="openProjectPopup('supercuts')">
             <img src="/assets/cspan.jpg"
                 alt="Supercuts">
             <p>CSPAN Supercuts</p>
             <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('therasource')">
+            <img src="/assets/treatment.png"
+                alt="Therasource">
+            <p>Geisel School of Medicine</p>
+            <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('letterboxd')">
+            <img src="../assets/91uzy5.gif" alt="Letterboxd-Longest">
+            <p>Letterboxd Longest</p>
+            <sub>Visualizing the longest film reviews on Letterboxd</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('spotify')">
             <img src="/assets/spotifyy.png"
@@ -427,12 +433,6 @@ body {
                 alt="Friend-a-Mendations">
             <p>Friend-a-Mendations</p>
             <sub>Library of user recommendations</sub>
-        </div>
-        <div class="project-item" onclick="openProjectPopup('soon')">
-            <img src="/assets/treatment.png"
-                alt="Therasource">
-            <p>Geisel School of Medicine</p>
-            <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('soon')">
             <img src="/assets/anim.png"
@@ -500,7 +500,76 @@ body {
     </div>
     <div class="project-content">
         <h2>Therasource</h2>
-        <p></p>
+        Tech stack: Flask, Python, HTML/CSS, Javascript, jQuery, SQLite, Firebase
+        <p>
+            Therasource is the platform used by clinicians, graduate students and undergraduate researchers to power studies and research related to the Therabot chat app. 
+            In working on maintenance of the platform ahead of a 30-day Therabot study (which involved monitoring patient conversations with the bot over 30 days), study facilitators expressed the need for a dashboard to be able to show trends over time with patient activity and pull participant data spanning any number of days, tracking all participant id's and holding a record of how much they'd interacted with the chatbot. Clicking on the number of conversations in the table would take admin to see the conversations they've had with the bot. 
+        </p>
+        <p>
+            This entailed pulling Therabot app data from Firebase into a local SQLite database, and architecting an administrative portal housed in Therasource to display dashboard data. I designed and engineered the frontend and backend of this application, utilizing Flask and SQLite for the backend and HTML/CSS/Javascript/jQuery for each page of the dashboard's interactive components (including features like color-coded participant status indicators, and a user-bot messaging interface to display the Therabot-participant conversations).
+        </p>
+        <p>
+            The code is not publicly available, but feel free to reach out for more details on the project.
+        </p>
+        <h2>Mood Triggers</h2>
+        Tech stack: Flutter, Dart
+        <p>
+            For the Mood Triggers study, I worked on remaking the app's UI for a new study configuration, creating new layouts for the unique question interfaces and user flows associated with patients using the app as part of the Act study.
+            To do so, I created a theming system in Flutter to enable different layouts and appeearances for different studies and improving the app's UI/UX. 
+        </p>
+  
+            <div>
+        <p>
+            Before:
+        </p>
+        <div style="display: flex;">
+            <p>
+            <img src="/assets/treaaa.png" style="height: 95%; width: auto;" >
+            </p>
+            <p>
+                <img src="/assets/activit.png" style="height: 95%; width: auto;">
+            </p>
+        </div>
+        </div>
+        <div>
+            <p>
+            After:
+            </p>
+            <div style="display: flex; flex-direction: row;" >
+                <p>
+                    <img src="/assets/home.png" style="height: 95%; width: auto;">
+                </p>
+            <p>
+            <img src="/assets/videos.png" style="height: 95%; width: auto;">
+            </p>
+         
+        </div>
+    </div>
+        <!-- </div> -->
+        <p>
+            The code is not publicly available, but feel free to reach out for more details on the project.
+        </p>
+
+    </div>
+</div>
+
+<!-- Mood Triggers Popup -->
+<div class="window popup-content project-popup" id="mood-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('mood-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+        <h2>Mood Triggers</h2>
+        Tech stack: Flutter
+        <p>
+            Therasource is a 
+        </p>
+        <p>
+            Helpful to have a dashboard to be able to show the different participants in the study and pull their dialogue data spanning any number of days, tracking all participant id's and hold a record of how much they'd interacted with the chatbot. Clicking on the number of conversations in the table would take admin to see the conversations they've had with the bot. 
+            The study involved monitoring patient conversations with the bot over 30 days 
+        </p>
     </div>
 </div>
 
@@ -538,7 +607,7 @@ body {
         <h2>CSPAN Supercuts</h2>
         Tech stack: Python, spaCy, Node.js, Express, React, Javascript
         <p>
-            This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate a supercut of the most commonly used words on CSPAN video footage.
+            This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of the most commonly used words on CSPAN video footage.
 
         </p>
         <p>
