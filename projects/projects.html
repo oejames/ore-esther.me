@@ -241,7 +241,7 @@ body {
     transform: translate(-50%, -50%);
     width: 80%;
     /* width: 60%; */
-    max-width: 800px;
+    max-width: 600px;
     height: 80%;
     max-height: 600px;
     overflow-y: auto;
@@ -261,22 +261,23 @@ body {
 .project-content {
     /* padding: 20px; */
     padding-top: 0px;
-    padding-left: 200px;
-    padding-right: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
     font-size: 0.3rem;
     margin-bottom: 15px;
     /* font-family:Arial, Helvetica, sans-serif; */
 }
 
 .project-content h2 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .project-content p {
     font-size: 0.3rem;
     margin-bottom: 15px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: GT-America-Standard;
 }
 
 .video-container {
@@ -398,7 +399,7 @@ body {
             <p>WB Games NY Nexus</p>
             <sub>Multiplayer web game nexus developed for studio hackathon</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('therasource')">
+        <div class="project-item" onclick="openProjectPopup('confluence')">
             <img src="https://github.com/user-attachments/assets/362cbdda-f838-4854-ac9f-27b5ac609351"
                 alt="Therasource">
             <p>Confluence Validator</p>
@@ -410,33 +411,34 @@ body {
             <sub>Visualizing the longest film reviews on Letterboxd</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('therasource')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+            <img src="/assets/treatment.png"
                 alt="Therasource">
             <p>Geisel School of Medicine</p>
             <sub>Full-stack engineering and mobile app development as a research assistant in the Jacobson Lab </sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('supercuts')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+        <div class="project-item" onclick="openProjectPopup('soon')">
+            <img src="/assets/cspan.jpg"
                 alt="Supercuts">
             <p>CSPAN Supercuts</p>
             <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('therasource')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+        <div class="project-item" onclick="openProjectPopup('spotify')">
+            <img src="/assets/spotifyy.png"
                 alt="Therasource">
             <p>Spotify Dance-Able</p>
             <sub>Playlist generator based on danceability values</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('friend-a-mendations')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
-                alt="Friend-a-Mendations">
-            <p>Animation Scripting</p>
-        </div>
-        <div class="project-item" onclick="openProjectPopup('friend-a-mendations')">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s"
+            <img src="/assets/friend.png"
                 alt="Friend-a-Mendations">
             <p>Friend-a-Mendations</p>
             <sub>Library of user recommendations</sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('soon')">
+            <img src="/assets/anim.png"
+                alt="Friend-a-Mendations">
+            <p>Graphics Coding</p>
+            <sub>Computer graphics coding and linear algebra projects</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('women-in-media')">
             <img src="../assets/wim.png" alt="Women in Media">
@@ -477,6 +479,19 @@ body {
 <!-- Individual Project Popups -->
 
 <!-- Coming Soon Popup -->
+<div class="window popup-content project-popup" id="soon-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('soon-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+        <h2>Coming Soon</h2>
+        <p></p>
+    </div>
+</div>
+
+<!-- Coming Soon Popup -->
 <div class="window popup-content project-popup" id="therasource-popup" style="display: none;">
     <div class="title-bar">
         <div class="title-bar-controls">
@@ -484,7 +499,7 @@ body {
         </div>
     </div>
     <div class="project-content">
-        <h2>Under Construction</h2>
+        <h2>Coming Soon</h2>
         <p></p>
     </div>
 </div>
@@ -499,7 +514,7 @@ body {
     </div>
     <div class="project-content">
         <h2>Women in Media</h2>
-        <p>Designed and developed the first website for Dartmouth Women in Media, integrating custom CSS styles and
+        <p>I designed and developed the first website for Dartmouth Women in Media, integrating custom CSS styles and
             animations.</p>
         <div class="video container">
             <video controls width="100%">
@@ -521,7 +536,9 @@ body {
     </div>
     <div class="project-content">
         <h2>Supercuts</h2>
-        <p>React app using the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
+        Tech stack: Python, spaCy, Node.js, Express, React, Javascript
+
+        <p>This React app usses the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
             Youtube search terms and keywords.</p>
         <p>Here's a supercut created by the application (search term: "Gossip Girl" keyword: "Blair")</p>
         <div class="video container">
@@ -544,12 +561,16 @@ body {
     </div>
     <div class="project-content">
         <h2>Friend-a-Mendations</h2>
-        <p>Flask web application that uses The Movie Database API to allow users to search for and add movie
-            recommendations with a personal touch. Deployed on Heroku.</p>
+        Tech stack: Python, Flask, HTML/CSS, Javascript, The Movie Database API, Heroku
+        <p>This Flask web application uses The Movie Database API to allow users to search for and add movie
+            recommendations to a library of friend-approved recommendations. The site is deployed on Heroku.</p>
+            <p>
+                <a href="https://github.com/oejames/friend-a-mendations">Github Link</a>
+            </p>
         <div class="video container">
             <video controls width="100%">
                 <source
-                    src="https://bpb-us-e1.wpmucdn.com/journeys.dartmouth.edu/dist/0/8454/files/2023/11/Recording-2023-11-22-125426.mp4"
+                    src="/assets/frienda.mp4"
                     type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -566,7 +587,17 @@ body {
     </div>
     <div class="project-content">
         <h2>Letterboxd Longest</h2>
-        <p>content.</p>
+        Tech stack: React.js, Node.js, Express, Cheerios, Axios, Figma
+        <p>
+            As a casual fan of of reading film reviews, I found it interesting to read articles lamenting the type of reviews that review-sharing site Letterboxd site that were most widely shared--namely, short ones. </p>
+           <p> As such, I decided it would be fun to make a version of the homepage of Letterboxd that filtered the homepage content to display only the longest reviews first. I also implemented a search function, which allows users to search for any film on the site and return the longest review. 
+
+            <p>
+
+            <p>I built the site with a Node/Express backend, designing the frontend on Figma before implementing it with React.
+            </p>
+
+        </p>
         <video controls width="100%">
             <source src="../assets/letterbox480 - Made with Clipchamp (1).mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -584,40 +615,35 @@ body {
     </div>
     <div class="project-content">
         <h2>3D Geo-Archive</h2>
-        <p>content.
-            Overview
-            The New York Times 3D Article Geo-Archive is an interactive visualization project that maps articles from the New York Times Modern Love section onto a 3D globe. This project combines data fetching, geolocation, and 3D rendering to create an engaging way to explore Modern Love stories based on their geographical context.
-          
-          
-            Tools & Technologies
-            
-            Three.js
-            MongoDB
-            Node.js
-            Express
-            D3.js
-            HTML/CSS/JavaScript
-            OpenStreetMap Nominatim API
-            
-            Key Skills
-            3D visualization
-            API integration
-            Geolocation processing
-            Full-stack web development
-            Database management
-            
-            Project Details
-            Concept
-            The project aims to create a visually appealing and interactive way to explore New York Times Modern Love articles based on their geographical settings. By mapping these stories onto a 3D globe, users can discover articles from different parts of the world, offering a unique perspective on love stories across cultures and locations.
-            
-            
-            Implementation
-            Data Fetching: Utilized the New York Times API to retrieve Modern Love articles, focusing on extracting relevant information such as titles, URLs, and location data.
-            Geolocation Processing: Implemented a geolocation system using the OpenStreetMap Nominatim API to convert text-based locations into latitude and longitude coordinates.
-            Database Integration: Designed and implemented a MongoDB database to store processed article data, including geocoded locations, for efficient retrieval and updates.
-            3D Globe Visualization: Developed a 3D globe using Three.js, rendering the Earth's surface and placing interactive points representing article locations.
-            User Interaction: Created an interactive interface allowing users to hover over points to view article details and click to open the full article in a new tab.
-            Server-Side Architecture: Built a Node.js/Express server to handle API requests, serve the frontend, and manage database operations.
+        Tech stack: Three.js, MongoDB, Node.js, Express, HTML/CSS/Javascript, OpenStreetMap Nominatim API
+        <br>
+
+        <p>
+
+        <video controls width="100%">
+            <source src="/assets/map.mp4" type="video/mp4">
+        </video>
+    </p>
+        
+        <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe. </p>
+                
+            <p>
+                I started ideating this project out of interest in finding alternate and accessible ways to comb through large archives, including digital archives like those on the Internet Archive, as well as newspaper archives. I was particularly interested in longrunning columns, including the New York Times movie reviews and Modern Love columns, and finding user-friendly ways to comb throuh their contents and find new articles.
+
+            </p>
+            <p>
+                I initially began by coding a 2D illustrated map of the world using D3.js before switching to a 3D globe with Three.js for easier content exploration (dragging to 'spin' the globe and ease of zooming in on the third dimension). I built a script in Javascript to populate a MongoDB database by querying the New York Times API 
+                (with rate limits in mind) to fetch articles for the partial archive, using the Open Street Nominatim API to get a latitude and longitude, if any, from the keywords attached to the article pulled from the New York Times API. 
+                I originally used natural language processing of the article's contents, but keyword matching proved to be a much more accurate way of geotagging the articles if location keywords were present. 
+                This data is served to a Node.js server to a Three.js frontend to render the articles on the globe, using a REST API built with Express. 
+                </p>
+                <p>Articles are rendered on the globe by turning the 2D latitude and longitude from the server into a scaled 3D coordinate.
+            The interface allows users to hover over red article points to view tooltips, which contain URLs to the full article. 
+            </p>
+            <p>
+
+            <a href="https://github.com/oejames/nyt-story-globe">Github Link</a>
+            </p>
 <!--             
             Challenges & Solutions
             
@@ -629,7 +655,7 @@ body {
     </div>
 </div>
 
-<!-- Blank Template Project Popup -->
+<!-- WB Games NY Hackathon Project Popup -->
 <div class="window popup-content project-popup" id="nexus-popup" style="display: none;">
     <div class="title-bar">
         <div class="title-bar-controls">
@@ -638,11 +664,110 @@ body {
     </div>
     <div class="project-content">
         <h2>WB Games NY Nexus</h2>
-        <p>As part of the studio hackathon, I joined a team of four engineers and designers in creating an online gaming nexus, a centralized hub for Jackbox-esque games for the studio.</p>
         Tech stack: C#, Blazor WebAssembly (ASP.NET Core), CSS 
+        <p>As part of the WB Games New York annual summer hackathon, I was on a team of four engineers in creating an online gaming nexus, a centralized hub for Jackbox-esque games for the studio.</p>
+        
+        <img src="/assets/nexus.png">
+        <p>
+            From inception, we decided to create an online gaming nexus for in-studio multiplayer team games, aka our own version of Jackbox games. 
+            <p>
+            To populate the collection, I took on the role of engineering a web-based card game inspired by social psychology card game "Buffalo," in which teams compete in word association by drawing cards. 
+            <img src="/assets/cards.png">This involved implementing a game service in C# and Blazor WebAssembly, creating the game menu for players to join games and teams, engineering the game service to serve the game (including team formation and joining, drawing cards, timeouts) and designing and implementing the user interface (including virtual cards) for real-time updates, scoring, and multiplayer capabilities.
+            </p>
+            
+            <img src="/assets/buff.png">
+            <p>
+                I also redesigned the home page of the website, giving it a more modern interface for the user landing page by updating the colors, typography and homepage design. This also involved refactoring the frontend components and CSS styles.
+            </p>
+            <!-- <img src="/assets/nexus.png"> -->
+            <p>
+                The code is not available to the public, but feel free to reach out for more details on the project.
+            </p>
+            
+        </p>
 
-        As a 
+     
 
+    </div>
+</div>
+
+<!-- Confluence Validation Project Popup -->
+<div class="window popup-content project-popup" id="confluence-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('confluence-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+        <h2>Confluence Validator</h2>
+        Tech stack: Node.js, Javascript, Forge UI
+
+        <p>
+            As an intern on the IT Shared Services Team at WB Games NY, one of the biggest ongoing challenges was an ongoing migration to Atlassian Cloud, affecting products including Jira and Confluence. As a Shared Services team, one concern involved the number of backlog and outdated pages present on the Confluence, and how this could be addressed before migrating pages to Confluence Cloud.
+
+            
+        </p>
+        <p>
+            Prior to my arrival, team members had proposed automatically archiving pages that had not seen new activity in the past 90 days, but this idea had stalled due to its inconsistent methodology (ex. some useful pages remain up-to-date for longer than 90 days). 
+
+            As an intern, I was intrigued by the prospect of developing a tool to aid the Confluence migration, and after speaking with team members and stakeholders involved in both the Atlassian migration and the Shared Services Confluence upkeep, I decided to engineer a "validation" method in Confluence Cloud.
+        </p>
+        <P>Before:
+            <img src="/assets/bbefore.png">
+            <p>
+                After:
+                <img src="/assets/after.png">
+            </p>
+        </P>
+            <p>
+
+            This wouuld allow users to validate a page, allowing pages that haven't been updated to be certified as valid by page owners, and allowing users to request validation by sending a notification to the page owner to either validate the page or archive/update if out-of-date. 
+
+        </p>
+         
+        <p> 
+            I implemented the tool as a Forge app to modify all pages on Confluence Cloud, allowing a native appearance by building it in-line with the existing "last updated" feature.
+
+            I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted. To work with this specification, I decided to use the "request validation" feature to incorporate a Slack webhook (JSON webhook), which could then be set up in the team Slack to send a notification to a user in the team channel to request validation.
+        </p>
+        <img src="/assets/webhook.png">
+
+
+
+
+        </p>
+        <p>
+
+        Feel free to check out the source code for details on installing and setting up this Forge App to Confluence Cloud:
+       
+            <a href="https://github.com/oejames/confluence-validator">Github Link</a>
+        </p>
+    </div>
+</div>
+
+<!-- Spotify Project Popup -->
+<div class="window popup-content project-popup" id="spotify-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('spotify-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+        <h2>Spotify Dance-Able</h2>
+        <img src="/assets/spoti.png">
+        Tech stack: React.js, Node.js, Express, Spotify API
+        <p>
+            I enjoy picking out the most upbeat tracks from my most listened to tracks, so as an alternative to manually filtering my On Repeat playlist, I built this web application to automatically save a playlist of a user's most Dance-able tracks. The playlist is playable in-browser and can be saved to a user's Spotify profile.
+        </p>
+            <p>
+
+            This website lets visitors log in with Spotify, using OAuth2 authentication flow, to see a playlist of their 10 most dance-able tracks from their top tracks of the past month. This is calculated using a threshold from Spotify's internal dance-ability metric. The site is built with a React frontend and a Node/Express backend for handing log in. 
+       
+        </p>
+        <p>
+            <a href="https://github.com/oejames/spotify-dance">Github Link</a>
+
+        </p>
     </div>
 </div>
 

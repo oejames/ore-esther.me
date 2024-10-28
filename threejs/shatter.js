@@ -123,7 +123,7 @@ function createText() {
   });
 
   // Centering horizontally by adjusting logoGroup's position
-  const centerX = -(totalWidth / 2) - 0.3; // Center based on total width
+  const centerX = -(totalWidth / 2) - 0.5; // Center based on total width
   const centerY = isMobile ? -lineHeight / 2 : -lineHeight / 4; // Adjust for mobile
 
   logoGroup.position.set(centerX, centerY, 0); // Centering x and y
