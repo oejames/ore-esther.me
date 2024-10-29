@@ -506,7 +506,7 @@ body {
             In working on maintenance of the platform ahead of a 30-day Therabot study (which involved monitoring patient conversations with the bot over 30 days), study facilitators expressed the need for an administrator dashboard to be able to show trends over time with patient activity, view in-app conversations and pull participant data spanning any number of days, tracking all participant id's and holding a record of how much they'd interacted with the chatbot. Clicking on the number of conversations in the table would take authorized users to see the conversations they've had with the bot. 
         </p>
         <p>
-            This entailed pulling Therabot app data from Firebase into a local SQLite database, and architecting an administrative portal housed in Therasource to display dashboard data. I designed and engineered the frontend and backend of this application, utilizing Flask and SQLite for the backend and HTML/CSS/Javascript/jQuery for each page of the dashboard's interactive components (including features like color-coded participant status indicators, and a user-bot messaging interface to display the Therabot-participant conversations).
+            This entailed pulling Therabot app data from Firebase into a local SQLite database, and architecting an administrative portal housed in Therasource to access participant data. I designed and engineered the frontend and backend of this application, utilizing Flask and SQLite for the backend and HTML/CSS/Javascript/jQuery for each page of the dashboard's interactive components (including features like color-coded participant status indicators, and a user-bot messaging interface to display the Therabot-participant conversations).
         </p>
         <p>
             The code is not publicly available, but feel free to reach out for more details on the project.
@@ -844,7 +844,9 @@ body {
     <div class="project-content">
         <h2>Spotify Dance-Able</h2>
         Tech stack: React.js, Node.js, Express, Spotify API
+        <p>
         <img src="/assets/spoti.png">
+    </p>
         
         <p>
             I enjoy picking out the most upbeat tracks from my most listened to tracks, so as an alternative to manually filtering my On Repeat playlist, I built this web application to automatically save a playlist of a user's most Dance-able tracks. The playlist is playable in-browser and can be saved to a user's Spotify profile.
