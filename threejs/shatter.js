@@ -68,7 +68,7 @@ function createText() {
   console.log('Creating text...');
 
   const textLines = ["HI,I'MORE"];
-  const baseSize = 3; // Base size for standard display
+  const baseSize = 3.2; // Base size for standard display
   const mobileSize = 0.5; // Font size for mobile devices (does not seem to be working)
   const containerWidth = container.clientWidth;
   const isMobile = window.innerWidth <= 768; // Adjust breakpoint as necessary
@@ -84,6 +84,8 @@ function createText() {
     const letters = line.split('');
     let letterOffset = 0;
 
+    let count = 0;
+
     letters.forEach((letter) => {
       const letterGeometry = new THREE.TextGeometry(letter, {
         font: font,
@@ -98,10 +100,11 @@ function createText() {
 
       totalWidth += letterWidth; // Accumulate total width
 
-      const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 1 });
+      const outlineMaterial = new THREE.LineBasicMaterial({ color: 0x000, linewidth: 1 });
       const edges = new THREE.EdgesGeometry(letterGeometry);
       const outlineMesh = new THREE.LineSegments(edges, outlineMaterial);
 
+      
       // Position the letter
       outlineMesh.position.x = letterOffset;
       outlineMesh.position.y = isMobile ? -lineIndex * lineHeight + 1 : -lineIndex * lineHeight; // Slight adjustment for mobile
@@ -118,12 +121,22 @@ function createText() {
       offScreenPositions.push(new THREE.Vector3(offScreenX, offScreenY, Math.random() * 20 - 10));
       randomRotations.push(new THREE.Euler(Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2));
 
-      letterOffset += letterWidth * 1.1; // Offset by letter width
+      // letterOffset += letterWidth * 1.1; // Offset by letter width
+
+      count +=1;
+      if (count  == 3) {
+        letterOffset += letterWidth * 1.3;
+      } if (count ==6) {
+        letterOffset += letterWidth * 1.25;
+      } else {
+        letterOffset += letterWidth * 1.1; // Offset by letter width
+      }
     });
   });
 
   // Centering horizontally by adjusting logoGroup's position
-  const centerX = -(totalWidth / 2) - 0.5; // Center based on total width
+  // const centerX = -(totalWidth / 2) - 0.5; // Center based on total width
+  const centerX = -(totalWidth / 2) - 1.5; // Center based on total width
   const centerY = isMobile ? -lineHeight / 2 : -lineHeight / 4; // Adjust for mobile
 
   logoGroup.position.set(centerX, centerY, 0); // Centering x and y
@@ -153,12 +166,12 @@ function animateShatter(progress) {
       );
 
       letterMesh.rotation.set(
-        randomRotations[index].x * progress,
-        randomRotations[index].y * progress,
-        randomRotations[index].z * progress 
+        randomRotations[index].x * progress * -1, // added the *.2 to make it a lil slower x rotation
+        randomRotations[index].y * progress * .5, // added the *.2 to make a lil slower y rotation
+        randomRotations[index].z * progress  // added the *.2 
       );
 
-      letterMesh.scale.setScalar(1 - progress * 0.5);
+      // letterMesh.scale.setScalar(1 - progress * 0.5);
 
       letterMesh.visible = true;
     } else {
