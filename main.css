@@ -136,7 +136,7 @@ p.small.last, #team p.small.last, #credits p.small.last {
     font-size: 0.5rem;
     line-height: 1.2;
     text-decoration: none;
-    color: black;
+    /* color: black; */
     color: rgba(97, 95, 95, 0.889);
     margin: 0 10px;
     position: relative;
