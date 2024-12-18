@@ -16,6 +16,8 @@
     padding: 20px;
 }
 
+
+
 body {
         /* background-color: #f0e6d2; */
        
@@ -84,6 +86,8 @@ body {
     /* cursor: pointer; */
     cursor: url('../assets/cursor\ \(3\).cur') , pointer; 
     /* transition: transform 0.3s ease; */
+    
+    border-radius: 8px;
 }
 
 .project-item:hover {
@@ -106,7 +110,7 @@ body {
 .project-popup {
     position: absolute;
     left: 10%;
-    top: 10%;
+    top: 50%;
     width: 90%;
     /* height: 80%; */
     height: 30%;
@@ -203,7 +207,7 @@ body {
     background-color: #fff;
     /* border-radius: 8px; */
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
     transition: transform 0.3s ease;
 }
 
@@ -242,7 +246,7 @@ body {
     width: 80%;
     /* width: 60%; */
     max-width: 600px;
-    height: 80%;
+    height: 70%;
     max-height: 600px;
     overflow-y: auto;
     background-color: #000;
@@ -253,7 +257,9 @@ body {
     background: white;
     color: black;
     /* border-radius: 8px; */
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.3); */
+    margin-top: 60px;
+    
     
     
 }
@@ -321,6 +327,7 @@ body {
         justify-content: right;
     }
 
+    
 /* esponsive adjustments */
 @media (min-width: 768px) {
     .project-grid {
@@ -336,43 +343,180 @@ body {
 }
 
 
+        .landing-card {
+  /* background-color: #1a1a1a; */
+  background-color: #2c2525;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  /* max-width: 800px; */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+  margin-left: 10px
+}
+
+.card-header {
+  background-color: #2d2d2d;
+  padding: 24px;
+}
+
+.card-title {
+  color: #f2f2f2;
+  font-size: 32px;
+  margin: 0;
+}
+
+.card-content {
+  color: #f2f2f2;
+  /* font-family: GT-America-Standard; */
+  padding: 24px;
+}
+
+.card-actions {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 16px;
+}
+
+.btn {
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #FDF3F2;
+  color: #1a1a1a;
+  margin-right: 16px;
+}
+
+.btn-secondary {
+  background-color: #2d2d2d;
+  color: #f2f2f2;
+}
+
+.card-sidebar {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.sidebar-item {
+  align-items: center;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.sidebar-icon {
+  height: 48px;
+  width: 48px;
+}
+
+.card-background {
+  background-color: #1a1a1a;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.stars {
+  animation: twinkle 2s ease-in-out infinite;
+  background-image: url('/assets/star.png');
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+
 </style>
 
 <body>
-
-    <div id="container">
-
-        <div class="section" id="section-header">
-            <div class="headlineContainer" id="headline-header">
-                <div class="headlineShifter" style="padding-top: 1.5rem;">
-                    <div class="backArrow">
-                        <a href="/index.html#projects"><span class="fullBoxLink"></span></a>
-                    </div>
+    <nav class="navbar-container">
+        <p class="navbar-links">
+            <a href="/index.html" class="navbar-link">Home</a>
+            <a href="/projects/about.html" class="navbar-link">About</a>
+            <a href="/projects/projects.html" class="navbar-link">Projects</a>
+            <a href="/projects/animation.html" class="navbar-link">Animation</a>
+        </p>
+    </nav>
+   
+   
+        <!-- <p style="padding-left: 20px">Projects</p> -->
+      
+        <div id="container">
+            <div>
+                <div class="landing-card">
+                  <!-- <div class="card-header">
+                    <h1 class="card-title">Mira Ram</h1>
+                  </div> -->
+                  <div style="display: flex;">
+                  <div class="card-content">
+                    <h1 style="font-size: 2rem; align-items: center;">Projects</h1>
+                    <!-- <p style="font-size: 0.5rem;">I’m a senior at Dartmouth College studying computer science and media studies.</p>
+            
+                      <p style="font-size: 0.5rem;"> My interests lie in solving problems through technology. I'm passionate about digital archives, media preservation, and the intersection between tech and storytelling.*</p> -->
+                      <!-- <p style="font-size: 0.5rem;">I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both
+                        a) tinkering with code for fun results and b) solving problems with code. </p>
+                    <p style="font-size: 0.5rem;">Since then, I've combined studies in media and computer science to delve into my interests in storytelling,
+                        human connection, and problem-solving. I've loved applying computation to fields like film preservation,
+                        animation, and full-stack web development.</p>
+                       -->
+                      <!-- <p class="small last" style="font-size: 0.3rem;">*e.g. data-driven storytelling / news media / interactive installations /
+                        animation software
+                        computer graphics coding / computational journalism / virtual reality / ...</p> -->
+                       <!-- <div class="card-actions">
+                      <a href="/projects/projects.html" class="btn btn-primary">Github</a>
+                      <a href="/projects/about.html" class="btn btn-secondary">Email</a>
+                    </div> -->
+                   
+                  </div>
+                  <!-- <img src="/assets/pencil.gif" style="width: 30%; height: auto;">  -->
                 </div>
-            </div>
-            <div class="content">
-                <div class="contentContainer">
-                    <!--<div class="videoTeaser" style="background-color: black;">
-                         <video class="videoTeaserVideo" autoplay loop muted playsinline
-                            >
-                        </video>
-                    </div>  -->
-                    <div class = "titleSection">
-                    <div class="projectTitle" >
-                        <h2>Projects</h2>
+                  <!-- <div class="card-sidebar">
+                    <div class="sidebar-item">
+                      <img src="/telescope.svg" alt="Telescope" class="sidebar-icon">
                     </div>
+                    <div class="sidebar-item">
+                      <img src="/laptop.svg" alt="Laptop" class="sidebar-icon">
                     </div>
-                </div>
-            </div>
-        </div>
-        
+                  </div> -->
+                  <div class="card-background">
+                    <div class="stars"></div>
+                  </div>
+                <!-- </div> -->
+            
+                <!-- <img src="assets/pencil.gif" style="width: 30%; height: auto;"> -->
+              <!-- </div> -->
+          
 
-        <div class="section" id="section-whatwedid">
-            <div class="headlineContainer">
-                <div class="headlineShifter">
+        <!-- <div class="section" id="section-whatwedid"> -->
+            <!-- <div class="headlineContainer">
+                <div class="headlineShifter"> -->
                     <!-- <h3>WORK</h3> -->
-                </div>
-            </div>
+                <!-- </div>
+            </div> -->
              <!-- Pop-up window for Programming Projects -->
     <!-- Programming Popup -->
     <!-- <div class="window popup-content" id="programming-popup"
@@ -385,8 +529,10 @@ body {
     <!-- </div>  -->
     <!-- <h2 class="subheading" id="programming-popup-title">projects</h2> -->
     <!-- <p>Coming Soon</p> -->
-   <div class="content">
+     
+   <!-- <div class="content"> -->
     <div class="content-container">
+        <!-- <p style="padding-left: 15px; font-size: 2rem; margin: 0.2rem;"> Projects</p> -->
     <div class="project-grid">
         <div class="project-item" onclick="openProjectPopup('nyt')">
             <img src="https://github.com/user-attachments/assets/87bd1c79-2aa5-41db-aeee-057b62e0e61d"
@@ -410,6 +556,8 @@ body {
                 alt="Supercuts">
             <p>CSPAN Supercuts</p>
             <sub>Daily automated supercuts made with the Videogrep Python library, based on the now defunct CSPAN-5 bot </sub>
+            <!-- <p>Video Supercuts</p>
+            <sub>Web app for uploading, editing and exporting custom video supercuts </sub> -->
         </div>
         <div class="project-item" onclick="openProjectPopup('therasource')">
             <img src="/assets/treatment.png"
@@ -467,7 +615,7 @@ body {
                 <p>
                     <!-- <a href="/projects/lets-play-pong.html">Next project</a> -->
                     <br>
-                    <a href="/index.html#projects">Home</a></p>
+                    <!-- <a href="/index.html#projects">Home</a></p> -->
             </div>
         </div>
         <div id="footer-border-right"></div>
@@ -605,7 +753,41 @@ body {
     </div>
     <div class="project-content">
         <h2>CSPAN Supercuts</h2>
-        Tech stack: Python, spaCy, Node.js, Express, React, Javascript
+         <!-- <h2>Video Supercuts</h2> -->
+        Tech stack: Python, Node.js, Express, React, Javascript
+<!-- 
+        <div class="video container">
+            <video controls width="100%">
+                <source
+                    src="/assets/supercut3.mp4"
+                    type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+         
+        <!-- </div> -->
+        <!-- <img src="/assets/fullmac.png"> -->
+        <!-- <p><a href="https://video-web-qj18.onrender.com/">
+            Website link </a>
+        </p> -->
+        <!-- <p>
+            This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of user-selected words from a video transcript.
+
+        </p> -->
+        <p>
+            This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of the most commonly used words on CSPAN video footage.
+
+        </p>
+        <p>
+            I first came across Videogrep, a Python library for creating video supercuts from transcript data, as a student in a film class centered on supercuts and new media forms. I was intrigued by the power of supercuts to underscore key points and ideas from various forms of media, including its use in highlighting representation of specific individuals and events over time. 
+        </p>
+        <p>
+            As such, I wanted to create a web version of the tool to allow future non-technical students of the course to interact with the command-line tool.
+            Here's a supercut created by the application for 9/4/24, which contains the most common keywords found in the video transcripts. </p> 
+      
+        <!-- </p>
+        <p>Here's a supercut created by the application, which contains the most common keywords found in the vide -->
+        <!-- 
+            
         <p>
             This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of the most commonly used words on CSPAN video footage.
 
@@ -621,11 +803,11 @@ body {
             I was interested in further using the Videogrep library to create a real-time running archive of supercuts to highlight events and key terms in news media. The CSPAN5 Twitter bot, originally developed by Sam Lavigne, became defunct in June 2023 following Twitter API changes. Because of this, I decided to create a web version of this archive, using natural language processing (spaCy) to extract the most common keywords from CSPAN daily segments and generating a supercut saved to the site each day.
         </p>
         <p>For students of Film 46.07, the Videogrep web app uses the Videogrep Python library to generate automatic mp4 supercuts based on user-specified
-            Youtube search terms and keywords. Here's a supercut created by the application, which contains the most common keywords found in the video transcripts of a Youtube search for Peacock's Saved by the Bell. </p>
+            Youtube search terms and keywords. Here's a supercut created by the application, which contains the most common keywords found in the video transcripts of a Youtube search for Peacock's Saved by the Bell. </p> -->
         <div class="video container">
             <video controls width="100%">
                 <source
-                    src="/assets/auto_supercut (1).mp4"
+                    src="/assets/test-video (2).mp4"
                     type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -713,8 +895,7 @@ body {
             <source src="/assets/map.mp4" type="video/mp4">
         </video>
     </p>
-    <p >
-        <a href="https://nyt-story-globe-184b7d5aaf70.herokuapp.com/">Website Link </a> </p>
+    <!-- <p > <a href="https://nyt-story-globe-184b7d5aaf70.herokuapp.com/">Website Link </a> </p> -->
         
         <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe. </p>
                 

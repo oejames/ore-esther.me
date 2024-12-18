@@ -12,6 +12,7 @@
 <style>
     p {
         /* font-size: 0.7rem; */
+        /* font-family: GT-America-Standard; */
         
     }
 
@@ -31,7 +32,7 @@
     }   
 
     .text {
-        font-size: 0.4rem;
+        /* font-size: 0.4rem; */
     }
     
 
@@ -49,12 +50,170 @@
             font-size: 1.5rem;
             margin: 0.5rem;
         }
+
+        .landing-card {
+  /* background-color: #1a1a1a; */
+  background-color: #2c2525;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  /* max-width: 800px; */
+  /* width: 800px; */
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+}
+
+.card-header {
+  background-color: #2d2d2d;
+  padding: 24px;
+}
+
+.card-title {
+  color: #f2f2f2;
+  font-size: 32px;
+  margin: 0;
+}
+
+.card-content {
+  color: #f2f2f2;
+  /* font-family: GT-America-Standard; */
+  padding: 24px;
+}
+
+.card-actions {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 16px;
+}
+
+.btn {
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 12px 24px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #FDF3F2;
+  color: #1a1a1a;
+  margin-right: 16px;
+}
+
+.btn-secondary {
+  background-color: #2d2d2d;
+  color: #f2f2f2;
+}
+
+.card-sidebar {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.sidebar-item {
+  align-items: center;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.sidebar-icon {
+  height: 48px;
+  width: 48px;
+}
+
+.card-background {
+  background-color: #1a1a1a;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.stars {
+  animation: twinkle 2s ease-in-out infinite;
+  background-image: url('/assets/star.png');
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+}
+
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
 </style>
 
 <body>
+    <nav class="navbar-container" >
+        <p class="navbar-links">
+            <a href="/index.html" class="navbar-link">Home</a>
+            <a href="/projects/about.html" class="navbar-link">About</a>
+            <a href="/projects/projects.html" class="navbar-link">Projects</a>
+            <a href="/projects/animation.html" class="navbar-link">Animation</a>
+        </p>
+    </nav>
 
     <div id="container">
-
+        <div style="display: flex; gap: 15px;">
+            <div class="landing-card">
+              <!-- <div class="card-header">
+                <h1 class="card-title">Mira Ram</h1>
+              </div> -->
+              <div style="display: flex;">
+              <div class="card-content">
+                <h1 style="font-size: 2rem; align-items: center;">About</h1>
+                <!-- <p style="font-size: 0.5rem;">I’m a senior at Dartmouth College studying computer science and media studies.</p>
+        
+                  <p style="font-size: 0.5rem;"> My interests lie in solving problems through technology. I'm passionate about digital archives, media preservation, and the intersection between tech and storytelling.*</p> -->
+                  <p style="font-size: 0.5rem;">I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both
+                    a) tinkering with code for fun results and b) solving problems with code. </p>
+                <p style="font-size: 0.5rem;">Since then, I've combined studies in media and computer science to delve into my interests in storytelling,
+                    human connection, and problem-solving. I've loved applying computation to fields like film preservation,
+                    animation, and full-stack web development.</p>
+                  
+                  <!-- <p class="small last" style="font-size: 0.3rem;">*e.g. data-driven storytelling / news media / interactive installations /
+                    animation software
+                    computer graphics coding / computational journalism / virtual reality / ...</p> -->
+                   <div class="card-actions">
+                  <a href="https://github.com/oejames" class="btn btn-primary">Github</a>
+                  <a href="mailto:jamesore200@gmail.com" class="btn btn-secondary">Email</a>
+                </div>
+               
+              </div>
+              <img src="/assets/pencil.gif" style="width: 30%; height: auto;"> 
+            </div>
+              <!-- <div class="card-sidebar">
+                <div class="sidebar-item">
+                  <img src="/telescope.svg" alt="Telescope" class="sidebar-icon">
+                </div>
+                <div class="sidebar-item">
+                  <img src="/laptop.svg" alt="Laptop" class="sidebar-icon">
+                </div>
+              </div> -->
+              <div class="card-background">
+                <div class="stars"></div>
+              </div>
+            </div>
+        
+            <!-- <img src="assets/pencil.gif" style="width: 30%; height: auto;"> -->
+          </div>
+      
+<!-- 
         <div class="section" id="section-header">
             <div class="headlineContainer" id="headline-header">
                 <div class="headlineShifter" style="padding-top: 1.5rem;">
@@ -65,19 +224,19 @@
             </div>
             <div class="content">
                 <div class="contentContainer">
-                    <div class="titleSection">
+                    <div class="titleSection"> -->
                     <!-- <div class="videoTeaser">
                         <video class="videoTeaserVideo" autoplay loop muted playsinline
                             src="/videos/teaser/TBB-U14-Teaser.mp4"
                             poster="/videos/teaser/TBB-U14-Teaser-Poster.jpg"></video>
                     </div> -->
-                    <div class="projectTitle">
+                    <!-- <div class="projectTitle">
                         <h2>About</h2>
                     </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
 
          <div class="section" id="section-task">
             <div class="headlineContainer">
@@ -89,14 +248,63 @@
                     <!-- <h2>About</h2> -->
                     <!-- <p class="last">Under Construction</p> -->
                     <!-- <h2 class="subheading" id="additional-software-popup-title">about </h2> -->
-                <div class="column-2">
-                    <p class="text">I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both
+                <!-- <div class="column-2"> -->
+                    <!-- <p>I discovered CSS while playing around with my high school's WordPress news site, and I realized I loved both
                         a) tinkering with code for fun results and b) solving problems with code. </p>
-                    <p class="text">Since then, I've combined studies in media and computer science to delve into my interests in storytelling,
+                    <p>Since then, I've combined studies in media and computer science to delve into my interests in storytelling,
                         human connection, and problem-solving. I've loved applying computation to fields like film preservation,
-                        animation, and full-stack web development.</p>
-                        <!-- <p class="text">I've previously worked in software at Warner Bros. Games, Geisel School of Medicine, Digital Ethnic Futures Lab, and The Media Ecology Project</p> -->
-                </div>
+                        animation, and full-stack web development.</p> -->
+                        <!-- <p class="text">I've worked in software as an intern at Warner Bros. Games and Startery, and worked as a computational research assistant at the Center for Technology and Behavioral Health at Geisel School of Medicine, Digital Ethnic Futures Lab, and The Media Ecology Project</p>
+                
+                
+                            CLAUDES: https://claude.ai/chat/bc426271-f2eb-4ddb-88ab-2c7a6ce0b5dc (oreos.james) and 
+
+                                <p class="text">i design...</p>
+                                <p class="text">Digital experiences that tell stories. From interactive web applications to data visualizations, I create interfaces that transform complex information into engaging narratives.</p>
+                           
+                                <p class="text">i code...</p>
+                                <p class="text">To bring creative ideas to life. My focus is on interactive media, computational storytelling, and developing tools that reveal hidden connections.</p>
+                           
+                                <p class="text">i research...</p>
+                                <p class="text">At the intersection of media studies and computer science. I'm passionate about digital archaeology, preserving cultural narratives, and exploring how technology can uncover forgotten stories.</p>
+                     
+                    
+        
+                       <p class="text">
+                        My work bridges technology and creativity, transforming code into a medium for storytelling and innovative problem-solving. Whether developing interactive web applications, preserving cultural archives, or exploring new forms of digital expression, I'm driven by a passion to reveal the hidden potential of computational technologies.
+                       </p>
+                     -->
+
+                     <!-- <p class="text">
+                        Along the way, I’ve had the opportunity to intern at Warner Bros. Games and Startery, and work as a computational research assistant at the Center for Technology and Behavioral Health at Geisel School of Medicine, the Digital Ethnic Futures Lab, and The Media Ecology Project.
+                      </p>
+                      
+                      <p class="text">
+                        I specialize in designing digital experiences that tell stories. From interactive web applications to data visualizations, I focus on transforming complex information into engaging, accessible narratives. 
+                      </p>
+                      
+                      <p class="text">
+                        As a developer, I use code to bring creative ideas to life. My work emphasizes interactive media, computational storytelling, and tools that reveal hidden patterns or connections.
+                      </p>
+                      
+                      <p class="text">
+                        My research combines media studies and computer science, with a passion for digital archaeology and preserving cultural narratives. I’m particularly interested in how technology can uncover forgotten stories and bring them to light.
+                      </p>
+                      
+                      <p class="text">
+                        Ultimately, my work bridges creativity and technology, transforming code into a medium for innovation and storytelling. Whether I’m building interactive applications, preserving cultural archives, or exploring new digital expressions, I’m driven by a desire to make meaningful connections through computation.
+                      </p>
+                
+                
+                 -->
+                
+                
+                
+                
+                
+                
+                
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
@@ -112,7 +320,7 @@
                     <p>
                         <!-- <a href="/projects/lets-play-pong.html">Next project</a> -->
                         <br>
-                        <a href="/index.html#projects">Home</a></p>
+                        <!-- <a href="/index.html#projects">Home</a></p> -->
                 </div>
             </div>
             <div id="footer-border-right"></div>

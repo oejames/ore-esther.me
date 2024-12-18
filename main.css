@@ -40,9 +40,13 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    /* background-color: #e4e0e0; */
+    /* background-color: #111111; */
+    /* background-color: #ffe6e2; */
     max-width: 100%;
     overflow-x: hidden;
+    /* color: #fff; */
 
     /* testing */
     /* background-color: #f0e6d2; */
@@ -110,6 +114,58 @@ p.small.last, #team p.small.last, #credits p.small.last {
     margin-bottom: 0.91rem;
 }
 
+/* NAVBAR*/
+.navbar-container {
+    display: flex; 
+    justify-content: flex-end; 
+    /* background-color: #e4e0e0; */
+    background-color: #fff;
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    padding: 10px;
+}
+
+.navbar-links {
+    text-align: right; 
+    font-family: GT-America-Standard;
+    
+}
+
+.navbar-links a {
+    font-size: 0.5rem;
+    line-height: 1.2;
+    text-decoration: none;
+    /* color: black; */
+    color: rgba(97, 95, 95, 0.889);
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-links a:hover {
+    position: relative;
+}
+
+.navbar-links a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 192, 203, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.navbar-links a:hover::before {
+    width: 120%;
+    height: 120%;
+}
+
 /*--- CONTAINER ---*/
 
 #container {
@@ -130,6 +186,7 @@ p.small.last, #team p.small.last, #credits p.small.last {
 
 #intro {
     height: 100vh;
+    
 }
 
 /*--- HEADLINE ---*/
@@ -437,6 +494,7 @@ canvas {
     top: 0;
     left: 0;
     pointer-events: none;
+    /* z-index: 100; */
     z-index: 100;
 }
 

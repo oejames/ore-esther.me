@@ -10,9 +10,105 @@
   <link type="text/css" rel="stylesheet" href="main.css">
   <script type="module" src="threejs/shatter.js"></script>
 </head>
+<style>
+  .landing-card {
+    /* background-color: #1a1a1a; */
+    background-color: #2c2525;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    /* max-width: 900px; */
+    width: 900px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    margin-left: 150px;
+    /* margin-right: 50px */
+  }
+  
+  .card-header {
+    background-color: #2d2d2d;
+    padding: 24px;
+  }
+  
+  .card-title {
+    color: #f2f2f2;
+    font-size: 32px;
+    margin: 0;
+  }
+  
+  .card-content {
+    color: #f2f2f2;
+    /* font-family: GT-America-Standard; */
+    padding: 24px;
+  }
+  
+  .card-actions {
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 16px;
+  }
+  
+  .btn {
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 12px 24px;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #FDF3F2;
+    color: #1a1a1a;
+    margin-right: 16px;
+  }
+  
+  .btn-secondary {
+    background-color: #2d2d2d;
+    color: #f2f2f2;
+  }
+  
+  .card-sidebar {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+  }
+  
+  .sidebar-item {
+    align-items: center;
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .sidebar-icon {
+    height: 48px;
+    width: 48px;
+  }
+  
+  .card-background {
+    background-color: #1a1a1a;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  </style>
 
 <body>
   
+  <nav class="navbar-container" style="margin-bottom: none; padding-bottom: none;">
+    <p class="navbar-links">
+        <a href="/index.html" class="navbar-link">Home</a>
+        <a href="/projects/about.html" class="navbar-link">About</a>
+        <a href="projects/projects.html" class="navbar-link">Projects</a>
+        <a href="projects/animation.html" class="navbar-link">Animation</a>
+    </p>
+</nav>
 
   <div id="container">
          <!-- <nav style="display: flex; justify-content: flex-end;">
@@ -20,6 +116,7 @@
           <a href="/projects/about.html" >About</a> <a href="projects/projects.html" >Projects</a> <a href="projects/animation.html" >Animation</a> <a href="projects/favorites.html" >Projects</a> 
           </p>
         </nav> -->
+
   
 
     <div class="section" id="intro">
@@ -39,14 +136,14 @@
 
     
 
-    <div class="section" id="section-about">
+    <div class="section" id="section-about" style="margin-top: -150px;">
       <div class="headlineContainer">
         <div class="headlineShifter">
           <!-- <h2>INTRO </h2> -->
         </div>
       </div>
       <div class="content">
-        <div class="contentContainer">
+        <div class="contentContainer" style="padding-bottom: 15px;">
           <p>I’m a senior at Dartmouth College studying computer science and media studies.</p>
 
           <p> My interests lie in solving problems through technology. I'm passionate about digital archives, media preservation, and the intersection between tech and storytelling.*</p>
@@ -60,15 +157,17 @@
           <p class="small last">*e.g. data-driven storytelling / news media / interactive installations /
             animation software
             computer graphics coding / computational journalism / virtual reality / ...</p>
+            <a href="/projects/projects.html" class="btn btn-secondary">Projects</a>
+            <a href="/projects/about.html" class="btn btn-secondary">About</a>
         </div>
       </div>
     </div>
-
+<!-- 
     <div class="section" id="projects">
       <div class="headlineContainer">
-        <div class="headlineShifter">
+        <div class="headlineShifter"> -->
           <!-- <h2>PROJECTS</h2> -->
-        </div>
+        <!-- </div>
       </div>
       <div class="content">
         <div class="contentContainer">
@@ -110,7 +209,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="section section-last" id="contact">
       <div class="headlineContainer">
@@ -126,15 +225,15 @@
            <h2 style="font-family: 'GT-America-Ultra-Light-Italic';
            text-transform: uppercase;
            font-size: 27px;
-           line-height: 1.19;
-           margin: 1rem 0;"> <a href="mailto:jamesore200@gmail.com">e-mail</a>.
+           line-height: 0;
+           margin: 1.2rem 0;"> <a href="mailto:jamesore200@gmail.com"></a>
           <!-- <p>Visit us <br />in -->
               <a style="font-family: 'GT-America-Ultra-Light-Italic';
               text-transform: uppercase;
               font-size: 27px;
-              line-height: 1.19;
-              margin: 1rem 0;" href='https://github.com/oejames'>
-                github</a></a>.</h2>
+              line-height: 0;
+              margin: 0rem 0;" href='https://github.com/oejames'>
+                </a></a></h2>
           <!-- <p class="last">Follow us <br />on <a href="https://www.instagram.com/"
               target="_blank">Instagram</a>.</p> -->
         </div>
