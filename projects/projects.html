@@ -1104,8 +1104,46 @@ body {
         </video>
     </p>
     <p > <a href="https://nyt-story-globe-184b7d5aaf70.herokuapp.com/">Website Link </a> </p>
+
+    <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe.</p>
+
+    Background & Problem
+    <p>
+        I started ideating this project out of interest in finding alternate and accessible ways to comb through large archives, including digital archives like those on the Internet Archive, as well as newspaper archives. I was particularly interested in longrunning columns, including the New York Times movie reviews and Modern Love columns, and finding user-friendly ways to comb through their contents and find new articles.
+    </p>
+
+    Solution
+    <p>
+        I developed an interactive 3D globe visualization that maps Modern Love articles to their geographical locations. The interface allows users to explore content through spatial navigation by spinning the globe and discovering articles through hoverable points, making the archive exploration process more intuitive and engaging.
+    </p>
+
+    Technical Implementation
+    <p>
+        I initially began by coding a 2D illustrated map of the world using D3.js before switching to a 3D globe with Three.js for easier content exploration (dragging to 'spin' the globe and ease of zooming in on the third dimension). 
+        I built a script to populate a MongoDB database by querying the New York Times API to fetch articles for the partial archive, using the Open Street Nominatim API to get a latitude and longitude, if any, from the keywords attached to the article.
+    </p>
+    <p>
+        <!-- I originally used natural language processing of the article's contents, but keyword matching proved to be a much more accurate way of geotagging the articles if location keywords were present. This data is served with a Node.js server to a Three.js frontend to render the articles on the globe, using a REST API built with Express. -->
+    </p>
+    <p>
+        I originally used natural language processing of the article's contents, but keyword matching proved to be a much more accurate way of geotagging the articles if location keywords were present. 
+       
+        With this method, 144 pieces from the column (out of 1,458) contained geographic references clear enough to be mapped to coordinates. 
+        This filtering effect created an interesting lens into the archive - it surfaced a specific subset of stories where location plays a meaningful role in the narrative, offering readers a unique way to explore how place and relationships intersect in Modern Love stories and creating
+        a focused, thematic way to discover stories where geography is narratively significant.
         
-        <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe. </p>
+    </p>
+    <p> This data is served with a Node.js server to a Three.js frontend to render the articles on the globe, using a REST API built with Express. </p>
+  
+    <p>
+        Articles are rendered on the globe by turning the 2D latitude and longitude from the server into a scaled 3D coordinate. The interface allows users to hover over red article points to view tooltips, which contain URLs to the full article.
+    </p>
+
+
+ 
+
+        
+        <!-- <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe. </p>
                 
             <p>
                 I started ideating this project out of interest in finding alternate and accessible ways to comb through large archives, including digital archives like those on the Internet Archive, as well as newspaper archives. I was particularly interested in longrunning columns, including the New York Times movie reviews and Modern Love columns, and finding user-friendly ways to comb throuh their contents and find new articles.
@@ -1120,7 +1158,7 @@ body {
                 <p>Articles are rendered on the globe by turning the 2D latitude and longitude from the server into a scaled 3D coordinate.
             The interface allows users to hover over red article points to view tooltips, which contain URLs to the full article. 
             </p>
-            <p>
+            <p> -->
 
             <a href="https://github.com/oejames/nyt-story-globe">Github Link</a>
             </p>
