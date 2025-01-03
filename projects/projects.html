@@ -16,7 +16,64 @@
     padding: 20px;
 }
 
+.feedback-carousel {
+    margin: 20px auto;
+    max-width: 600px;
+    position: relative;
+}
 
+.carousel-container {
+    position: relative;
+    background: #14181c;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; /* This maintains aspect ratio */
+    display: block;
+    border-radius: 8px;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+/* non carousel:*/
 
 body {
         /* background-color: #f0e6d2; */
@@ -534,22 +591,29 @@ body {
     <div class="content-container">
         <!-- <p style="padding-left: 15px; font-size: 2rem; margin: 0.2rem;"> Projects</p> -->
     <div class="project-grid">
+      
         <div class="project-item" onclick="openProjectPopup('nyt')">
             <img src="https://github.com/user-attachments/assets/87bd1c79-2aa5-41db-aeee-057b62e0e61d"
                 alt="Therasource">
             <p>3D Article Geo-Archive</p> 
             <sub style="align-content: center;">An interactive geotagged partial archive of "Modern Love" articles from the NYT</sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('nexus')">
-            <img src="../assets/buff2.png" alt="WB Games">
-            <p>WB Games NY Nexus</p>
-            <sub>Multiplayer web game nexus developed for studio hackathon</sub>
-        </div>
+        
         <div class="project-item" onclick="openProjectPopup('confluence')">
             <img src="https://github.com/user-attachments/assets/362cbdda-f838-4854-ac9f-27b5ac609351"
                 alt="Therasource">
             <p>Confluence Validator</p>
             <sub>Automated page validation system for Atlassian cloud migration</sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('trackd')">
+            <img src="../assets/trakt.png" alt="Letterboxd-Longest">
+            <p>Trackd</p>
+            <sub>Social platform for tracking and reviewing comedy sketches, with 4000+ reviews logged</sub>
+        </div>
+        <div class="project-item" onclick="openProjectPopup('nexus')">
+            <img src="../assets/buff2.png" alt="WB Games">
+            <p>WB Games NY Nexus</p>
+            <sub>Multiplayer web game nexus developed for studio hackathon</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('supercuts')">
             <img src="/assets/cspan.jpg"
@@ -565,16 +629,16 @@ body {
             <p>Geisel School of Medicine</p>
             <sub>Full-stack engineering and mobile app development as a research assistant in the Center for Technology and Behavioral Health </sub>
         </div>
-        <div class="project-item" onclick="openProjectPopup('letterboxd')">
+        <!-- <div class="project-item" onclick="openProjectPopup('letterboxd')">
             <img src="../assets/91uzy5.gif" alt="Letterboxd-Longest">
             <p>Letterboxd Longest</p>
             <sub>Visualizing the longest film reviews on Letterboxd</sub>
-        </div>
+        </div> -->
         <div class="project-item" onclick="openProjectPopup('spotify')">
-            <img src="/assets/spotifyy.png"
+            <img src="/assets/spotiman2.png"
                 alt="Therasource">
-            <p>Spotify Dance-Able</p>
-            <sub>Playlist generator based on danceability values</sub>
+            <p>Local Files Manager</p>
+            <sub>Managing and customizing metadata for MP3 files</sub>
         </div>
         <div class="project-item" onclick="openProjectPopup('friend-a-mendations')">
             <img src="/assets/friend.png"
@@ -773,7 +837,28 @@ body {
             This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of user-selected words from a video transcript.
 
         </p> -->
+
+    <br>
+    <br>
+        Background & Problem
+        <p>As a student in a film class centered on supercuts and new media forms, I encountered Videogrep, a Python library for creating video supercuts from transcript data. 
+        </p>
+        <p>While powerful for highlighting patterns in media content, the command-line tool remained inaccessible to non-technical users, including future students of the course. Additionally, with the discontinuation of the CSPAN5 Twitter bot in June 2023 due to API changes, there was a gap in automated media analysis tools for tracking speech patterns in political discourse.</p>
+
+        Solution
+        <p>I developed a web application that automates the creation of daily supercuts from CSPAN footage, making video analysis accessible through a user-friendly interface. The app uses natural language processing to identify and compile the most frequently used words from daily CSPAN segments into shareable video supercuts.</p>
+        
+        Technical Implementation
         <p>
+        The site uses moviepy and videogrep for video processing and spaCy for natural language processing.
+        The React frontend handles user input and video playback.
+   
+
+        <p>The tool serves dual purposes: providing an accessible web interface for non-technical students to create and analyze video supercuts, while maintaining an archive of political speech patterns previously tracked by the CSPAN5 bot.</p>
+
+
+
+        <!-- <p>
             This React app uses the Videogrep Python library and spaCy natural language processing to automatically generate daily supercuts of the most commonly used words on CSPAN video footage.
 
         </p>
@@ -782,8 +867,19 @@ body {
         </p>
         <p>
             As such, I wanted to create a web version of the tool to allow future non-technical students of the course to interact with the command-line tool.
+            -->
+           <p>
             Here's a supercut created by the application for 9/4/24, which contains the most common keywords found in the video transcripts. </p> 
-      
+        </p>
+            
+
+
+
+
+
+
+
+            
         <!-- </p>
         <p>Here's a supercut created by the application, which contains the most common keywords found in the vide -->
         <!-- 
@@ -846,6 +942,118 @@ body {
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+<!-- SNL Trackd Popup -->
+<div class="window popup-content project-popup" id="trackd-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('trackd-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+
+        <h2>SNL Trackd</h2>
+        Tech stack: React, Node.js, Express, MongoDB, AWS S3, Python, Tailwind CSS
+
+        <p>
+        <!-- A social platform enabling users to rate, review and discover SNL sketches while connecting with other fans through profiles, favorites, and activity feeds. -->
+        </p>
+
+        Background & Problem
+        <p>
+        <!-- While platforms like Letterboxd serve movie fans and Goodreads serves book readers, SNL fans lacked a centralized platform to track and discuss sketches.  -->
+        
+        </p>
+        
+        <p>
+        50 years of Saturday Night Live have produced over 15,000 short-form sketches, but there was no centralized way for fans to sort through the archive, discover new content through community recommendations or keep track of their favorites (i.e. Goodreads).
+        </p>
+
+        Solution
+        <p>
+        <!-- After seeing interest in the concept onilne, I developed SNL Trackd to create a community-driven space for SNL fans. -->
+        
+        SNL Trackd uses snlarchives.net, the SNL community wiki, and archived nbc.com pages to build the database. The site syncs with SNL's YouTube channel to add new sketches, while enabling users to rate sketches, write reviews, follow other fans, and showcase their favorite content through customizable profiles.
+
+      
+        <!-- <img src="/assets/sethsample.png">
+        <img src="/assets/sket.png"> -->
+        </p>
+
+        <p>
+        Within its first 48 hours, fans logged over 2,000 reviews, with strong community engagement around content discovery and discussion.
+        <br>
+      
+        </p>
+       
+
+        <img src="/assets/sethdesk.png">
+        <br>
+    </br>
+
+        Technical Implementation
+        <p>
+        The site was built using React and Tailwind CSS for the frontend, with Node.js/Express powering the backend API and MongoDB managing the database. The platform uses a Python script made with Scrapetube to maintain an up-to-date sketch catalog amd automatically add new videos to the database via cron job. 
+        The site uses AWS S3 for profile photo storage and implements JWT authentication for user accounts. A custom activity feed system tracks user interactions and displays them in real-time to followers.
+        </p>
+
+        <p>
+            Maintaining the site involves a mix of tehcnical and project management skills, employing design thinking to develop new features and landing pages, as well as creative problem solving to handle traffic, respond to user feedback, and find creative ways to use the extensive sketch database.
+
+        </p>
+
+        <!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">whoever made this site you’re a genius. i can’t wait to be annoying. 💜 <a href="https://t.co/0vQKm4ZAd7">pic.twitter.com/0vQKm4ZAd7</a></p>&mdash; ellie (@holtzsgf) <a href="https://twitter.com/holtzsgf/status/1873924567540129937?ref_src=twsrc%5Etfw">December 31, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+        
+
+        <!-- THE CAROUSEL OF TWEETS -->
+        <!-- <div class="feedback-carousel">
+            <div class="carousel-container">
+                <img src="/assets/feed1.png" class="carousel-item active" alt="User feedback 1">
+                <img src="/assets/feed2.png" class="carousel-item" alt="User feedback 2">
+                <img src="/assets/feed3.png" class="carousel-item" alt="User feedback 3">
+                <img src="/assets/feed4.png" class="carousel-item" alt="User feedback 4">
+                <img src="/assets/feed5.png" class="carousel-item" alt="User feedback 5">
+                <img src="/assets/feed6.png" class="carousel-item" alt="User feedback 6">
+                <img src="/assets/feed7.png" class="carousel-item" alt="User feedback 7">
+                
+                <button class="carousel-control prev" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-control next" onclick="moveCarousel(1)">❯</button>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="showSlide(0)"></span>
+                    <span class="dot" onclick="showSlide(1)"></span>
+                    <span class="dot" onclick="showSlide(2)"></span>
+                    <span class="dot" onclick="showSlide(3)"></span>
+                    <span class="dot" onclick="showSlide(4)"></span>
+                    <span class="dot" onclick="showSlide(5)"></span>
+                </div>
+            </div>
+        </div> -->
+
+        
+        
+        
+        <!-- <img src="/assets/feed1.png">
+        <img src="/assets/feed2.png">
+        <img src="/assets/feed3.png">
+        <img src="/assets/feed4.png">
+        <img src="/assets/feed5.png">
+        <img src="/assets/feed6.png"> -->
+
+
+        <p>
+        Feel free to visit the site <a href="https://snltrackd.com">here</a>.
+        </p>
+    </div>
+</div>
+
 <!-- Letterboxd Popup -->
 <div class="window popup-content project-popup" id="letterboxd-popup" style="display: none;">
     <div class="title-bar">
@@ -895,7 +1103,7 @@ body {
             <source src="/assets/map.mp4" type="video/mp4">
         </video>
     </p>
-    <!-- <p > <a href="https://nyt-story-globe-184b7d5aaf70.herokuapp.com/">Website Link </a> </p> -->
+    <p > <a href="https://nyt-story-globe-184b7d5aaf70.herokuapp.com/">Website Link </a> </p>
         
         <p>This website is a partial, interactive archive of the Modern Love column, mapping articles onto a 3D globe. </p>
                 
@@ -937,9 +1145,14 @@ body {
     <div class="project-content">
         <h2>WB Games NY Nexus</h2>
         Tech stack: C#, Blazor WebAssembly (ASP.NET Core), CSS 
-        <p>As part of the WB Games New York annual summer hackathon, I was on a team of four engineers in creating an online gaming nexus, a centralized hub for Jackbox-esque games for the studio.</p>
         
+        <p>As part of the WB Games New York annual summer hackathon, I was on a team of four engineers in creating an online gaming nexus, a centralized hub for Jackbox-esque games for the studio.</p>
+        Background & Problem
+        <p>WB Games New York's annual summer hackathon presented an opportunity to create engaging multiplayer experiences for studio team-building. The studio needed a centralized platform for hosting and playing casual multiplayer games, similar to Jackbox Games, but tailored for the studio environment.</p>
+  
+        Implementation
         <img src="/assets/nexus.png">
+ 
         <p>
             From inception, we decided to create an online gaming nexus for in-studio multiplayer team games, aka our own version of Jackbox games. 
             <p>
@@ -972,8 +1185,35 @@ body {
     </div>
     <div class="project-content">
         <h2>Confluence Validator</h2>
-        Tech stack: Node.js, Javascript, Forge UI
+        Tech stack: Node.js, Javascript, Forge UI (React-based UI framework for Atlassian), Confluence Cloud API
 
+<p>
+        This app is a custom Forge solution, created to maintain documentation quality during a large cloud migration by tracking and managing content validation states.
+    </p>
+Background & Problem
+<p>
+During WB Games NY's migration to Atlassian Cloud, the IT Shared Services team faced a critical challenge: how to identify and handle potentially outdated Confluence pages before migration. Prior to my arrival as an intern, automatic archiving of inactive pages was considered, but this approach risked removing valid but infrequently updated documentation. The team needed a more nuanced solution that could distinguish between truly outdated content and stable reference material.
+</p>
+Solution
+<p>
+After speaking with team members and stakeholers to understand the problem, I decided to develop a Confluence Cloud Forge app that integrated with existing page interfaces, appearing alongside the native "last updated" feature. The app introduces two key functions: content validation and validation requests. Page owners can actively validate their content, confirming its accuracy without requiring updates, while other users can request validation when they suspect content needs review. When validation is requested, the app automatically notifies relevant team members through Slack, creating an efficient workflow for content verification.
+</p>
+Technical Implementation
+<p>
+Built using Atlassian's Forge platform, the app leverages ForgeUI components for native-looking Confluence integration, Forge Storage API for maintaining validation history, Confluence REST API for user and page management, and custom Slack webhook integration for notifications.
+</p>
+<p>
+    I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted.
+Due to Forge API limitations preventing direct email or Slack API usage, I implemented a webhook-based notification system that could be configured to route messages through team Slack channels. This workaround maintains functionality while adhering to platform constraints.
+</p>
+<img src="/assets/webhook.png">
+</p>
+</p>
+Impact
+<p>
+The app provides a sustainable solution for maintaining documentation quality by creating accountability through tracked validation history, enabling proactive content verification, streamlining the review process via automated notifications, and supporting informed migration decisions based on content status. The result is a tool that supported maintaining documentation's accuracy while supporting large-scale migration initiatives.
+</p>
+<!-- </p>
         <p>
             As an intern on the IT Shared Services Team at WB Games NY, one of the biggest ongoing challenges was an ongoing migration to Atlassian Cloud, affecting products including Jira and Confluence. As a Shared Services team, one concern involved the number of backlog and outdated pages present on the Confluence, and how this could be addressed before migrating pages to Confluence Cloud.
 
@@ -983,7 +1223,7 @@ body {
             Prior to my arrival, team members had proposed automatically archiving pages that had not seen new activity in the past 90 days, but this idea had stalled due to its limitations (ex. some useful pages remain up-to-date for longer than 90 days). 
 
             As an intern, I was intrigued by the prospect of developing a tool to aid the Confluence migration, and after speaking with team members and stakeholders involved in both the Atlassian migration and the Shared Services Confluence upkeep, I decided to engineer a "validation" system for Confluence Cloud.
-        </p>
+        </p> -->
         <!-- <P>Before:
             <img src="/assets/bbefore.png">
             <p>
@@ -991,7 +1231,7 @@ body {
                 <img src="/assets/after.png">
             </p>
         </P> -->
-            <p>
+            <!-- <p>
 
             This would allow users to validate a page, allowing pages that haven't been updated to be certified as valid by page owners, and allowing users to request validation by triggering a notification to the page owner to either validate the page or archive/update if out-of-date. 
 
@@ -1000,25 +1240,77 @@ body {
         <p> 
             I implemented the tool as a Forge app to modify all pages on Confluence Cloud, allowing a native appearance by building it in-line with the existing "last updated" feature.
 
-            I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted. To work with this specification, I decided to add a "request validation" feature by incorporating a Slack webhook (JSON webhook), which could then be set up in the team Slack to send a notification to a user in the team channel to request validation.
-        </p>
+            I originally wanted to use email (Send Grid API) or the Slack API to send notifications directly to page owners; however, limitations in the Forge API meant these integrations were not permitted. To work with this specification, I decided to add a "request validation" feature by incorporating a Slack webhook (JSON webhook), which could then be set up in the team Slack to send a notification to a user in the team channel to request validation. -->
+        <!-- </p>
         <img src="/assets/webhook.png">
-
-
-
-
-        </p>
+        </p> -->
         <p>
 
-        Feel free to check out the source code for details on installing and setting up this Forge App to Confluence Cloud:
+        Feel free to check out the  <a href="https://github.com/oejames/confluence-validator">source code</a> for details on installing and setting up this Forge App to Confluence Cloud.
        
-            <a href="https://github.com/oejames/confluence-validator">Github Link</a>
+            <!-- <a href="https://github.com/oejames/confluence-validator">Github Link</a> -->
         </p>
     </div>
 </div>
 
 <!-- Spotify Project Popup -->
+ <!-- Spotify Local Manager Project Popup -->
 <div class="window popup-content project-popup" id="spotify-popup" style="display: none;">
+    <div class="title-bar">
+        <div class="title-bar-controls">
+            <button aria-label="Close" onclick="closeProjectPopup('spotify-popup')">X</button>
+        </div>
+    </div>
+    <div class="project-content">
+        <h2>Spotify Local Manager</h2>
+        Tech stack: React, FastAPI (Python), Tailwind CSS, Mutagen
+        <video controls width="100%">
+            <source
+                src="/assets/fullspoti.mp4"
+                type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>
+        The Spotify Local Manager is a web application designed to help users upload and manage their local music files within Spotify’s local files directory, allowing seamless integration with Spotify's music streaming experience.
+        </p>
+
+        Background & Problem
+        <p>
+        <!-- Spotify allows users to add local files to their library, but managing these files—especially when adding metadata like artist, album, or cover art—can be cumbersome. Users often face challenges in ensuring that their local tracks are correctly tagged, properly formatted, and visible within Spotify’s local files section. -->
+
+        While Spotify allows users to add local music files to their library, managing these files can be cumbersome. 
+        <!-- Users need to manually organize files, add metadata, and ensure proper formatting for Spotify compatibility. -->
+         The default process requires users to navigate their file system, manually edit ID3 tags, and potentially use multiple tools for tasks like adding album artwork.
+        
+        Itunes offers metadata editing but the process requires more manual steps and requires then manually adding the file to a new directory to be accessed by Spotify. 
+    </p>
+        
+        Solution
+        <p>
+        The Spotify Local Manager automates the process of uploading local music files, tagging them with the correct metadata (such as artist, album, title), and embedding cover art. 
+        <!-- The application provides a simple interface where users can upload their music files and metadata, while the backend adds songs to the Spotify local files directory. -->
+        </p>
+        
+        Technical Implementation
+        <p>
+        Built using FastAPI for the backend, the application leverages the Mutagen library to process and modify metadata within audio files. The frontend is a React application styled with TailwindCSS. The backend supports file uploads, path management based on the user's operating system, and integrates with Spotify’s local file system.
+        </p>
+        
+        <p>
+        One of the challenges was handling file path management across different operating systems (Windows, macOS, Linux). To address this, the backend dynamically determines the correct local file path based on the OS, ensuring smooth integration regardless of the user's platform.
+        </p>
+
+
+
+        <!-- Impact
+        <p>
+        The Spotify Local Manager streamlines the process of adding and managing local music files on Spotify, improving the user experience by ensuring that metadata and cover art are correctly applied. It also allows users to easily integrate their own local music collection into their Spotify library, enhancing their overall listening experience.
+        </p> -->
+       <p> <a href="https://github.com/oejames/local-files-manager">Github Link</a></p>
+    </div>
+</div>
+
+<!-- <div class="window popup-content project-popup" id="spotify-popup" style="display: none;">
     <div class="title-bar">
         <div class="title-bar-controls">
             <button aria-label="Close" onclick="closeProjectPopup('spotify-popup')">X</button>
@@ -1044,7 +1336,7 @@ body {
 
         </p>
     </div>
-</div>
+</div> -->
 
 <!-- Blank Template Project Popup -->
 <div class="window popup-content project-popup" id="PROJECTNAMEHERE-popup" style="display: none;">
@@ -1085,6 +1377,36 @@ body {
     </div>
 
     <script>
+    // carousel:
+    let currentSlide = 0;
+const slides = document.getElementsByClassName("carousel-item");
+const dots = document.getElementsByClassName("dot");
+
+function showSlide(n) {
+    // Reset current slide
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    
+    // Set new slide
+    currentSlide = n;
+    
+    // Loop back if needed
+    if (currentSlide >= slides.length) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = slides.length - 1;
+    
+    // Show new slide
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function moveCarousel(n) {
+    showSlide(currentSlide + n);
+}
+
+// Auto advance slides every 5 seconds
+// setInterval(() => moveCarousel(1), 5000);
+
+// non carousel:
 
     function openProjectPopup(projectId) {
                 document.getElementById(projectId + '-popup').classList.add('active');

@@ -171,7 +171,8 @@ function animateShatter(progress) {
         randomRotations[index].z * progress  // added the *.2 
       );
 
-      // letterMesh.scale.setScalar(1 - progress * 0.5);
+      // letterMesh.scale.setScalar(1 - progress * 0.5); // og
+      letterMesh.scale.setScalar(1 + progress * 1); // making it a lil bigger as it scrolls
 
       letterMesh.visible = true;
     } else {
